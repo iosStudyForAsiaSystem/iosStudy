@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+#define NSLOG_METHOD  NSLog(@"====== %s:%d ", __func__, __LINE__);
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
