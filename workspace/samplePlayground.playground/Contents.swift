@@ -244,3 +244,53 @@ switchWhere()
 switchWhere2(size:(40,70,100))
 
 
+//#10 for- stride sample 
+
+func forLoopStrideSample() {
+    
+    
+    // 10から30まで3ずつ増える数値を取り出す
+    for num in stride(from: 10, to: 30, by: 3) {
+        print(num, terminator: ",")
+    }
+}
+
+forLoopStrideSample()
+
+
+//#11 for-char sample
+func forLoopChar () {
+
+    // ストリングから1文字ずつ取り出す
+    
+    let message = "おもてなし"
+    for char in message.characters {
+        print(char)
+    }
+    
+}
+
+forLoopChar()
+
+//#12 repeat while loop sample
+func repeatWhileLoopSample() {
+
+    
+    // 合計が21 になるList 3個の数値（1～ 13）の組み合わせを探す
+    var a:UInt32, b:UInt32, c:UInt32
+    var total:UInt32
+    repeat {
+        a = arc4random_uniform(13)+1 //1 ～ 13 の乱数
+        b = arc4random_uniform(13)+1
+        c = arc4random_uniform(13)+1
+        total = a+b+c
+        
+    
+    } while (total != 21)
+    
+    print("\(a),\(b),\(c)")
+    
+}
+
+repeatWhileLoopSample()
+
