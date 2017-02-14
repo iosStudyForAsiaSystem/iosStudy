@@ -92,9 +92,6 @@ func tupleType () {
     
     print(guest, product)
 }
-
-
-
 func tupleItem() {
     
     
@@ -212,13 +209,13 @@ func switchWhere( ) {
     default:
         print("規定サイズ内")
     }
-    
-    
 }
+
+switchWhere()
 
 typealias HumanSizeType = (width:Int, height:Int, weight:Int)
 
-//func switchWhere2(width:Int , height:Int , weight:Int ) {
+
 func switchWhere2(size:HumanSizeType) {
 
     // 条件付きの振り分け
@@ -236,11 +233,8 @@ func switchWhere2(size:HumanSizeType) {
     default:
         print("規定サイズ内")
     }
-    
-    
 }
-switchWhere()
-//switchWhere2(width: 40 ,height: 70, weight: 100)
+
 switchWhere2(size:(40,70,100))
 
 
