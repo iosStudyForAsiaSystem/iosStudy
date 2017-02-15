@@ -89,11 +89,13 @@
     return [self priceParam3:tanka kosu:1 souryou:250];
 }
 
+
 - (NSArray*) makeTemplate:(id) value {
     
     NSDate* date = [NSDate date];
     return @[value, @"first Object",date];
 }
+
 
 - (void) callSelector:(SEL) sel
 {
@@ -101,6 +103,22 @@
     if([self respondsToSelector:sel]) {
         [self performSelector:sel];
     }
+}
+
+
+- (void) callBlock {
+
+    int anInteger = 42;
+
+    void (^testBlock)(void) = ^{
+        
+        NSLog(@"Integer is: %d", anInteger);   // anInteger outside variables
+        
+    };
+
+    // calling blocks like
+    testBlock();
+        
 }
 
 - (NSMutableArray*) makeMultifyList:(long) multifyNum {
@@ -122,6 +140,20 @@
     }
     return resultArray;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end

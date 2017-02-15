@@ -20,5 +20,29 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func modalAction(_ sender: UIButton) {
+
+        let viewController = UIViewController()
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.view.backgroundColor = UIColor.red
+        let naviVc = UINavigationController()
+        naviVc.addChildViewController(viewController)
+        
+        present(naviVc, animated: true, completion: nil)
+        
+    
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.dismissVc()
+        }
+        
+    }
+    
+    func dismissVc () {
+        dismiss(animated: true, completion: {
+            [presentingViewController] () -> Void in
+            // 閉じた時に行いたい処理
+            presentingViewController?.viewWillAppear(true)
+        })
+    }
 }
 
