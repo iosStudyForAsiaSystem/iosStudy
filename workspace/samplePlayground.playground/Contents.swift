@@ -288,3 +288,34 @@ func repeatWhileLoopSample() {
 
 repeatWhileLoopSample()
 
+
+
+func examSample () {
+    
+
+    var maxCount : Int = 0
+    let randomLimit:UInt32 = 100
+    let range = 40..<70
+    let totalLimit = 80
+   
+    repeat {
+        
+        let data = (Int:arc4random_uniform(randomLimit)+1,
+                    Int:arc4random_uniform(randomLimit)+1)
+        
+        if( range.contains(Int(data.0))
+            && range.contains(Int(data.1))
+            && (Int(data.0 + data.1) >= totalLimit) ) {
+                print ( "---> found data \(data)")
+            maxCount += 1
+        } else {
+            print ( "wrong data \(data)")
+        }
+    
+    } while (maxCount < 5)
+    
+
+}
+
+examSample()
+

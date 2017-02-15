@@ -15,6 +15,7 @@
 		032699221E4C53ED00F6792C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 032699201E4C53ED00F6792C /* LaunchScreen.storyboard */; };
 		0326992D1E4C53ED00F6792C /* gitServerTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326992C1E4C53ED00F6792C /* gitServerTestTests.swift */; };
 		032699381E4C53ED00F6792C /* gitServerTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032699371E4C53ED00F6792C /* gitServerTestUITests.swift */; };
+		03DB77651E53D92100F3C2F7 /* Util in Resources */ = {isa = PBXBuildFile; fileRef = 03DB77641E53D92100F3C2F7 /* Util */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		032699331E4C53ED00F6792C /* gitServerTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gitServerTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		032699371E4C53ED00F6792C /* gitServerTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitServerTestUITests.swift; sourceTree = "<group>"; };
 		032699391E4C53ED00F6792C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03DB77641E53D92100F3C2F7 /* Util */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Util; path = ../../../Util; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		032699141E4C53ED00F6792C /* gitServerTest */ = {
 			isa = PBXGroup;
 			children = (
+				03DB77641E53D92100F3C2F7 /* Util */,
 				032699151E4C53ED00F6792C /* AppDelegate.swift */,
 				032699171E4C53ED00F6792C /* FirstViewController.swift */,
 				032699191E4C53ED00F6792C /* SecondViewController.swift */,
@@ -240,6 +243,7 @@
 			files = (
 				032699221E4C53ED00F6792C /* LaunchScreen.storyboard in Resources */,
 				0326991F1E4C53ED00F6792C /* Assets.xcassets in Resources */,
+				03DB77651E53D92100F3C2F7 /* Util in Resources */,
 				0326991D1E4C53ED00F6792C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +522,7 @@
 				0326993E1E4C53ED00F6792C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0326993F1E4C53ED00F6792C /* Build configuration list for PBXNativeTarget "gitServerTestTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +531,7 @@
 				032699411E4C53ED00F6792C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		032699421E4C53ED00F6792C /* Build configuration list for PBXNativeTarget "gitServerTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +540,7 @@
 				032699441E4C53ED00F6792C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

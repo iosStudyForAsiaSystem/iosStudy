@@ -116,7 +116,6 @@ message (user: "john", msgFunc: hello)
 message (user: "sally", msgFunc: bye)
 
 //#6 クロージャ sample1
-
 func closureSample () {
     let closureFunc1 = {(param1:Int, param2:Int) ->Int in
         return param1 + param2
@@ -151,17 +150,6 @@ func closureSample2() {
     
     print(array1)
     
-    let array2 = numbers.map{(v:Int) -> Int in
-        return v*2
-    }
-    
-    
-    print(array2)
-    
-    let array3 = numbers.map{v in v*2}
-    
-    print(array3)
-    
     let array4 = numbers.map{$0*2}
     
     print (array4)
@@ -172,10 +160,150 @@ func closureSample2() {
     
     print(colors2)
     
+    let sortedArray = numbers.sorted()
+    
+    print (sortedArray)
+    
+    
+     var  numbers2 = [4, 7, 2, 9,10,14, 1, -1,-6]
+    
+    numbers2.sort()
+    
+    print(numbers2)
+    
+    numbers2.sort { $0 > $1 }
+    
+    print(numbers2)
+    
+    numbers2.sort { $0 < $1 }
+    
+    print(numbers2)
+    
+    let numbers3 = numbers2.sorted { (x, y) -> Bool in
+        return x < y
+    }
+    print (numbers3)
+    
+    
 }
 
 closureSample2()
 
+
+//#8 string method1
+
+func stringMethodSample() {
+    let stars = String(repeating: "⭐️", count: 10)
+    
+    let swift1 = "Swift \n amazon\n"
+    
+    print("swift \(swift1) stars :\(stars)"  )
+    
+    let week = ["monday", "tuesday", "wendesday"]
+    var oneweek = "";
+    for day in week {
+        oneweek += day + ","
+    }
+    
+    print( oneweek)
+}
+
+stringMethodSample()
+
+//#9 string to primitive sample
+
+func stringToPrimitive () {
+    
+    let r = "20"
+    let pai = "3.14"
+    
+    let menseki = Double(r)! * Double(r)! * Double(pai)!
+    
+    print(" radius \(r) squre \(menseki)")
+    
+    print(String(menseki), menseki.description)
+    
+    
+}
+stringToPrimitive()
+
+//#10 string to substract sample
+
+func stringToSubstract () {
+    
+    
+    let str = "swift beginer"
+    
+    let startIndex = str.startIndex
+    let endIndex = str.endIndex
+    
+    let startChar = str[startIndex]
+    let char2 = str[str.index(after: startIndex)]
+    let beforeEndIndex = str.index(before: endIndex);
+    
+    let beforeIndex2  = str.index(before:beforeEndIndex)
+    let  char3 = str[beforeIndex2]
+    let  endChar = str[beforeEndIndex]
+    
+    print (startChar, char2, char3, endChar)
+    
+    let index11 = str.index(startIndex, offsetBy: 5)
+    let  char11 = str[index11]
+    
+    let index12 = str.index(endIndex, offsetBy: -5)
+    let  char12 = str[index12]
+    
+    print (char11, char12)
+    
+    let string22 = str[index11...beforeIndex2]
+    let string23 = str[index11..<beforeIndex2]
+    
+    print (string22, string23)
+    
+    let string31 = str.substring(to: index11)
+    let string32 = str.substring(from:index11)
+    
+    print (string31, string32)
+    
+}
+
+stringToSubstract()
+
+//#11 string compare sample
+
+func compareStringSampel()
+{
+    
+    let testArr = ["composit","complex" , "Zoo", "multiflex"]
+    
+    for  item  in testArr {
+        
+        if item.hasPrefix("co") {
+            print("item has prefix co: \(item)")
+        } else if item.hasSuffix("ex") {
+            print("item  hasSuffix ex: \( item )")
+        }
+        
+        let resultIndex = str.range(of: "pos")
+        
+        if(( resultIndex  ) != nil) {
+            var string1 = ""
+            
+            string1 =  str.substring(from: (resultIndex?.upperBound)!)
+            
+            var string2 =  ""
+            
+            string2 = str.substring(to: (resultIndex?.lowerBound)!)
+            
+            
+            print (string1, string2)
+        }
+    }
+    
+    
+}
+
+compareStringSampel()
 
 
 
