@@ -301,11 +301,49 @@ func compareStringSampel()
     }
     
     
+    let a = Int(arc4random_uniform(100))
+    
+    let b :String! = "444"
+    
+    
+    
+    print(a, Int(b) ?? 0 , (b as NSString).integerValue)
+    
+    
+
+    
 }
 
 compareStringSampel()
 
+func examTest () {
+    
+    var num = 0;
+    var array : Array<Int> = Array.init()
+    repeat {
+        let random : Int  = Int( arc4random_uniform(1000 ) + 1 )
+        
+        
+        if( random % 5 == 0) {
+            array.append(random)
+            num += 1
+        }
+        print( "examTest: random:" , random)
+        
+    } while( num < 10 )
+    
+    print( array)
+    
+    array.sort { $0 > $1 }
+    
+    print( array)
+    
+    print("first \(array.first)  last \(array.last)")
+    
+}
 
+
+examTest()
 
 
 
