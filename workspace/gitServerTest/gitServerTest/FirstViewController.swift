@@ -54,7 +54,9 @@ class FirstViewController: UIViewController ,
         
         //let titleString = String( arc4random_uniform(100) + 1)
         
-        let titleString = String(indexPath.row + 1)
+        //let titleString = String(indexPath.row + 1)
+        
+        let titleString = String(CustomData.sharedInstance.findNumberItemFromIndex(index: indexPath.row) )
         
         cell.numButton.setTitle(titleString, for: UIControlState.normal)
         cell.numButton.setTitle(titleString, for: UIControlState.selected)
@@ -78,6 +80,12 @@ class FirstViewController: UIViewController ,
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        var message = ""
+        if( CustomData.sharedInstance.isClickedAllButton() ) {
+            message = "Success"
+        }
+        
+        presentAlertVc(msg: message)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -93,6 +101,27 @@ class FirstViewController: UIViewController ,
     func clearCustomData() {
         
         CustomData.sharedInstance.currentNum = 0;
+        CustomData.sharedInstance.makeSamplingData(itemCount: 9, randomLimit: 100)
+    }
+    
+
+    func presentAlertVc (msg:String) {
+        
+        let alertVc : UIAlertController = UIAlertController(title: "", message: msg,
+                                                            preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        
+        alertVc.addAction(defaultAction)
+        
+        self.present(alertVc, animated: true, completion: nil)
+        
     }
 }
+
 

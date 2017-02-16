@@ -319,3 +319,56 @@ func examSample () {
 
 examSample()
 
+
+func makeSamplingData(itemCount:Int , randomLimit:UInt32) -> Array<Int> {
+    var array : Array<Int> = Array()
+    
+    var index = 0
+    
+    repeat {
+        
+        let data:Int = Int(arc4random_uniform(randomLimit) + 1)
+        
+        if !array.contains(data) {
+            
+            index += 1
+            array.append(data)
+        }
+        
+        
+    } while (index < itemCount)
+    
+    
+    return array
+    
+}
+
+
+let samplingArray = makeSamplingData(itemCount: 9, randomLimit: 100)
+
+samplingArray.max()
+samplingArray.min()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,10 +14,14 @@ class TestCollectionViewCell: UICollectionViewCell {
     
     @IBAction func onNumClicked(_ sender: UIButton) {
 
-        let clickedNum:Int = Int(sender.title(for: UIControlState.normal)!)! 
-        if ( clickedNum == CustomData.sharedInstance.currentNum + 1 ) {
+        let clickedNum:Int = Int(sender.title(for: UIControlState.normal)!)!
         
-            CustomData.sharedInstance.currentNum = clickedNum
+    
+        if (clickedNum == CustomData.sharedInstance.minimumNumber()) {
+        
+            CustomData.sharedInstance.setCurrentNum( num: clickedNum )
+            
+            
             sender.isEnabled = false;
             sender.backgroundColor = UIColor.gray
         } else {
