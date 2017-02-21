@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,35 +22,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="109" y="313" width="157.5" height="41.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="90.5" y="362.5" width="194.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcy-3T-LOI">
+                                <rect key="frame" x="123" y="486" width="129" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="ndT-7M-uYt"/>
+                                </constraints>
+                                <state key="normal" title="ReStart">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickRestart:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Fa0-wt-Bjq"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aFd-8u-c00">
+                                <rect key="frame" x="42" y="106" width="300" height="270"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="UvX-kI-s5T"/>
+                                    <constraint firstAttribute="width" constant="300" id="sv1-NC-SWd"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SHn-zh-nFe">
+                                    <size key="itemSize" width="80" height="82"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TestCell" id="oHe-Uj-0yf" customClass="TestCollectionViewCell" customModule="gitServerTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="82"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="82"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Me-lv-xW3">
+                                                    <rect key="frame" x="8" y="4" width="59" height="65"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="onNumClicked:" destination="oHe-Uj-0yf" eventType="touchUpInside" id="FLL-Nu-OXq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="5Me-lv-xW3" secondAttribute="bottom" constant="5" id="A1Z-Jo-eTb"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="5Me-lv-xW3" secondAttribute="trailing" constant="5" id="G9K-dg-YmI"/>
+                                            <constraint firstItem="5Me-lv-xW3" firstAttribute="leading" secondItem="oHe-Uj-0yf" secondAttribute="leadingMargin" id="MBy-bh-m9D"/>
+                                            <constraint firstItem="5Me-lv-xW3" firstAttribute="top" secondItem="oHe-Uj-0yf" secondAttribute="topMargin" constant="-4" id="XtF-IY-Dov"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="numButton" destination="5Me-lv-xW3" id="RFm-Xn-m1e"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="yT3-IC-P33"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="KHn-a4-1Rr"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="aFd-8u-c00" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="86" id="TcN-Te-Kq4"/>
+                            <constraint firstItem="Lcy-3T-LOI" firstAttribute="top" secondItem="aFd-8u-c00" secondAttribute="bottom" constant="110" id="WJ4-RR-qmj"/>
+                            <constraint firstItem="aFd-8u-c00" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" constant="4.5" id="XtW-Rs-Zwa"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Lcy-3T-LOI" secondAttribute="bottom" constant="72" id="Y5h-ve-ujr"/>
+                            <constraint firstItem="Lcy-3T-LOI" firstAttribute="centerX" secondItem="aFd-8u-c00" secondAttribute="centerX" constant="-4.5" id="Z7G-Se-xXC"/>
+                            <constraint firstItem="Lcy-3T-LOI" firstAttribute="top" secondItem="aFd-8u-c00" secondAttribute="bottom" constant="110" id="kQJ-pM-8Nr"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="numPadView" destination="aFd-8u-c00" id="taU-Pm-TkA"/>
+                        <outlet property="restartBtn" destination="Lcy-3T-LOI" id="IHV-JN-JPH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Second-->
+        <!--flower-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="gitServerTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,7 +144,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="flower" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

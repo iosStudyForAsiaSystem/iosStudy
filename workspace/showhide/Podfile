@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'showhide' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for showhide
+
+  pod 'Alamofire', :git => "https://github.com/Alamofire/Alamofire.git"
+  pod 'Alamofire-SwiftyJSON', :git => "https://github.com/SwiftyJSON/Alamofire-SwiftyJSON.git"
+
+  #pod 'SwiftLint', :git => "https://github.com/realm/SwiftLint.git"
+
+  #pod 'swiftLintXcode', :git =>"https://github.com/ypresto/SwiftLintXcode.git"
+  #pod 'SwiftyJSON','~> 2.2'
+  #:git => "https://github.com/SwiftyJSON/SwiftyJSON.git"
+end
