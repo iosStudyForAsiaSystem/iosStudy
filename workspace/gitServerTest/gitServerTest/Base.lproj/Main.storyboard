@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcy-3T-LOI">
-                                <rect key="frame" x="123" y="486" width="129" height="60"/>
+                                <rect key="frame" x="123" y="486" width="129" height="61"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="129" id="ndT-7M-uYt"/>
@@ -87,7 +87,7 @@
                             <constraint firstItem="aFd-8u-c00" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="86" id="TcN-Te-Kq4"/>
                             <constraint firstItem="Lcy-3T-LOI" firstAttribute="top" secondItem="aFd-8u-c00" secondAttribute="bottom" constant="110" id="WJ4-RR-qmj"/>
                             <constraint firstItem="aFd-8u-c00" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" constant="4.5" id="XtW-Rs-Zwa"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Lcy-3T-LOI" secondAttribute="bottom" constant="72" id="Y5h-ve-ujr"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Lcy-3T-LOI" secondAttribute="bottom" constant="71" id="Y5h-ve-ujr"/>
                             <constraint firstItem="Lcy-3T-LOI" firstAttribute="centerX" secondItem="aFd-8u-c00" secondAttribute="centerX" constant="-4.5" id="Z7G-Se-xXC"/>
                             <constraint firstItem="Lcy-3T-LOI" firstAttribute="top" secondItem="aFd-8u-c00" secondAttribute="bottom" constant="110" id="kQJ-pM-8Nr"/>
                         </constraints>
