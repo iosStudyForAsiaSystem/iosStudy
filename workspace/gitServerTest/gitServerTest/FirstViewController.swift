@@ -37,7 +37,9 @@ class FirstViewController: UIViewController ,
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        NotificationCenter.default.removeObserver(self, name: CustomData.InputCompleteNotifyKey, object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: CustomData.InputCompleteNotifyKey,
+                                                  object: nil)
     }
 
     override func didReceiveMemoryWarning() {
