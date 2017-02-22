@@ -15,6 +15,8 @@ func checkOptinalVariableSampe () {
     
     var count:Int?
     var price:Int
+
+        
     price = 250 * (count ?? 2 )
     
     
@@ -47,7 +49,6 @@ checkOptinalVariableSampe()
 //#1 class definition sample
 class SampleClass {
     
-    
     var msg:String = ""
     private var name:String = ""
     var radius:Double = 1.0
@@ -79,7 +80,6 @@ class SampleClass {
 //        didSet{
 //            print(area)
 //        }
-        
     }
     
     class var crossLength:Double {
@@ -103,14 +103,7 @@ class SampleClass {
 
 SampleClass.crossLength = 10
 
-let sClass = SampleClass(msg: "test1")
 
-sClass.area = 4
-print(sClass.area)
-
-print(SampleClass.calcAreaA(name: "name1"))
-
-sClass.displayArea()
 
 //#2 extension class sample
 
@@ -120,11 +113,9 @@ extension SampleClass {
     
     var triangleArea:String {
         get {
-            //return String(format:"%f", ((self.radius + self.radius) * 4.0 ))
             return String((self.radius + self.radius) * 4.0 )
         }
         set(param){
-            //self.radius = atof(param) / 2.0
             self.radius = (param as NSString ).doubleValue
 
             print(radius)
@@ -132,8 +123,14 @@ extension SampleClass {
     }
     
 }
+let sClass = SampleClass(msg: "test1")
 
+sClass.area = 4
+print(sClass.area)
 
+print(SampleClass.calcAreaA(name: "name1"))
+
+sClass.displayArea()
 
 sClass.triangleArea = "199.0"
 
@@ -169,6 +166,7 @@ class testModel:test1Protocol {
 
 
 //#4 enum sample 
+
 enum PColor:String {
     case red = "aka"
     case green = "green"
@@ -186,7 +184,7 @@ enum Pattern {
 let shirt1 = Pattern.Mono(.red)
 print(shirt1)
 
-//#4 struct sample 
+//#5 struct sample
 
 struct ColorBox {
     var width :Int

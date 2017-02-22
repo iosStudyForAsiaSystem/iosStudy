@@ -16,6 +16,7 @@
 		0326992D1E4C53ED00F6792C /* gitServerTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326992C1E4C53ED00F6792C /* gitServerTestTests.swift */; };
 		032699381E4C53ED00F6792C /* gitServerTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032699371E4C53ED00F6792C /* gitServerTestUITests.swift */; };
 		03DB77651E53D92100F3C2F7 /* Util in Resources */ = {isa = PBXBuildFile; fileRef = 03DB77641E53D92100F3C2F7 /* Util */; };
+		03E709081E5C15F800048684 /* ButtonTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E709071E5C15F800048684 /* ButtonTestViewController.swift */; };
 		03EA329E1E554C4200CC30D0 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA329D1E554C4200CC30D0 /* TestCollectionViewCell.swift */; };
 		03EA32A01E555ADA00CC30D0 /* CustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA329F1E555ADA00CC30D0 /* CustomData.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		032699371E4C53ED00F6792C /* gitServerTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitServerTestUITests.swift; sourceTree = "<group>"; };
 		032699391E4C53ED00F6792C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03DB77641E53D92100F3C2F7 /* Util */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Util; path = ../../../Util; sourceTree = "<group>"; };
+		03E709071E5C15F800048684 /* ButtonTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTestViewController.swift; sourceTree = "<group>"; };
 		03EA329D1E554C4200CC30D0 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		03EA329F1E555ADA00CC30D0 /* CustomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 				03EA329D1E554C4200CC30D0 /* TestCollectionViewCell.swift */,
 				032699191E4C53ED00F6792C /* SecondViewController.swift */,
 				0326991B1E4C53ED00F6792C /* Main.storyboard */,
+				03E709071E5C15F800048684 /* ButtonTestViewController.swift */,
 				0326991E1E4C53ED00F6792C /* Assets.xcassets */,
 				032699201E4C53ED00F6792C /* LaunchScreen.storyboard */,
 				032699231E4C53ED00F6792C /* Info.plist */,
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E709081E5C15F800048684 /* ButtonTestViewController.swift in Sources */,
 				0326991A1E4C53ED00F6792C /* SecondViewController.swift in Sources */,
 				032699161E4C53ED00F6792C /* AppDelegate.swift in Sources */,
 				03EA329E1E554C4200CC30D0 /* TestCollectionViewCell.swift in Sources */,
@@ -433,6 +437,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RRN279NX3J;
 				INFOPLIST_FILE = gitServerTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.futurelinegen.gitServerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -446,6 +451,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RRN279NX3J;
 				INFOPLIST_FILE = gitServerTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.futurelinegen.gitServerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
