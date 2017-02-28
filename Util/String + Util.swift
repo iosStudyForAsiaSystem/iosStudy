@@ -67,4 +67,17 @@ extension String {
             return "0"
         }
     }
+    
+    /// Realm用にエスケープした文字列
+    var realmEscaped: String {
+        let reps = [
+            "\\" : "\\\\",
+            "'"  : "\\'",
+            ]
+        var ret = self
+        for rep in reps {
+            ret = self.stringByReplacingOccurrencesOfString(rep.0, withString: rep.1)
+        }
+        return ret
+    }
 }
