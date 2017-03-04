@@ -1,8 +1,8 @@
 //
 //  DetailViewController.swift
-//  NoteSomething
+//  sampleSplitVC
 //
-//  Created by snowman on 2017/03/03.
+//  Created by snowman on 2017/03/04.
 //  Copyright © 2017年 snowman. All rights reserved.
 //
 
@@ -12,32 +12,19 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
-    var detailItem: GroupData? {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
-    }
 
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 label.text = detail.description
-                print(detail.description)
             }
         }
-        self.title = self.detailItem?.nmJp
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         self.configureView()
     }
 
@@ -46,7 +33,12 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    var detailItem: NSDate? {
+        didSet {
+            // Update the view.
+            self.configureView()
+        }
+    }
 
 
 }

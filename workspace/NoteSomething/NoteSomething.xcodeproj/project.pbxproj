@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
 		03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB511E6927CC009B29FA /* DetailViewController.swift */; };
@@ -19,7 +20,7 @@
 		03F5CB801E692992009B29FA /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7D1E692992009B29FA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03F5CB811E692992009B29FA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7E1E692992009B29FA /* RealmSwift.framework */; };
 		03F5CB821E692992009B29FA /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7E1E692992009B29FA /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		03F5CB861E693411009B29FA /* GroupDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB851E693411009B29FA /* GroupDataTableViewCell.swift */; };
+		03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB851E693411009B29FA /* DataTableViewCell.swift */; };
 		03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB871E6935F6009B29FA /* CustomDataDef.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +74,7 @@
 		03F5CB711E6927CD009B29FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F5CB7D1E692992009B29FA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		03F5CB7E1E692992009B29FA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		03F5CB851E693411009B29FA /* GroupDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDataTableViewCell.swift; sourceTree = "<group>"; };
+		03F5CB851E693411009B29FA /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		03F5CB871E6935F6009B29FA /* CustomDataDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDataDef.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,12 +133,13 @@
 				03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */,
 				03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */,
 				03F5CB511E6927CC009B29FA /* DetailViewController.swift */,
+				0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */,
+				03F5CB851E693411009B29FA /* DataTableViewCell.swift */,
+				03F5CB871E6935F6009B29FA /* CustomDataDef.swift */,
 				03F5CB531E6927CC009B29FA /* Main.storyboard */,
 				03F5CB561E6927CC009B29FA /* Assets.xcassets */,
 				03F5CB581E6927CC009B29FA /* LaunchScreen.storyboard */,
 				03F5CB5B1E6927CC009B29FA /* Info.plist */,
-				03F5CB851E693411009B29FA /* GroupDataTableViewCell.swift */,
-				03F5CB871E6935F6009B29FA /* CustomDataDef.swift */,
 			);
 			path = NoteSomething;
 			sourceTree = "<group>";
@@ -315,8 +318,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */,
+				0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */,
 				03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */,
-				03F5CB861E693411009B29FA /* GroupDataTableViewCell.swift in Sources */,
+				03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */,
 				03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */,
 				03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */,
 			);
@@ -577,6 +581,7 @@
 				03F5CB761E6927CD009B29FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03F5CB771E6927CD009B29FA /* Build configuration list for PBXNativeTarget "NoteSomethingTests" */ = {
 			isa = XCConfigurationList;
@@ -585,6 +590,7 @@
 				03F5CB791E6927CD009B29FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03F5CB7A1E6927CD009B29FA /* Build configuration list for PBXNativeTarget "NoteSomethingUITests" */ = {
 			isa = XCConfigurationList;
@@ -593,6 +599,7 @@
 				03F5CB7C1E6927CD009B29FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

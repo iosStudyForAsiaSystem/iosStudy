@@ -16,6 +16,7 @@
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="7bK-jq-Zjz" kind="relationship" relationship="rootViewController" id="tsl-Nk-0bq"/>
@@ -90,54 +91,57 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="grd-dc-lj3" customClass="GroupDataTableViewCell" customModule="NoteSomething" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="GroupDataTableViewCell" id="grd-dc-lj3" customClass="GroupDataTableViewCell" customModule="NoteSomething" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="grd-dc-lj3" id="YAu-em-vns">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECG-LJ-aHf">
-                                            <rect key="frame" x="13" y="5" width="47" height="34"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frg-MM-CZU" userLabel="ListButton">
+                                            <rect key="frame" x="10" y="5" width="50" height="32"/>
+                                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="BH6-Jc-iuG"/>
-                                                <constraint firstAttribute="width" constant="47" id="bWR-cE-EgU"/>
+                                                <constraint firstAttribute="height" constant="32" id="Bov-BD-3dU"/>
+                                                <constraint firstAttribute="width" constant="50" id="v4b-q9-Fne"/>
+                                            </constraints>
+                                            <state key="normal" title="List">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="Eft-sO-DhG" kind="show" identifier="showWordList" id="TbY-c9-b0H"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECG-LJ-aHf">
+                                            <rect key="frame" x="65" y="5" width="50" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="CJF-uo-vS5"/>
+                                                <constraint firstAttribute="width" constant="50" id="IQg-PK-meK"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="単語１" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oV-Q0-hHM">
-                                            <rect key="frame" x="68" y="5" width="214" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="WaQ-rB-I39"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group１" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oV-Q0-hHM">
+                                            <rect key="frame" x="120" y="5" width="175" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frg-MM-CZU" userLabel="InfoButton">
-                                            <rect key="frame" x="303" y="5" width="22" height="32"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="22" id="4z0-zk-nea"/>
-                                            </constraints>
-                                            <connections>
-                                                <action selector="onClickGroupBtnAction:" destination="grd-dc-lj3" eventType="touchUpInside" id="3Jz-T6-BNA"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="frg-MM-CZU" firstAttribute="top" secondItem="YAu-em-vns" secondAttribute="top" constant="5" id="QYf-ju-2bB"/>
-                                        <constraint firstItem="ECG-LJ-aHf" firstAttribute="top" secondItem="YAu-em-vns" secondAttribute="top" constant="5" id="QtZ-i7-2xN"/>
-                                        <constraint firstItem="ECG-LJ-aHf" firstAttribute="leading" secondItem="YAu-em-vns" secondAttribute="leading" constant="13" id="d8v-Uo-3YO"/>
-                                        <constraint firstItem="6oV-Q0-hHM" firstAttribute="centerY" secondItem="YAu-em-vns" secondAttribute="centerY" id="lLF-VY-CPD"/>
-                                        <constraint firstItem="frg-MM-CZU" firstAttribute="leading" secondItem="6oV-Q0-hHM" secondAttribute="trailing" constant="21" id="vhx-Us-SK4"/>
-                                        <constraint firstAttribute="trailing" secondItem="frg-MM-CZU" secondAttribute="trailing" constant="50" id="x4J-jP-sjZ"/>
-                                        <constraint firstItem="6oV-Q0-hHM" firstAttribute="leading" secondItem="ECG-LJ-aHf" secondAttribute="trailing" constant="8" id="xp1-ng-jXg"/>
-                                        <constraint firstItem="frg-MM-CZU" firstAttribute="centerY" secondItem="YAu-em-vns" secondAttribute="centerY" id="z7s-94-IyV"/>
+                                        <constraint firstItem="frg-MM-CZU" firstAttribute="top" secondItem="YAu-em-vns" secondAttribute="top" constant="5" id="6Pk-4E-MhH"/>
+                                        <constraint firstItem="ECG-LJ-aHf" firstAttribute="top" secondItem="YAu-em-vns" secondAttribute="top" constant="5" id="9Zp-W5-YHW"/>
+                                        <constraint firstItem="6oV-Q0-hHM" firstAttribute="top" secondItem="YAu-em-vns" secondAttribute="top" constant="5" id="9vU-lv-Mge"/>
+                                        <constraint firstItem="frg-MM-CZU" firstAttribute="leading" secondItem="YAu-em-vns" secondAttribute="leading" constant="10" id="Lbs-ZI-0ns"/>
+                                        <constraint firstAttribute="trailing" secondItem="6oV-Q0-hHM" secondAttribute="trailing" constant="13" id="Mfb-1M-Mb5"/>
+                                        <constraint firstItem="6oV-Q0-hHM" firstAttribute="leading" secondItem="ECG-LJ-aHf" secondAttribute="trailing" constant="5" id="X47-Gh-v6r"/>
+                                        <constraint firstItem="ECG-LJ-aHf" firstAttribute="leading" secondItem="frg-MM-CZU" secondAttribute="trailing" constant="5" id="lQc-of-nyw"/>
+                                        <constraint firstAttribute="bottom" secondItem="6oV-Q0-hHM" secondAttribute="bottom" constant="4" id="zA3-ir-uls"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="groupImgView" destination="ECG-LJ-aHf" id="3nd-ja-cF6"/>
-                                    <outlet property="groupInfoBtn" destination="frg-MM-CZU" id="h4T-A2-dYG"/>
                                     <outlet property="groupNameL" destination="6oV-Q0-hHM" id="DdI-iG-nqv"/>
+                                    <outlet property="showWordListBtn" destination="frg-MM-CZU" id="6bK-y0-8iu"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" trigger="accessoryAction" id="cNv-mh-1Nm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -151,7 +155,82 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="-630.13493253373315"/>
+            <point key="canvasLocation" x="1143" y="-630"/>
+        </scene>
+        <!--単語リスト画面-->
+        <scene sceneID="jyf-cS-GFb">
+            <objects>
+                <tableViewController id="Eft-sO-DhG" customClass="WordTableViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qzk-rV-Igx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="検索キーを入力してください。" id="ZTr-a4-JAj">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="WordDataTableViewCell" id="PjA-fT-toU" customClass="WordDataTableViewCell" customModule="NoteSomething" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PjA-fT-toU" id="Hwn-a0-DSf">
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJC-Bz-S2O">
+                                            <rect key="frame" x="10" y="5" width="47" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="QPV-Fv-Yb3"/>
+                                                <constraint firstAttribute="width" constant="47" id="bZY-9J-VtR"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="単語１" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vH5-tU-jBa">
+                                            <rect key="frame" x="65" y="5" width="178" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFt-71-iZq" userLabel="ListButton">
+                                            <rect key="frame" x="248" y="5" width="50" height="32"/>
+                                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Oxg-rh-0u4"/>
+                                                <constraint firstAttribute="height" constant="32" id="wdy-TR-oJI"/>
+                                            </constraints>
+                                            <state key="normal" title="List">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iFt-71-iZq" firstAttribute="leading" secondItem="vH5-tU-jBa" secondAttribute="trailing" constant="5" id="2sU-f4-zVm"/>
+                                        <constraint firstItem="vH5-tU-jBa" firstAttribute="leading" secondItem="vJC-Bz-S2O" secondAttribute="trailing" constant="8" id="3qS-at-ewR"/>
+                                        <constraint firstItem="vH5-tU-jBa" firstAttribute="top" secondItem="Hwn-a0-DSf" secondAttribute="top" constant="5" id="IGM-tl-jIY"/>
+                                        <constraint firstItem="vJC-Bz-S2O" firstAttribute="top" secondItem="Hwn-a0-DSf" secondAttribute="top" constant="5" id="NeD-es-4Df"/>
+                                        <constraint firstAttribute="trailing" secondItem="iFt-71-iZq" secondAttribute="trailing" constant="10" id="SRj-d0-dBX"/>
+                                        <constraint firstItem="vJC-Bz-S2O" firstAttribute="leading" secondItem="Hwn-a0-DSf" secondAttribute="leading" constant="10" id="SqW-ug-xtS"/>
+                                        <constraint firstItem="iFt-71-iZq" firstAttribute="top" secondItem="Hwn-a0-DSf" secondAttribute="top" constant="5" id="pLy-h1-ROu"/>
+                                        <constraint firstAttribute="bottom" secondItem="vH5-tU-jBa" secondAttribute="bottom" constant="4" id="wi4-Nv-tWC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="showImageListBtn" destination="iFt-71-iZq" id="fXB-IS-LhQ"/>
+                                    <outlet property="wordImgView" destination="vJC-Bz-S2O" id="SPm-rS-QKc"/>
+                                    <outlet property="wordNameL" destination="vH5-tU-jBa" id="xIs-wd-fs6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Eft-sO-DhG" id="sNU-RY-sQs"/>
+                            <outlet property="delegate" destination="Eft-sO-DhG" id="UJk-JD-9VN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="単語リスト画面" id="y53-fu-TY9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cUg-j4-cuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976.25" y="-630.63380281690138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -170,4 +249,7 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cNv-mh-1Nm"/>
+    </inferredMetricsTieBreakers>
 </document>

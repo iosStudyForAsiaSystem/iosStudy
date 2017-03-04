@@ -17,7 +17,7 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        //self.navigationItem.leftBarButtonItem = self.editButtonItem
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
@@ -38,7 +38,9 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
+        
+        CustomUtil.sharedInstance.makeDummyGroupData()
+        //objects.insert(NSDate(), at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
@@ -46,13 +48,27 @@ class MasterViewController: UITableViewController {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow
+        {
+            if segue.identifier == "showDetail" {
+                
+                
+                //let object = objects[indexPath.row] as! NSDate
+                
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
+                controller.detailItem = self.findGroupData(row: (indexPath.row))
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                
+            } else if segue.identifier == "showWordList" {
+                
+                
+                let controller = (segue.destination as! UINavigationController).topViewController as! WordTableViewController
+                
+                controller.paramData = self.findGroupData(row: (indexPath.row))
+                controller.navigationItem.leftItemsSupplementBackButton = true
+                
             }
         }
     }
@@ -64,14 +80,17 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return CustomUtil.sharedInstance.groupList.count //objects.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell:GroupDataTableViewCell = tableView.dequeueReusableCell(withIdentifier: "GroupDataTableViewCell", for: indexPath) as! GroupDataTableViewCell
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+//        let object = objects[indexPath.row] as! NSDate
+//        cell.textLabel!.text = object.description
+        
+        cell.dispCell(grpData: self.findGroupData(row: indexPath.row))
+        
         return cell
     }
 
@@ -80,15 +99,38 @@ class MasterViewController: UITableViewController {
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            objects.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+//        }
+//    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        //self.performSegue(withIdentifier: "showDetail", sender: nil)
+    }
+    
+    
 
+    // MARK: - Custom method
+    
+    func findGroupData(row:Int) -> GroupData {
+        
+       return CustomUtil.sharedInstance.findGroupDataFromIndex(index: row)!
+    }
+    
+    func showWordListVc(groupId:String)  {
+        
+        let groupData :GroupData = CustomUtil.sharedInstance.findGroupDataFromGroupId(id: groupId)!
+        
+        self.performSegue(withIdentifier: "showWordList", sender: groupData)
+    }
 
 }
 
