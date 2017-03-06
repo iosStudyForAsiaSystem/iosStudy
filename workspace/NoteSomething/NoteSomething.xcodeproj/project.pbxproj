@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */; };
+		0335DC151E6D541B00763FDA /* CustomRealmDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC141E6D541B00763FDA /* CustomRealmDef.swift */; };
+		0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC191E6D5BFC00763FDA /* CustomConst.swift */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
 		03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB511E6927CC009B29FA /* DetailViewController.swift */; };
@@ -58,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
+		0335DC141E6D541B00763FDA /* CustomRealmDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRealmDef.swift; sourceTree = "<group>"; };
+		0335DC191E6D5BFC00763FDA /* CustomConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomConst.swift; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0335DC161E6D542A00763FDA /* data */ = {
+			isa = PBXGroup;
+			children = (
+				03F5CB871E6935F6009B29FA /* CustomDataDef.swift */,
+				0335DC141E6D541B00763FDA /* CustomRealmDef.swift */,
+				0335DC191E6D5BFC00763FDA /* CustomConst.swift */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		0335DC171E6D543E00763FDA /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				03F5CB531E6927CC009B29FA /* Main.storyboard */,
+				03F5CB561E6927CC009B29FA /* Assets.xcassets */,
+				03F5CB581E6927CC009B29FA /* LaunchScreen.storyboard */,
+				03F5CB5B1E6927CC009B29FA /* Info.plist */,
+			);
+			name = resource;
+			sourceTree = "<group>";
+		};
+		0335DC181E6D545400763FDA /* source */ = {
+			isa = PBXGroup;
+			children = (
+				03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */,
+				03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */,
+				0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */,
+				03F5CB511E6927CC009B29FA /* DetailViewController.swift */,
+				03F5CB851E693411009B29FA /* DataTableViewCell.swift */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
 		03F5CB411E6927CC009B29FA = {
 			isa = PBXGroup;
 			children = (
@@ -130,16 +167,9 @@
 		03F5CB4C1E6927CC009B29FA /* NoteSomething */ = {
 			isa = PBXGroup;
 			children = (
-				03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */,
-				03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */,
-				0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */,
-				03F5CB511E6927CC009B29FA /* DetailViewController.swift */,
-				03F5CB851E693411009B29FA /* DataTableViewCell.swift */,
-				03F5CB871E6935F6009B29FA /* CustomDataDef.swift */,
-				03F5CB531E6927CC009B29FA /* Main.storyboard */,
-				03F5CB561E6927CC009B29FA /* Assets.xcassets */,
-				03F5CB581E6927CC009B29FA /* LaunchScreen.storyboard */,
-				03F5CB5B1E6927CC009B29FA /* Info.plist */,
+				0335DC181E6D545400763FDA /* source */,
+				0335DC171E6D543E00763FDA /* resource */,
+				0335DC161E6D542A00763FDA /* data */,
 			);
 			path = NoteSomething;
 			sourceTree = "<group>";
@@ -321,7 +351,9 @@
 				0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */,
 				03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */,
 				03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */,
+				0335DC151E6D541B00763FDA /* CustomRealmDef.swift in Sources */,
 				03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */,
+				0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */,
 				03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

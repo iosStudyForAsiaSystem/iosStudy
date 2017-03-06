@@ -71,18 +71,10 @@ class CustomUtil: NSObject {
        
     }
     
-
-    
-    
 }
 
 
-enum DataType {
-    case GroupType
-    case WordType
-    case ImageType
-    case NoneType
-}
+
 
 class CommonInfo: NSObject  {
     
@@ -179,7 +171,7 @@ class GroupData : CommonInfo {
 class WordData : CommonInfo {
     
     //グループクラスのID
-    var parentId: Int  = 0
+    var parentId: String  = ""
     var subImageNmList: Array<String> = []
     
     var imageNm: String = ""
@@ -192,7 +184,7 @@ class WordData : CommonInfo {
         self.type = DataType.WordType
     }
     
-    convenience init(parentId:Int )  {
+    convenience init(parentId:String )  {
         self.init()
         
         self.parentId = parentId
