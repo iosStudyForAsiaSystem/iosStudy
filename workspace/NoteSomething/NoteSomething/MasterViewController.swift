@@ -19,8 +19,9 @@ class MasterViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         //self.navigationItem.leftBarButtonItem = self.editButtonItem
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertGroupObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
+        
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -37,40 +38,37 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func insertNewObject(_ sender: Any) {
-        
-        CustomUtil.sharedInstance.makeDummyGroupData()
-        //objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        self.tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let indexPath = self.tableView.indexPathForSelectedRow
-        {
-            if segue.identifier == "showDetail" {
-                
-                
-                //let object = objects[indexPath.row] as! NSDate
-                
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = self.findGroupData(row: (indexPath.row))
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+        
+        if segue.identifier == "showDetail" {
+            
+            let cell = sender as! GroupDataTableViewCell
+
+            //let object = objects[indexPath.row] as! NSDate
+            
+            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+            controller.detailItem = CustomUtil.sharedInstance.findGroupDataFromGroupId(id: cell.groupId)!
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            
+            
+        } else if segue.identifier == "showWordList" {
+            
+            let controller = segue.destination as!  WordTableViewController
+//            if let indexPath = self.tableView.indexPathForSelectedRow
+//            {
+//                controller.paramData = self.findGroupData(row: indexPath.row)
+//            } else {
+                let groupId:String = String((sender as! UIButton).tag)
+                controller.paramData = CustomUtil.sharedInstance.findGroupDataFromGroupId(id:groupId)!
+//            }
                 controller.navigationItem.leftItemsSupplementBackButton = true
-                
-            } else if segue.identifier == "showWordList" {
-                
-                
-                let controller = (segue.destination as! UINavigationController).topViewController as! WordTableViewController
-                
-                controller.paramData = self.findGroupData(row: (indexPath.row))
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                
-            }
+//            }
         }
+        
     }
 
     // MARK: - Table View
@@ -112,8 +110,13 @@ class MasterViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+    }
+    
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         //self.performSegue(withIdentifier: "showDetail", sender: nil)
+        //self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
     }
     
     
@@ -130,6 +133,14 @@ class MasterViewController: UITableViewController {
         let groupData :GroupData = CustomUtil.sharedInstance.findGroupDataFromGroupId(id: groupId)!
         
         self.performSegue(withIdentifier: "showWordList", sender: groupData)
+    }
+    
+    func insertGroupObject(_ sender: Any) {
+        
+        CustomUtil.sharedInstance.makeAndInsertDummyGroupData()
+        //objects.insert(NSDate(), at: 0)
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
 
 }

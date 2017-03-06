@@ -22,16 +22,19 @@ class CustomUtil: NSObject {
     var wordDic:[String:WordData] = [:]
     
     
-    func makeDummyGroupData() {
+    func makeAndInsertDummyGroupData() {
         let grpData:GroupData = GroupData()
         groupList.append(grpData.id)
         groupDic[grpData.id] = grpData
     }
     
-    func makeDummyWordData () {
+    func makeAndInsertDummyWordData ()  {
         let wordData:WordData = WordData()
         wordList.append(wordData.id)
         wordDic[wordData.id] = wordData
+        
+        print("makeAndInsertDummyWordData wordDic.count \(wordDic.count)")
+        
     }
     
     
@@ -57,12 +60,13 @@ class CustomUtil: NSObject {
     }
     
     func findGroupDataFromGroupId(id : String ) -> GroupData? {
-        print("findGroupDataFromIndex param \(id) , groupList.count \(groupDic.count)")
+        print("findGroupDataFromIndex param \(id) , groupDic.count \(groupDic.count)")
         return groupDic[id ]
     }
     
     func findWordDataFromWordId(id:String ) -> WordData? {
         
+        print("findWordDataFromWordId param \(id) , wordDic.count \(wordDic.count)")
         return wordDic[id ]
        
     }
@@ -72,7 +76,15 @@ class CustomUtil: NSObject {
     
 }
 
- class CommonInfo  {
+
+enum DataType {
+    case GroupType
+    case WordType
+    case ImageType
+    case NoneType
+}
+
+class CommonInfo: NSObject  {
     
     var index : Int = 0
     var id : String = ""
@@ -84,21 +96,29 @@ class CustomUtil: NSObject {
     var etc1:String = ""
     var etc2:String = ""
     
-    init() {
+    var type:DataType = DataType.NoneType
+    
+    override init() {
         // ID 自動生成
+        super.init()
     }
-    init(id:String) {
+    convenience init(id:String) {
         
+        self.init()
         self.id = id
         self.nmJp = ""
     }
     
-    init(id:String, name:String) {
+   convenience init(id:String, name:String) {
 
+        self.init()
         self.id = id
         self.nmJp = name
     }
     
+    override var  description :String  {
+      return "CommonInfo id : \(self.id) name:\( self.nmJp)   comment:  \(self.comment)"
+    }
     
 }
 
@@ -106,12 +126,15 @@ class GroupData : CommonInfo {
     
  
     var imageNm: String  = ""
-    var wordList: Array<WordData> = []
+    var wordIdList: Array<String> = []
     
     override init() {
         super.init()
         let currentGrpCount = CustomUtil.sharedInstance.groupList.count
         self.nmJp = "group" +  String(currentGrpCount)
+        self.id = String( currentGrpCount + 1 )
+        self.type = DataType.GroupType
+        
     }
     convenience init(name:String) {
         self.init()
@@ -126,10 +149,14 @@ class GroupData : CommonInfo {
         
     }
     
-    init(wordData:WordData) {
-        super.init()
-        self.wordList.append(wordData)
+    convenience init(wordData:WordData) {
+        self.init()
+        self.wordIdList.append(wordData.id)
         
+    }
+    convenience init(wordId:String) {
+        self.init()
+        self.wordIdList.append(wordId)
     }
     
     func hasImage() ->Bool {
@@ -139,9 +166,9 @@ class GroupData : CommonInfo {
         return false
     }
     
-    var  description :String  {
+    override var  description :String  {
         
-        return "GroupData name:\( self.nmJp)   comment:  \(self.comment)"
+        return "GroupData id : \(self.id) name:\( self.nmJp)   comment:  \(self.comment) wordIdList count : \(wordIdList.count)"
     }
     
     
@@ -153,7 +180,7 @@ class WordData : CommonInfo {
     
     //グループクラスのID
     var parentId: Int  = 0
-    var subImageList: Array<ImageData> = []
+    var subImageNmList: Array<String> = []
     
     var imageNm: String = ""
     
@@ -161,6 +188,8 @@ class WordData : CommonInfo {
         super.init()
         let currentWordCount = CustomUtil.sharedInstance.wordList.count
         self.nmJp = "word" +  String(currentWordCount)
+        self.id = String(1000 + currentWordCount + 1)
+        self.type = DataType.WordType
     }
     
     convenience init(parentId:Int )  {
@@ -173,8 +202,13 @@ class WordData : CommonInfo {
     convenience init(imageData:ImageData) {
         self.init()
     
-        self.subImageList.append(imageData)
+        self.subImageNmList.append(imageData.imageNm)
         
+    }
+    
+    convenience init(imageName:String) {
+        self.init()
+        self.subImageNmList.append(imageName)
     }
     
     func hasImage() ->Bool {
@@ -184,9 +218,9 @@ class WordData : CommonInfo {
         return false
     }
     
-    var  description :String  {
+    override var  description :String  {
         
-        return "WordData name:\( self.nmJp)   comment:  \(self.comment)"
+        return "WordData id : \(self.id) name:\( self.nmJp)   comment:  \(self.comment)"
     }
     
 }
@@ -206,7 +240,7 @@ class ImageData : CommonInfo {
     init(imageNm:String )  {
         super.init()
         self.imageNm = imageNm
-        
+        self.type = DataType.ImageType
         //TODO イメージファイルが存在しない場合、設定しないこと。
     }
     
@@ -217,9 +251,9 @@ class ImageData : CommonInfo {
         //TODO イメージファイルが存在しない場合、設定しないこと。
     }
     
-    var  description :String  {
+    override var  description :String  {
         
-        return "name:\( self.nmJp)   comment:  \(self.comment)"
+        return "ImageData id : \(self.id) name:\( self.nmJp)   comment:  \(self.comment)"
     }
     
 }

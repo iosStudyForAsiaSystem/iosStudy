@@ -11,23 +11,13 @@ import UIKit
 class WordTableViewController: UITableViewController {
 
     
-    var wordList:[WordData] = []
     var paramData: GroupData? {
         didSet {
-            wordList = (self.paramData?.wordList)!
             // Update the view.
             self.configureView()
         }
     }
     
-    
-    
-    func configureView() {
-        print (String(describing: self.paramData?.id))
-        print (String(self.wordList.count))
-        self.tableView.reloadData()
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +27,10 @@ class WordTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertWordObject(_:)))
+        self.navigationItem.rightBarButtonItem = addButton
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,15 +53,18 @@ class WordTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return wordList.count
+        return CustomUtil.sharedInstance.wordList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WordDataTableViewCell", for: indexPath) as! WordDataTableViewCell
 
         // Configure the cell...
 
+        
+        cell.dispCell(wordData: self.findWordData(row: indexPath.row))
+        
         return cell
     }
     
@@ -116,5 +113,54 @@ class WordTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // MARK: - Custom
+    
+    func insertWordObject(_ sender: Any) {
+        
+        CustomUtil.sharedInstance.makeAndInsertDummyWordData()
+        
+        //objects.insert(NSDate(), at: 0)
+        //let indexPath = IndexPath(row: 0, section: 0)
+        //self.tableView.insertRows(at: [indexPath], with: .automatic)
+        self.tableView.reloadData()
+    }
+    
+    func configureView() {
+        
+        print ("configureView groupdata.id = \(self.paramData?.id)")
+        print ("configureView wordList.count = \(String(CustomUtil.sharedInstance.wordList.count))")
+        
+        let grpName:String = (self.paramData?.nmJp)!
+        self.title = "単語リスト (\(grpName) + )"
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    
+    func findWordData(row: Int) -> WordData {
+        let wordId = CustomUtil.sharedInstance.wordList[row]
+        return CustomUtil.sharedInstance.findWordDataFromWordId(id: wordId)!
+    }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "showWordDetail" {
+            
+            let cell = sender as! WordDataTableViewCell
+            
+            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+            controller.detailItem = CustomUtil.sharedInstance.findWordDataFromWordId(id: cell.wordId)
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            
+            
+        }
+    }
 
 }

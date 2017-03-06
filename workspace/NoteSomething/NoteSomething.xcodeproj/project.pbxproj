@@ -132,8 +132,8 @@
 			children = (
 				03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */,
 				03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */,
-				03F5CB511E6927CC009B29FA /* DetailViewController.swift */,
 				0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */,
+				03F5CB511E6927CC009B29FA /* DetailViewController.swift */,
 				03F5CB851E693411009B29FA /* DataTableViewCell.swift */,
 				03F5CB871E6935F6009B29FA /* CustomDataDef.swift */,
 				03F5CB531E6927CC009B29FA /* Main.storyboard */,

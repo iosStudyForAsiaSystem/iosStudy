@@ -38,16 +38,10 @@ class GroupDataTableViewCell: UITableViewCell {
         }
         self.groupId = grpData.id
         groupNameL.text = grpData.nmJp
+        self.showWordListBtn.tag = Int(grpData.id)!
         
     }
 
-
-    func onClickShowWordListBtn() {
-        
-        
-        parentVc?.showWordListVc(groupId: groupId)
-        
-    }
   
 }
 

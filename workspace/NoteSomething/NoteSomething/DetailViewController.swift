@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
-    var detailItem: GroupData? {
+    var detailItem: CommonInfo? {
         didSet {
             // Update the view.
             self.configureView()
@@ -21,13 +21,31 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
+        
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 label.text = detail.description
                 print(detail.description)
             }
         }
-        self.title = self.detailItem?.nmJp
+        var titleString = "詳細"
+        let dataType:DataType = (self.detailItem?.type)!
+        
+        switch dataType {
+        case .GroupType:
+            titleString = "グループ情報詳細"//(self.detailItem?.nmJp)!
+            break
+        case .WordType:
+ 
+            titleString = "単語情報詳細"
+            break
+        case .ImageType:
+            break
+        default: break
+            
+        }
+        
+        self.title =  titleString
     }
 
     override func viewDidLoad() {

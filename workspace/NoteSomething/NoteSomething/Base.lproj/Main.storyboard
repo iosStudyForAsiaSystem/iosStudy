@@ -151,13 +151,13 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="グループリスト画面" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="グループリスト" id="Zdf-7t-Un8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143" y="-630"/>
         </scene>
-        <!--単語リスト画面-->
+        <!--単語リスト-->
         <scene sceneID="jyf-cS-GFb">
             <objects>
                 <tableViewController id="Eft-sO-DhG" customClass="WordTableViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
@@ -218,6 +218,7 @@
                                     <outlet property="showImageListBtn" destination="iFt-71-iZq" id="fXB-IS-LhQ"/>
                                     <outlet property="wordImgView" destination="vJC-Bz-S2O" id="SPm-rS-QKc"/>
                                     <outlet property="wordNameL" destination="vH5-tU-jBa" id="xIs-wd-fs6"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showWordDetail" trigger="accessoryAction" id="R4S-Td-aE2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -226,7 +227,7 @@
                             <outlet property="delegate" destination="Eft-sO-DhG" id="UJk-JD-9VN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="単語リスト画面" id="y53-fu-TY9"/>
+                    <navigationItem key="navigationItem" title="単語リスト" id="y53-fu-TY9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUg-j4-cuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,6 +251,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cNv-mh-1Nm"/>
+        <segue reference="R4S-Td-aE2"/>
     </inferredMetricsTieBreakers>
 </document>
