@@ -15,7 +15,7 @@ class WordTableViewController: UITableViewController {
     
     var parentId :String? {
         didSet {
-            self.wordIdList = CustomRealmUtil.sharedInstance.findWordsCountWithSameGroup(parentId: parentId!)
+            self.wordIdList = RealmManager.sharedInstance.findWordsCountWithSameGroup(parentId: parentId!)
         }
     }
     
@@ -65,7 +65,7 @@ class WordTableViewController: UITableViewController {
         if self.hasParentId() {
             return self.wordIdList.count
         } else {
-            return CustomRealmUtil.sharedInstance.findAllWordsCount()
+            return RealmManager.sharedInstance.findAllWordsCount()
         }
     }
 
@@ -77,9 +77,9 @@ class WordTableViewController: UITableViewController {
 
         if self.hasParentId() {
             let targetWordId = wordIdList[(wordIdList.count-1) - indexPath.row]
-            cell.dispCell(wordData:CustomRealmUtil.sharedInstance.findWordDataFromWordId(id: targetWordId)!)
+            cell.dispCell(wordData:RealmManager.sharedInstance.findWordDataFromWordId(id: targetWordId)!)
         } else {
-            let maxCount = CustomRealmUtil.sharedInstance.findAllWordsCount()-1
+            let maxCount = RealmManager.sharedInstance.findAllWordsCount()-1
             cell.dispCell(wordData: self.findWordData(row: maxCount - indexPath.row))
         }
         
@@ -138,10 +138,10 @@ class WordTableViewController: UITableViewController {
     func insertWordObject(_ sender: Any) {
         
         if self.hasParentId() {
-           let wordId =   CustomRealmUtil.sharedInstance.makeAndInsertDummyWordData(parentId: self.parentId!)
+           let wordId =   RealmManager.sharedInstance.makeAndInsertDummyWordData(parentId: self.parentId!)
            self.wordIdList.append(wordId)
         } else {
-            CustomRealmUtil.sharedInstance.makeAndInsertDummyWordData()
+            RealmManager.sharedInstance.makeAndInsertDummyWordData()
         }
         
         let indexPath = IndexPath(row: 0, section: 0)
@@ -153,7 +153,7 @@ class WordTableViewController: UITableViewController {
     func configureView() {
         
         print ("configureView groupdata.id = \(self.paramData?.id)")
-        print ("configureView wordList.count = \(String(CustomRealmUtil.sharedInstance.findAllWordsCount()))")
+        print ("configureView wordList.count = \(String(RealmManager.sharedInstance.findAllWordsCount()))")
         
         let grpName:String = (self.paramData?.nmJp)!
         self.title = "単語リスト (\(grpName))"
@@ -164,7 +164,7 @@ class WordTableViewController: UITableViewController {
     
     
     func findWordData(row: Int) -> WordDbData {
-        let wordData = CustomRealmUtil.sharedInstance.findWordDataFromIndex(index: row)
+        let wordData = RealmManager.sharedInstance.findWordDataFromIndex(index: row)
         return wordData!
     }
     
@@ -188,7 +188,7 @@ class WordTableViewController: UITableViewController {
             let cell = sender as! WordDataTableViewCell
             
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.detailWordItem = CustomRealmUtil.sharedInstance.findWordDataFromWordId(id: cell.wordId)
+            controller.detailWordItem = RealmManager.sharedInstance.findWordDataFromWordId(id: cell.wordId)
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
             

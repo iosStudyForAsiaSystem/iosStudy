@@ -1,5 +1,5 @@
 //
-//  CustomRealmDef.swift
+//  RealmManager.swift
 //  NoteSomething
 //
 //  Created by snowman on 2017/03/06.
@@ -11,9 +11,9 @@ import RealmSwift
 
 
 
-class CustomRealmUtil: NSObject {
+class RealmManager: NSObject {
     
-    static let sharedInstance = CustomRealmUtil()
+    static let sharedInstance = RealmManager()
     
     
     let dataRealm = try! Realm()

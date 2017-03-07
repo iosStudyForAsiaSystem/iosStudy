@@ -82,6 +82,15 @@ class CustomUtil: NSObject {
        
     }
     
+    func saveGroupData () {
+        
+        let userDefaults = UserDefaults.standard
+        for keyString:String in groupDic.keys {
+            userDefaults.setValue(groupDic[keyString], forKey: keyString)
+        }
+        userDefaults.synchronize()
+    }
+    
 }
 
 

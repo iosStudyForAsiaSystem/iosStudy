@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */; };
-		0335DC151E6D541B00763FDA /* CustomRealmDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC141E6D541B00763FDA /* CustomRealmDef.swift */; };
+		0335DC151E6D541B00763FDA /* RealmManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC141E6D541B00763FDA /* RealmManger.swift */; };
 		0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC191E6D5BFC00763FDA /* CustomConst.swift */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
@@ -60,7 +60,7 @@
 
 /* Begin PBXFileReference section */
 		0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
-		0335DC141E6D541B00763FDA /* CustomRealmDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRealmDef.swift; sourceTree = "<group>"; };
+		0335DC141E6D541B00763FDA /* RealmManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManger.swift; sourceTree = "<group>"; };
 		0335DC191E6D5BFC00763FDA /* CustomConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomConst.swift; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				03F5CB871E6935F6009B29FA /* CustomDataDef.swift */,
-				0335DC141E6D541B00763FDA /* CustomRealmDef.swift */,
+				0335DC141E6D541B00763FDA /* RealmManger.swift */,
 				0335DC191E6D5BFC00763FDA /* CustomConst.swift */,
 			);
 			name = data;
@@ -351,7 +351,7 @@
 				0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */,
 				03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */,
 				03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */,
-				0335DC151E6D541B00763FDA /* CustomRealmDef.swift in Sources */,
+				0335DC151E6D541B00763FDA /* RealmManger.swift in Sources */,
 				03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */,
 				0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */,
 				03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */,
