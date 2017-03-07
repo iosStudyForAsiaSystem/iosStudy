@@ -155,7 +155,7 @@ class WordTableViewController: UITableViewController {
         print ("configureView groupdata.id = \(self.paramData?.id)")
         print ("configureView wordList.count = \(String(RealmManager.sharedInstance.findAllWordsCount()))")
         
-        let grpName:String = (self.paramData?.nmJp)!
+        let grpName:String = (self.paramData?.nmJp) ?? "Default"
         self.title = "単語リスト (\(grpName))"
         
         self.tableView.reloadData()
