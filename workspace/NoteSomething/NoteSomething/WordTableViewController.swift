@@ -11,13 +11,22 @@ import UIKit
 class WordTableViewController: UITableViewController {
 
     
-    var paramData: GroupData? {
+    var wordIdList:[String] = []
+    
+    var parentId :String? {
         didSet {
-            // Update the view.
-            self.configureView()
+            self.wordIdList = CustomRealmUtil.sharedInstance.findWordsCountWithSameGroup(parentId: parentId!)
         }
     }
     
+    var paramData: GroupDbData? {
+
+        didSet {
+            self.parentId = self.paramData?.id
+            // Update the view.
+            //self.configureView()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +44,7 @@ class WordTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        // ビュー更新
         self.configureView()
     }
 
@@ -53,7 +62,11 @@ class WordTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return CustomUtil.sharedInstance.wordList.count
+        if self.hasParentId() {
+            return self.wordIdList.count
+        } else {
+            return CustomRealmUtil.sharedInstance.findAllWordsCount()
+        }
     }
 
     
@@ -62,8 +75,13 @@ class WordTableViewController: UITableViewController {
 
         // Configure the cell...
 
-        
-        cell.dispCell(wordData: self.findWordData(row: indexPath.row))
+        if self.hasParentId() {
+            let targetWordId = wordIdList[(wordIdList.count-1) - indexPath.row]
+            cell.dispCell(wordData:CustomRealmUtil.sharedInstance.findWordDataFromWordId(id: targetWordId)!)
+        } else {
+            let maxCount = CustomRealmUtil.sharedInstance.findAllWordsCount()-1
+            cell.dispCell(wordData: self.findWordData(row: maxCount - indexPath.row))
+        }
         
         return cell
     }
@@ -119,30 +137,45 @@ class WordTableViewController: UITableViewController {
     
     func insertWordObject(_ sender: Any) {
         
-        CustomUtil.sharedInstance.makeAndInsertDummyWordData()
+        if self.hasParentId() {
+           let wordId =   CustomRealmUtil.sharedInstance.makeAndInsertDummyWordData(parentId: self.parentId!)
+           self.wordIdList.append(wordId)
+        } else {
+            CustomRealmUtil.sharedInstance.makeAndInsertDummyWordData()
+        }
         
-        //objects.insert(NSDate(), at: 0)
-        //let indexPath = IndexPath(row: 0, section: 0)
-        //self.tableView.insertRows(at: [indexPath], with: .automatic)
-        self.tableView.reloadData()
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.tableView.insertRows(at: [indexPath], with: .automatic)
+        //self.tableView.reloadData()
     }
     
+    // ビュー更新
     func configureView() {
         
         print ("configureView groupdata.id = \(self.paramData?.id)")
-        print ("configureView wordList.count = \(String(CustomUtil.sharedInstance.wordList.count))")
+        print ("configureView wordList.count = \(String(CustomRealmUtil.sharedInstance.findAllWordsCount()))")
         
         let grpName:String = (self.paramData?.nmJp)!
-        self.title = "単語リスト (\(grpName) + )"
+        self.title = "単語リスト (\(grpName))"
         
         self.tableView.reloadData()
         
     }
     
     
-    func findWordData(row: Int) -> WordData {
-        let wordId = CustomUtil.sharedInstance.wordList[row]
-        return CustomUtil.sharedInstance.findWordDataFromWordId(id: wordId)!
+    func findWordData(row: Int) -> WordDbData {
+        let wordData = CustomRealmUtil.sharedInstance.findWordDataFromIndex(index: row)
+        return wordData!
+    }
+    
+    //親グループIDが存在するかどうかチェック
+    func hasParentId() -> Bool {
+        print("hasParentId \(self.parentId ?? "")")
+        
+        if self.parentId != nil {
+            return true
+        }
+        return false
     }
     
     // MARK: - Segues
@@ -155,7 +188,7 @@ class WordTableViewController: UITableViewController {
             let cell = sender as! WordDataTableViewCell
             
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.detailItem = CustomUtil.sharedInstance.findWordDataFromWordId(id: cell.wordId)
+            controller.detailWordItem = CustomRealmUtil.sharedInstance.findWordDataFromWordId(id: cell.wordId)
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
             

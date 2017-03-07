@@ -91,7 +91,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="GroupDataTableViewCell" id="grd-dc-lj3" customClass="GroupDataTableViewCell" customModule="NoteSomething" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="GroupDataTableViewCell" id="grd-dc-lj3" customClass="GroupDataTableViewCell" customModule="NoteSomething" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="grd-dc-lj3" id="YAu-em-vns">
@@ -100,7 +100,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frg-MM-CZU" userLabel="ListButton">
                                             <rect key="frame" x="10" y="5" width="50" height="32"/>
-                                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="Bov-BD-3dU"/>
                                                 <constraint firstAttribute="width" constant="50" id="v4b-q9-Fne"/>
@@ -193,12 +193,13 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFt-71-iZq" userLabel="ListButton">
                                             <rect key="frame" x="248" y="5" width="50" height="32"/>
-                                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="Oxg-rh-0u4"/>
                                                 <constraint firstAttribute="height" constant="32" id="wdy-TR-oJI"/>
                                             </constraints>
-                                            <state key="normal" title="List">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <state key="normal" title="Images">
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                         </button>
@@ -251,6 +252,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="R4S-Td-aE2"/>
+        <segue reference="cNv-mh-1Nm"/>
     </inferredMetricsTieBreakers>
 </document>

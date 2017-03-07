@@ -24,6 +24,8 @@ class GroupDataTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderWidth = 0.5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,7 +34,7 @@ class GroupDataTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func dispCell (grpData:GroupData)  {
+    func dispCell (grpData:GroupDbData)  {
         if grpData.hasImage() {
             groupImgView.image = UIImage(named: grpData.imageNm)
         }
@@ -56,6 +58,9 @@ class WordDataTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderWidth = 0.5
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -64,7 +69,7 @@ class WordDataTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func dispCell (wordData:WordData)  {
+    func dispCell (wordData:WordDbData)  {
         if wordData.hasImage() {
             wordImgView.image = UIImage(named: wordData.imageNm)
         }

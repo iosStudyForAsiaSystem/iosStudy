@@ -50,7 +50,7 @@ class MasterViewController: UITableViewController {
             //let object = objects[indexPath.row] as! NSDate
             
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.detailItem = CustomUtil.sharedInstance.findGroupDataFromGroupId(id: cell.groupId)!
+            controller.detailItem = CustomRealmUtil.sharedInstance.findGroupDataFromGroupId(id: cell.groupId)!
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
             
@@ -63,7 +63,7 @@ class MasterViewController: UITableViewController {
 //                controller.paramData = self.findGroupData(row: indexPath.row)
 //            } else {
                 let groupId:String = String((sender as! UIButton).tag)
-                controller.paramData = CustomUtil.sharedInstance.findGroupDataFromGroupId(id:groupId)!
+                controller.paramData = CustomRealmUtil.sharedInstance.findGroupDataFromGroupId(id:groupId)!
 //            }
                 controller.navigationItem.leftItemsSupplementBackButton = true
 //            }
@@ -78,7 +78,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CustomUtil.sharedInstance.groupList.count //objects.count
+        return CustomRealmUtil.sharedInstance.findAllGroupsCount() //objects.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,7 +87,8 @@ class MasterViewController: UITableViewController {
 //        let object = objects[indexPath.row] as! NSDate
 //        cell.textLabel!.text = object.description
         
-        cell.dispCell(grpData: self.findGroupData(row: indexPath.row))
+        let maxCount:Int = CustomRealmUtil.sharedInstance.findAllGroupsCount()-1
+        cell.dispCell(grpData: self.findGroupData(row: maxCount - indexPath.row))
         
         return cell
     }
@@ -123,23 +124,24 @@ class MasterViewController: UITableViewController {
 
     // MARK: - Custom method
     
-    func findGroupData(row:Int) -> GroupData {
+    func findGroupData(row:Int) -> GroupDbData {
         
-       return CustomUtil.sharedInstance.findGroupDataFromIndex(index: row)!
+       return CustomRealmUtil.sharedInstance.findGroupDataFromIndex(index: row)!
     }
     
     func showWordListVc(groupId:String)  {
         
-        let groupData :GroupData = CustomUtil.sharedInstance.findGroupDataFromGroupId(id: groupId)!
+        let groupData :GroupDbData = CustomRealmUtil.sharedInstance.findGroupDataFromGroupId(id: groupId)!
         
         self.performSegue(withIdentifier: "showWordList", sender: groupData)
     }
     
     func insertGroupObject(_ sender: Any) {
         
-        CustomUtil.sharedInstance.makeAndInsertDummyGroupData()
+        CustomRealmUtil.sharedInstance.makeAndInsertDummyGroupData()
         //objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
+        //let index:Int = CustomRealmUtil.sharedInstance.findAllGroupsCount()-1
+        let indexPath = IndexPath(row: 0 , section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
 

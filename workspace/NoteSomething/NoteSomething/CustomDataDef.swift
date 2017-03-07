@@ -22,6 +22,17 @@ class CustomUtil: NSObject {
     var wordDic:[String:WordData] = [:]
     
     
+    
+    func findAllGroupsCount() -> Int {
+        
+        return groupList.count
+    }
+    
+    func findAllWordsCount () -> Int {
+        
+        return wordList.count
+        
+    }
     func makeAndInsertDummyGroupData() {
         let grpData:GroupData = GroupData()
         groupList.append(grpData.id)
