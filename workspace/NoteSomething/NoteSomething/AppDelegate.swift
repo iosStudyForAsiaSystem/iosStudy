@@ -17,28 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if RealmManager.sharedInstance.findAllGroupsCount() == 0 {
-            
-            //グループ情報がないため、単語リスト画面を表示
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            
-            let wordTableVC: WordTableViewController = mainStoryboard.instantiateViewController(withIdentifier: "WordTableVC") as! WordTableViewController
-            let navigationController:UINavigationController = UINavigationController.init(rootViewController: wordTableVC)
-            
-            self.window?.rootViewController = navigationController
-            self.window?.makeKeyAndVisible()
-            
-            return true
-        }
-        
-        //let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let splitViewController:UISplitViewController  = mainStoryboard.instantiateViewController(withIdentifier: "SplitVC") as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
-        
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        if RealmManager.sharedInstance.findAllGroupsCount() == 0 {
+//            
+//            //グループ情報がないため、単語リスト画面を表示
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//            
+//            let wordTableVC: WordTableViewController = mainStoryboard.instantiateViewController(withIdentifier: "WordTableVC") as! WordTableViewController
+//            let navigationController:UINavigationController = UINavigationController.init(rootViewController: wordTableVC)
+//            
+//            self.window?.rootViewController = navigationController
+//            self.window?.makeKeyAndVisible()
+//            
+//            return true
+//        }
+//        
+//        //let splitViewController = self.window!.rootViewController as! UISplitViewController
+//        let splitViewController:UISplitViewController  = mainStoryboard.instantiateViewController(withIdentifier: "SplitVC") as! UISplitViewController
+//        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+//        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+//        splitViewController.delegate = self
+//        
         return true
     }
 

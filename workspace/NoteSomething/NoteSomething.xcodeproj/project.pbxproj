@@ -10,6 +10,12 @@
 		0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */; };
 		0335DC151E6D541B00763FDA /* RealmManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC141E6D541B00763FDA /* RealmManger.swift */; };
 		0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC191E6D5BFC00763FDA /* CustomConst.swift */; };
+		0335DC3F1E6E9D1E00763FDA /* DataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC3E1E6E9D1E00763FDA /* DataInputViewController.swift */; };
+		0335DC411E6EA48100763FDA /* SubDataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC401E6EA48100763FDA /* SubDataInputViewController.swift */; };
+		0335DC431E6EB0C100763FDA /* RegistFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC421E6EB0C100763FDA /* RegistFinishViewController.swift */; };
+		0335DC451E6F888400763FDA /* DataConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC441E6F888400763FDA /* DataConfirmViewController.swift */; };
+		0335DC471E6F895800763FDA /* InputDataStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0335DC461E6F895800763FDA /* InputDataStoryboard.storyboard */; };
+		033EF27A1E6FA03300973595 /* Util in Resources */ = {isa = PBXBuildFile; fileRef = 033EF2791E6FA03300973595 /* Util */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
 		03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB511E6927CC009B29FA /* DetailViewController.swift */; };
@@ -62,6 +68,12 @@
 		0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
 		0335DC141E6D541B00763FDA /* RealmManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManger.swift; sourceTree = "<group>"; };
 		0335DC191E6D5BFC00763FDA /* CustomConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomConst.swift; sourceTree = "<group>"; };
+		0335DC3E1E6E9D1E00763FDA /* DataInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataInputViewController.swift; sourceTree = "<group>"; };
+		0335DC401E6EA48100763FDA /* SubDataInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubDataInputViewController.swift; sourceTree = "<group>"; };
+		0335DC421E6EB0C100763FDA /* RegistFinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistFinishViewController.swift; sourceTree = "<group>"; };
+		0335DC441E6F888400763FDA /* DataConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConfirmViewController.swift; sourceTree = "<group>"; };
+		0335DC461E6F895800763FDA /* InputDataStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InputDataStoryboard.storyboard; sourceTree = "<group>"; };
+		033EF2791E6FA03300973595 /* Util */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Util; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +138,7 @@
 				03F5CB561E6927CC009B29FA /* Assets.xcassets */,
 				03F5CB581E6927CC009B29FA /* LaunchScreen.storyboard */,
 				03F5CB5B1E6927CC009B29FA /* Info.plist */,
+				0335DC461E6F895800763FDA /* InputDataStoryboard.storyboard */,
 			);
 			name = resource;
 			sourceTree = "<group>";
@@ -138,6 +151,10 @@
 				0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */,
 				03F5CB511E6927CC009B29FA /* DetailViewController.swift */,
 				03F5CB851E693411009B29FA /* DataTableViewCell.swift */,
+				0335DC3E1E6E9D1E00763FDA /* DataInputViewController.swift */,
+				0335DC401E6EA48100763FDA /* SubDataInputViewController.swift */,
+				0335DC441E6F888400763FDA /* DataConfirmViewController.swift */,
+				0335DC421E6EB0C100763FDA /* RegistFinishViewController.swift */,
 			);
 			name = source;
 			sourceTree = "<group>";
@@ -167,6 +184,7 @@
 		03F5CB4C1E6927CC009B29FA /* NoteSomething */ = {
 			isa = PBXGroup;
 			children = (
+				033EF2791E6FA03300973595 /* Util */,
 				0335DC181E6D545400763FDA /* source */,
 				0335DC171E6D543E00763FDA /* resource */,
 				0335DC161E6D542A00763FDA /* data */,
@@ -304,9 +322,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0335DC471E6F895800763FDA /* InputDataStoryboard.storyboard in Resources */,
 				03F5CB5A1E6927CC009B29FA /* LaunchScreen.storyboard in Resources */,
 				03F5CB571E6927CC009B29FA /* Assets.xcassets in Resources */,
 				03F5CB551E6927CC009B29FA /* Main.storyboard in Resources */,
+				033EF27A1E6FA03300973595 /* Util in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,9 +370,13 @@
 				03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */,
 				0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */,
 				03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */,
+				0335DC3F1E6E9D1E00763FDA /* DataInputViewController.swift in Sources */,
+				0335DC411E6EA48100763FDA /* SubDataInputViewController.swift in Sources */,
+				0335DC451E6F888400763FDA /* DataConfirmViewController.swift in Sources */,
 				03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */,
 				0335DC151E6D541B00763FDA /* RealmManger.swift in Sources */,
 				03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */,
+				0335DC431E6EB0C100763FDA /* RegistFinishViewController.swift in Sources */,
 				0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */,
 				03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */,
 			);
