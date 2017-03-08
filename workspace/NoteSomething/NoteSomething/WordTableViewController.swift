@@ -189,7 +189,6 @@ class WordTableViewController: UITableViewController {
             
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
             controller.detailWordItem = RealmManager.sharedInstance.findWordDataFromWordId(id: cell.wordId)
-            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
             
             
