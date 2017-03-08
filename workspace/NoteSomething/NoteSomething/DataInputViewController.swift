@@ -8,12 +8,24 @@
 
 import UIKit
 
+
+
 class DataInputViewController: UIViewController {
 
+    @IBOutlet weak var menuSegCtrl: UISegmentedControl!
+    
+    let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputDataStoryboard", bundle: nil)
+    
+    var subDataInputVC: SubDataInputViewController?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.subDataInputVC = self.inputDataStoryboard.instantiateViewController(withIdentifier: "SubDataInputVC") as? SubDataInputViewController
+
+   
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +44,9 @@ class DataInputViewController: UIViewController {
     }
     */
     
+    // MARK : - Button Action
+    
+
     @IBAction func onClickCancelBtn(_ sender: UIButton) {
         
         self.navigationController?.dismiss(animated: true) {
@@ -39,6 +54,7 @@ class DataInputViewController: UIViewController {
         }
     }
     
+ 
     
 
 }

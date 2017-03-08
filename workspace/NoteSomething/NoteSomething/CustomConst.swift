@@ -15,3 +15,10 @@ enum DataType {
     case ImageType
     case NoneType
 }
+
+enum MenuSegment:Int
+{
+    case groupSegMenu = 0
+    case wordSegMenu = 1
+    case imageSegMenu = 2
+}
