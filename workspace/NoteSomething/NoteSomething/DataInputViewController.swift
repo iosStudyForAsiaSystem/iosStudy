@@ -14,7 +14,7 @@ class DataInputViewController: UIViewController {
 
     @IBOutlet weak var menuSegCtrl: UISegmentedControl!
     
-    let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputDataStoryboard", bundle: nil)
+    let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
     
     var subDataInputVC: SubDataInputViewController?
 
