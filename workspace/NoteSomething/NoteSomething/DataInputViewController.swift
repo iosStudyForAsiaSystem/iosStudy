@@ -12,18 +12,31 @@ import UIKit
 
 class DataInputViewController: UIViewController {
 
-    @IBOutlet weak var menuSegCtrl: UISegmentedControl!
+    //@IBOutlet weak var menuSegCtrl: UISegmentedControl!
     
-    let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
-    
-    var subDataInputVC: SubDataInputViewController?
+    //let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
 
+    var parentType:DataType = .NoneType
+    //グループID
+    var parentId:String? {
+        didSet{
+            //print("parentId didSet :\(oldId) -> \(parentId)")
+            self.showParentName(self.parentId!)
+            
+        }
+  
+    }
+    //親情報表示欄
+    @IBOutlet weak var parentInfoL: UILabel!
+    
+    @IBOutlet weak var topConstraintForContainerView: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.showParentName("")
+
         // Do any additional setup after loading the view.
-        self.subDataInputVC = self.inputDataStoryboard.instantiateViewController(withIdentifier: "SubDataInputVC") as? SubDataInputViewController
 
    
     }
@@ -55,6 +68,40 @@ class DataInputViewController: UIViewController {
     }
     
  
+    //親情報を表示
+    func showParentName (_ parentId:String) {
+        
+        print("showParentName param: \(parentId)" )
+        
+        if self.parentId == nil || parentId == "" {
+            self.topConstraintForContainerView.constant =  2
+        } else {
+            self.topConstraintForContainerView.constant = 53
+        }
+        
+        var parentNm = ""
+        switch self.parentType {
+        case .GroupType:
+        
+                parentNm = (RealmManager.sharedInstance.findGroupDataFromGroupId(id: parentId)?.id)!
+                self.parentInfoL.text = "親グループ:\(parentNm)"
+                break
+            
+        case .WordType:
+            
+                parentNm = (RealmManager.sharedInstance.findWordDataFromWordId(id: parentId)?.id)!
+                self.parentInfoL.text = "親単語:\(parentNm)"
+            break
+        default:
+            self.parentInfoL.text = ""
+            break;
+        }
+        
+        print("showParentName parentNm: \(parentNm)" )
+        
+
+
+    }
     
 
 }

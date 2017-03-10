@@ -19,13 +19,17 @@ class MasterViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         //self.navigationItem.leftBarButtonItem = self.editButtonItem
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertGroupObject(_:)))
+        //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertGroupObject(_:)))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentDataInputVC))
         self.navigationItem.rightBarButtonItem = addButton
         
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //画面更新
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -130,6 +134,7 @@ class MasterViewController: UITableViewController {
         self.performSegue(withIdentifier: "showWordList", sender: groupData)
     }
     
+    //ダミのグループ情報を生成及び表示
     func insertGroupObject(_ sender: Any) {
         
         RealmManager.sharedInstance.makeAndInsertDummyGroupData()
@@ -137,6 +142,30 @@ class MasterViewController: UITableViewController {
         //let index:Int = RealmManager.sharedInstance.findAllGroupsCount()-1
         let indexPath = IndexPath(row: 0 , section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+    
+    //データ入力画面遷移
+
+
+    func presentDataInputVC () {
+        self.presentDataInputVC("")
+    }
+        
+    func presentDataInputVC (_ groupId: String? = "" ) {
+        
+        let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
+
+
+        let dataInputVC: DataInputViewController = inputDataStoryboard.instantiateViewController(withIdentifier: "DataInputVC") as! DataInputViewController
+        
+        let navigationController:UINavigationController = UINavigationController.init(rootViewController: dataInputVC)
+        
+        self.present(navigationController, animated: true) { 
+            //
+            if groupId != nil || groupId != "" {
+                dataInputVC.parentId = groupId
+            }
+        }
     }
 
 }
