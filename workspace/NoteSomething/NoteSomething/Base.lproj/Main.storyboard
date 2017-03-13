@@ -27,25 +27,6 @@
             </objects>
             <point key="canvasLocation" x="-2426" y="-595"/>
         </scene>
-        <!--単語リスト-->
-        <scene sceneID="kmE-QN-lzI">
-            <objects>
-                <viewController id="xf4-q1-73o" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KXn-gN-s0m"/>
-                        <viewControllerLayoutGuide type="bottom" id="VMt-IC-ZqQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="a6n-j8-aLe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="単語リスト" id="9eb-Ax-IBP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tBd-2l-ug0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2278" y="-1396"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Tvy-wT-yAu">
             <objects>
@@ -57,12 +38,11 @@
                     </tabBar>
                     <connections>
                         <segue destination="RMx-3f-FxP" kind="relationship" relationship="viewControllers" id="CN3-MV-xh1"/>
-                        <segue destination="Sje-ZY-VFv" kind="relationship" relationship="viewControllers" id="4Dk-Gk-zw4"/>
-                        <segue destination="l3B-da-rwJ" kind="relationship" relationship="viewControllers" id="rDJ-L0-ZHs"/>
-                        <segue destination="LdX-ju-k7K" kind="relationship" relationship="viewControllers" id="uCg-n8-inB"/>
+                        <segue destination="R1q-c3-PU5" kind="relationship" relationship="viewControllers" id="V8i-5u-tFC"/>
                         <segue destination="5ng-im-qWc" kind="relationship" relationship="viewControllers" id="6Cg-bY-1uW"/>
-                        <segue destination="xf4-q1-73o" kind="relationship" relationship="viewControllers" id="uwG-fO-Nhw"/>
-                        <segue destination="Fcc-Av-uO2" kind="relationship" relationship="viewControllers" id="uUg-PI-l2s"/>
+                        <segue destination="Sje-ZY-VFv" kind="relationship" relationship="viewControllers" id="4Dk-Gk-zw4"/>
+                        <segue destination="l3B-da-rwJ" kind="relationship" relationship="viewControllers" id="sas-Cj-DMl"/>
+                        <segue destination="LdX-ju-k7K" kind="relationship" relationship="viewControllers" id="vvz-Qc-8EU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3C-nn-PQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,6 +52,7 @@
         <!--スケージュラ-->
         <scene sceneID="YI1-rM-Pvi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9wB-bA-02E" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="LdX-ju-k7K" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S1t-XA-yGx"/>
@@ -84,13 +65,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="スケージュラ" id="pNg-FL-AEV"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9wB-bA-02E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1836" y="129"/>
         </scene>
         <!--カレンダー-->
         <scene sceneID="tVv-yE-rRK">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbY-OU-Lp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="l3B-da-rwJ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ucs-WR-WM5"/>
@@ -103,28 +84,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="カレンダー" id="lGp-ts-oyq"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lbY-OU-Lp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-823" y="-275"/>
-        </scene>
-        <!--イメージリスト-->
-        <scene sceneID="6Pc-xD-Imx">
-            <objects>
-                <viewController id="Fcc-Av-uO2" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QkS-Jr-DB3"/>
-                        <viewControllerLayoutGuide type="bottom" id="FKa-0a-ZAf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8Fj-2B-Tke">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="イメージリスト" id="11t-xj-ynB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3TZ-td-L0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1331" y="-1539"/>
         </scene>
         <!--カメラ-->
         <scene sceneID="kWI-xh-kLI">
@@ -143,12 +104,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQX-qO-gxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-683" y="-1013"/>
+            <point key="canvasLocation" x="-141" y="-1604"/>
         </scene>
-        <!--Master-->
+        <!--GroupList-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController title="GroupList" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="グループリスト" id="aQa-fW-PZd"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -182,7 +143,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aui-nf-1yn">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aui-nf-1yn">
                                 <rect key="frame" x="122.5" y="380" width="76" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="閉じる"/>
@@ -346,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="1447.5" y="128.75"/>
         </scene>
-        <!--Master-->
+        <!--グループリスト-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,7 +325,7 @@
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="grd-dc-lj3" id="YAu-em-vns">
-                                    <rect key="frame" x="0.0" y="0.0" width="253" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frg-MM-CZU" userLabel="ListButton">
@@ -378,7 +339,7 @@
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="Eft-sO-DhG" kind="show" identifier="showWordList" id="TbY-c9-b0H"/>
+                                                <segue destination="R1q-c3-PU5" kind="custom" identifier="showWordList" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="vM4-8Y-sl4"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECG-LJ-aHf">
@@ -410,7 +371,7 @@
                                     <outlet property="groupImgView" destination="ECG-LJ-aHf" id="3nd-ja-cF6"/>
                                     <outlet property="groupNameL" destination="6oV-Q0-hHM" id="DdI-iG-nqv"/>
                                     <outlet property="showWordListBtn" destination="frg-MM-CZU" id="6bK-y0-8iu"/>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" trigger="accessoryAction" id="cNv-mh-1Nm"/>
+                                    <segue destination="vC3-pB-5Vb" kind="custom" identifier="showDetail" trigger="accessoryAction" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="cNv-mh-1Nm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -429,7 +390,7 @@
         <!--単語リスト-->
         <scene sceneID="jyf-cS-GFb">
             <objects>
-                <tableViewController storyboardIdentifier="WordTableVC" id="Eft-sO-DhG" customClass="WordTableViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="WordTableVC" clearsSelectionOnViewWillAppear="NO" id="Eft-sO-DhG" customClass="WordTableViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qzk-rV-Igx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,7 +405,7 @@
                                 <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PjA-fT-toU" id="Hwn-a0-DSf">
-                                    <rect key="frame" x="0.0" y="0.0" width="253" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJC-Bz-S2O">
@@ -488,7 +449,7 @@
                                     <outlet property="showImageListBtn" destination="iFt-71-iZq" id="fXB-IS-LhQ"/>
                                     <outlet property="wordImgView" destination="vJC-Bz-S2O" id="SPm-rS-QKc"/>
                                     <outlet property="wordNameL" destination="vH5-tU-jBa" id="xIs-wd-fs6"/>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showWordDetail" trigger="accessoryAction" id="R4S-Td-aE2"/>
+                                    <segue destination="vC3-pB-5Vb" kind="custom" identifier="showWordDetail" trigger="accessoryAction" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="R4S-Td-aE2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -501,15 +462,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUg-j4-cuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976.25" y="-630.63380281690138"/>
+            <point key="canvasLocation" x="1972.5" y="-1463.75"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--DetailVc-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
+                <navigationController title="DetailVc" id="vC3-pB-5Vb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="JEX-9P-axG" kind="relationship" relationship="rootViewController" id="GKi-kA-LjT"/>
@@ -519,8 +481,29 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
+        <!--WordList-->
+        <scene sceneID="rUx-MZ-4Ev">
+            <objects>
+                <navigationController title="WordList" id="R1q-c3-PU5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="単語リスト" id="nf6-tg-nAp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6k-Cq-QXe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Eft-sO-DhG" kind="relationship" relationship="rootViewController" id="AGp-ze-rVn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZRH-io-O26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="975" y="-1463.75"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="R4S-Td-aE2"/>
+        <segue reference="cNv-mh-1Nm"/>
+        <segue reference="vM4-8Y-sl4"/>
     </inferredMetricsTieBreakers>
 </document>

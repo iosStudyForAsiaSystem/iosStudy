@@ -18,6 +18,7 @@
 		033E700B1E765D4000C661D0 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */; };
 		033E700D1E76725E00C661D0 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */; };
 		033EF27A1E6FA03300973595 /* Util in Resources */ = {isa = PBXBuildFile; fileRef = 033EF2791E6FA03300973595 /* Util */; };
+		03C2370D1E76B78A005A7DDA /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2370C1E76B78A005A7DDA /* CustomSegue.swift */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
 		03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB511E6927CC009B29FA /* DetailViewController.swift */; };
@@ -78,6 +79,7 @@
 		033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		033EF2791E6FA03300973595 /* Util */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Util; sourceTree = "<group>"; };
+		03C2370C1E76B78A005A7DDA /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSegue.swift; path = NoteSomething/CustomSegue.swift; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		03F5CB411E6927CC009B29FA = {
 			isa = PBXGroup;
 			children = (
+				03C2370C1E76B78A005A7DDA /* CustomSegue.swift */,
 				03F5CB7D1E692992009B29FA /* Realm.framework */,
 				03F5CB7E1E692992009B29FA /* RealmSwift.framework */,
 				03F5CB4C1E6927CC009B29FA /* NoteSomething */,
@@ -386,6 +389,7 @@
 				03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */,
 				0335DC431E6EB0C100763FDA /* RegistFinishViewController.swift in Sources */,
 				0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */,
+				03C2370D1E76B78A005A7DDA /* CustomSegue.swift in Sources */,
 				03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

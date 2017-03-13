@@ -44,6 +44,8 @@ class MasterViewController: UITableViewController {
         
         if segue.identifier == "showDetail" {
             
+            print("segue.identifier == showDetail")
+            
             let cell = sender as! GroupDataTableViewCell
 
             //let object = objects[indexPath.row] as! NSDate
@@ -55,16 +57,17 @@ class MasterViewController: UITableViewController {
             
         } else if segue.identifier == "showWordList" {
             
-            let controller = segue.destination as!  WordTableViewController
-//            if let indexPath = self.tableView.indexPathForSelectedRow
-//            {
-//                controller.paramData = self.findGroupData(row: indexPath.row)
-//            } else {
-                let groupId:String = String((sender as! UIButton).tag)
-                controller.paramData = RealmManager.sharedInstance.findGroupDataFromGroupId(id:groupId)!
-//            }
-                controller.navigationItem.leftItemsSupplementBackButton = true
-//            }
+            print("segue.identifier == showWordList")
+            //let controller = segue.destination as!  WordTableViewController
+            let controller = (segue.destination as! UINavigationController).topViewController as! WordTableViewController
+
+            let groupId:String = String((sender as! UIButton).tag)
+            controller.paramData = RealmManager.sharedInstance.findGroupDataFromGroupId(id:groupId)!
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            
+            //self.navigationController?.pushViewController(controller, animated: true)
+            
+
         }
         
     }
