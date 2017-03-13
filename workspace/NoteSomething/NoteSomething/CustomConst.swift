@@ -9,10 +9,11 @@
 import Foundation
 
 
-enum DataType {
-    case GroupType
+enum DataType:Int {
+    case GroupType = 0
     case WordType
     case ImageType
+    case AllType
     case NoneType
 }
 

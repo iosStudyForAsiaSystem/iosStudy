@@ -452,6 +452,7 @@
                         <outlet property="dataTitleL7" destination="3dQ-az-Yne" id="fij-gU-lR5"/>
                         <outlet property="listCountL" destination="ydq-iS-m71" id="3cX-ih-ZbX"/>
                         <outlet property="listTitleL" destination="2yL-id-kNs" id="FJB-5W-5iS"/>
+                        <outlet property="menuSegCtrl" destination="rRq-pU-cYr" id="7b0-Fg-Ds0"/>
                         <outlet property="showListBtn" destination="1Wx-oZ-Ec5" id="5Ir-Hf-pBX"/>
                     </connections>
                 </viewController>

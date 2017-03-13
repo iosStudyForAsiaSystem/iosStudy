@@ -16,12 +16,12 @@ class DataInputViewController: UIViewController {
     
     //let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
 
-    var parentType:DataType = .NoneType
+    var selectedType:DataType = .NoneType
     //グループID
-    var parentId:String? {
+    var parentId:(grp:String, word:String)? {
         didSet{
             //print("parentId didSet :\(oldId) -> \(parentId)")
-            self.showParentName(self.parentId!)
+            self.showParentName(self.parentId)
             
         }
   
@@ -34,7 +34,7 @@ class DataInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.showParentName("")
+        self.showParentName(("",""))
 
         // Do any additional setup after loading the view.
 
@@ -47,15 +47,24 @@ class DataInputViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    
+    // MARK: - segue
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "segueSubDataInputVc" {
+            
+            let subDataInputVc = segue.destination  as! SubDataInputViewController
+            // Pass data to secondViewController before the transition
+            
+            subDataInputVc.selectedType = self.selectedType
+            
+        }
     }
-    */
+ 
     
     // MARK : - Button Action
     
@@ -67,41 +76,51 @@ class DataInputViewController: UIViewController {
         }
     }
     
+    // MARK : - Custom
  
     //親情報を表示
-    func showParentName (_ parentId:String) {
+    func showParentName (_ parentId:(grp:String, word:String)? ) {
         
         print("showParentName param: \(parentId)" )
         
-        if self.parentId == nil || parentId == "" {
+        let checkNullParam = (parentId?.grp == "" &&  parentId?.word == "")
+        //let hasParam = (parentId?.grp != "" || parentId?.word == "")
+        
+        if self.parentId == nil ||  checkNullParam {
             self.topConstraintForContainerView.constant =  2
+            parentInfoL.isHidden = true
         } else {
             self.topConstraintForContainerView.constant = 53
+            parentInfoL.isHidden = false
+            self.displayParentName(parentId!)
         }
-        
-        var parentNm = ""
-        switch self.parentType {
-        case .GroupType:
-        
-                parentNm = (RealmManager.sharedInstance.findGroupDataFromGroupId(id: parentId)?.id)!
-                self.parentInfoL.text = "親グループ:\(parentNm)"
-                break
-            
-        case .WordType:
-            
-                parentNm = (RealmManager.sharedInstance.findWordDataFromWordId(id: parentId)?.id)!
-                self.parentInfoL.text = "親単語:\(parentNm)"
-            break
-        default:
-            self.parentInfoL.text = ""
-            break;
-        }
-        
-        print("showParentName parentNm: \(parentNm)" )
-        
-
-
+    
     }
+    func displayParentName (_ parentId:(grp:String, word:String)) {
+    
+        var parentNm :String?
+        self.parentInfoL.text = ""
+
+        if parentId.grp != "" {
+                parentNm = RealmManager.sharedInstance.findGroupDataFromGroupId(id: parentId.grp)?.nmJp
+                if parentNm == nil ||  parentNm == "" {
+                    parentNm = "未指定"
+                }
+                self.parentInfoL.text = "親グループ:" + parentNm!
+        } else if parentId.word != "" {
+            
+                parentNm = RealmManager.sharedInstance.findWordDataFromWordId(id: parentId.word)?.nmJp
+                if parentNm == nil ||  parentNm == "" {
+                    parentNm = "未指定"
+                }
+                self.parentInfoL.text = "親単語:" + parentNm!
+   
+        }
+        
+        print("displayParentName parentNm: \(parentNm)" )
+        
+    }
+
     
 
 }

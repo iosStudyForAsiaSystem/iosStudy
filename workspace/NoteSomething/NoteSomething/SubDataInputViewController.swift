@@ -38,11 +38,19 @@ class SubDataInputViewController: UIViewController {
     @IBOutlet weak var dataTitleL7: UILabel!
     @IBOutlet weak var dataInputText7: UITextField!
     
+    @IBOutlet weak var menuSegCtrl: UISegmentedControl!
+    
     var tmpGrpData:GroupDbData?
     var tmpWordData:WordDbData?
     var tmpImgData:ImageDbData?
     
     let dummyKeyString = "tmp"
+    
+    var selectedType:DataType = .NoneType {
+        didSet {
+            self.adjustSegmentControl()
+        }
+    }
     
     var selectedSegCtrlIndex:MenuSegment = .groupSegMenu {
         
@@ -63,8 +71,9 @@ class SubDataInputViewController: UIViewController {
         super.viewDidLoad()
 
         self.clearScreenInfo()
-        // Do any additional setup after loading the view.
+        
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -236,6 +245,26 @@ class SubDataInputViewController: UIViewController {
         self.dataInputText7.text = " "
         
         //self.handleShowListButtonPart(false)
+    }
+    
+    func adjustSegmentControl () {
+        
+        switch self.selectedType {
+        case .GroupType:
+            //選択
+            menuSegCtrl.selectedSegmentIndex = 0
+            break
+        case .WordType:
+            //選択
+            menuSegCtrl.selectedSegmentIndex = 1
+            
+            break
+        default:
+            menuSegCtrl.selectedSegmentIndex = UISegmentedControlNoSegment
+            break;
+        }
+        
+        // Do any additional setup after loading the view.
     }
 
     /*

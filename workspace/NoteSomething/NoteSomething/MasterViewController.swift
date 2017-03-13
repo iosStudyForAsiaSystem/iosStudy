@@ -20,7 +20,7 @@ class MasterViewController: UITableViewController {
         //self.navigationItem.leftBarButtonItem = self.editButtonItem
 
         //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertGroupObject(_:)))
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentDataInputVC))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentMenuVC))
         self.navigationItem.rightBarButtonItem = addButton
         
     }
@@ -144,27 +144,17 @@ class MasterViewController: UITableViewController {
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
-    //データ入力画面遷移
+    //メニュー選択画面遷移
+    func presentMenuVC () {
+        
+        let mainDataStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
 
-    func presentDataInputVC () {
-        self.presentDataInputVC("")
-    }
+        let menuCollectionVC: MenuCollectionViewController = mainDataStoryboard.instantiateViewController(withIdentifier: "MenuCollectionVC") as! MenuCollectionViewController
         
-    func presentDataInputVC (_ groupId: String? = "" ) {
         
-        let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
+        self.present(menuCollectionVC, animated: true) {
 
-
-        let dataInputVC: DataInputViewController = inputDataStoryboard.instantiateViewController(withIdentifier: "DataInputVC") as! DataInputViewController
-        
-        let navigationController:UINavigationController = UINavigationController.init(rootViewController: dataInputVC)
-        
-        self.present(navigationController, animated: true) { 
-            //
-            if groupId != nil || groupId != "" {
-                dataInputVC.parentId = groupId
-            }
         }
     }
 
