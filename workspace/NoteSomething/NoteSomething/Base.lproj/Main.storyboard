@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="設定" id="ygP-0a-xXi"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="setting_menu" id="ygP-0a-xXi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZwF-de-ioF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="スケージュラ" id="pNg-FL-AEV"/>
+                    <tabBarItem key="tabBarItem" title="スケージュラ" image="timer_menu" id="pNg-FL-AEV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wB-bA-02E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="カレンダー" id="lGp-ts-oyq"/>
+                    <tabBarItem key="tabBarItem" title="カレンダー" image="calendar_menu" id="lGp-ts-oyq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbY-OU-Lp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="イメージリスト" id="1tJ-i3-JO8"/>
+                    <tabBarItem key="tabBarItem" title="イメージリスト" image="sunny" id="1tJ-i3-JO8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQX-qO-gxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,7 +110,7 @@
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController title="GroupList" id="RMx-3f-FxP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="グループリスト" id="aQa-fW-PZd"/>
+                    <tabBarItem key="tabBarItem" title="グループリスト" image="grp_menu2" id="aQa-fW-PZd"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -485,7 +485,7 @@
         <scene sceneID="rUx-MZ-4Ev">
             <objects>
                 <navigationController title="WordList" id="R1q-c3-PU5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="単語リスト" id="nf6-tg-nAp"/>
+                    <tabBarItem key="tabBarItem" title="単語リスト" image="word_menu2" id="nf6-tg-nAp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6k-Cq-QXe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -502,6 +502,14 @@
             <point key="canvasLocation" x="975" y="-1463.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar_menu" width="24" height="24"/>
+        <image name="grp_menu2" width="24" height="24"/>
+        <image name="setting_menu" width="24" height="24"/>
+        <image name="sunny" width="24" height="24"/>
+        <image name="timer_menu" width="24" height="24"/>
+        <image name="word_menu2" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V8i-5u-tFC"/>
         <segue reference="cNv-mh-1Nm"/>
