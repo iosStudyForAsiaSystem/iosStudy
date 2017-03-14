@@ -91,6 +91,25 @@ class CustomUtil: NSObject {
         userDefaults.synchronize()
     }
     
+    
+    
+    // MARK: - Util
+    //===================
+    static func  checkKeyFieldEmpty(_ param:String?) ->String {
+        
+        guard let groupId = param, !groupId.isEmpty  else {
+            return "tmp"
+        }
+        return param!
+        
+    }
+    static func  checkFieldEmpty(_ param:String? ) -> String {
+        if let data = param, !data.isEmpty   {
+            return data
+        }
+        return ""
+    }
+    
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  RegistFinishViewController.swift
+//  InputCompleteViewController.swift
 //  NoteSomething
 //
 //  Created by snowman on 2017/03/07.
@@ -8,8 +8,12 @@
 
 import UIKit
 
-class RegistFinishViewController: UIViewController {
+class InputCompleteViewController: UIViewController {
 
+    //生成されたデータID, 名称,
+    var dataId :String?
+    var dataNm :String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

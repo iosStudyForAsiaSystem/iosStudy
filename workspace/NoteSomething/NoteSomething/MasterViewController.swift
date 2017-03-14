@@ -42,9 +42,9 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "showDetailSegue" {
             
-            print("segue.identifier == showDetail")
+            print("segue.identifier == showDetailSegue")
             
             let cell = sender as! GroupDataTableViewCell
 
@@ -55,9 +55,9 @@ class MasterViewController: UITableViewController {
             controller.navigationItem.leftItemsSupplementBackButton = true
             
             
-        } else if segue.identifier == "showWordList" {
+        } else if segue.identifier == "showWordListSegue" {
             
-            print("segue.identifier == showWordList")
+            print("segue.identifier == showWordListSegue")
             //let controller = segue.destination as!  WordTableViewController
             let controller = (segue.destination as! UINavigationController).topViewController as! WordTableViewController
 

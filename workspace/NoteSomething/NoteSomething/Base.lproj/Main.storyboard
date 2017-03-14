@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="-141" y="-1604"/>
         </scene>
-        <!--GroupList-->
+        <!--GroupListNav-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="GroupList" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController title="GroupListNav" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="グループリスト" image="grp_menu2" id="aQa-fW-PZd"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -339,7 +339,7 @@
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="R1q-c3-PU5" kind="custom" identifier="showWordList" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="vM4-8Y-sl4"/>
+                                                <segue destination="R1q-c3-PU5" kind="custom" identifier="showWordListSegue" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="vM4-8Y-sl4"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECG-LJ-aHf">
@@ -371,7 +371,7 @@
                                     <outlet property="groupImgView" destination="ECG-LJ-aHf" id="3nd-ja-cF6"/>
                                     <outlet property="groupNameL" destination="6oV-Q0-hHM" id="DdI-iG-nqv"/>
                                     <outlet property="showWordListBtn" destination="frg-MM-CZU" id="6bK-y0-8iu"/>
-                                    <segue destination="vC3-pB-5Vb" kind="custom" identifier="showDetail" trigger="accessoryAction" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="cNv-mh-1Nm"/>
+                                    <segue destination="vC3-pB-5Vb" kind="custom" identifier="showDetailSegue" trigger="accessoryAction" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="cNv-mh-1Nm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -449,7 +449,7 @@
                                     <outlet property="showImageListBtn" destination="iFt-71-iZq" id="fXB-IS-LhQ"/>
                                     <outlet property="wordImgView" destination="vJC-Bz-S2O" id="SPm-rS-QKc"/>
                                     <outlet property="wordNameL" destination="vH5-tU-jBa" id="xIs-wd-fs6"/>
-                                    <segue destination="vC3-pB-5Vb" kind="custom" identifier="showWordDetail" trigger="accessoryAction" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="R4S-Td-aE2"/>
+                                    <segue destination="vC3-pB-5Vb" kind="custom" identifier="showWordDetailSegue" trigger="accessoryAction" customClass="CustomSegue" customModule="NoteSomething" customModuleProvider="target" id="R4S-Td-aE2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -464,10 +464,10 @@
             </objects>
             <point key="canvasLocation" x="1972.5" y="-1463.75"/>
         </scene>
-        <!--DetailVc-->
+        <!--DetailNav-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController title="DetailVc" id="vC3-pB-5Vb" sceneMemberID="viewController">
+                <navigationController title="DetailNav" id="vC3-pB-5Vb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -481,10 +481,10 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
-        <!--WordList-->
+        <!--WordListNav-->
         <scene sceneID="rUx-MZ-4Ev">
             <objects>
-                <navigationController title="WordList" id="R1q-c3-PU5" sceneMemberID="viewController">
+                <navigationController title="WordListNav" id="R1q-c3-PU5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="単語リスト" image="word_menu2" id="nf6-tg-nAp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6k-Cq-QXe">
@@ -511,7 +511,7 @@
         <image name="word_menu2" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V8i-5u-tFC"/>
-        <segue reference="cNv-mh-1Nm"/>
+        <segue reference="vM4-8Y-sl4"/>
+        <segue reference="R4S-Td-aE2"/>
     </inferredMetricsTieBreakers>
 </document>

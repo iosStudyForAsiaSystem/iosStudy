@@ -77,7 +77,7 @@ class WordTableViewController: UITableViewController {
 
         if self.hasParentId() {
             let targetWordId = wordIdList[(wordIdList.count-1) - indexPath.row]
-            cell.dispCell(wordData:RealmManager.sharedInstance.findWordDataFromWordId(id: targetWordId)!)
+            cell.dispCell(wordData:RealmManager.sharedInstance.findWordDataFromWordId(targetWordId)!)
         } else {
             let maxCount = RealmManager.sharedInstance.findAllWordsCount()-1
             cell.dispCell(wordData: self.findWordData(row: maxCount - indexPath.row))
@@ -138,7 +138,7 @@ class WordTableViewController: UITableViewController {
     func insertWordObject(_ sender: Any) {
         
         if self.hasParentId() {
-           let wordId =   RealmManager.sharedInstance.makeAndInsertDummyWordData(parentId: self.parentId!)
+           let wordId =   RealmManager.sharedInstance.makeAndInsertDummyWordData(self.parentId!)
            self.wordIdList.append(wordId)
         } else {
             RealmManager.sharedInstance.makeAndInsertDummyWordData()
@@ -164,7 +164,7 @@ class WordTableViewController: UITableViewController {
     
     
     func findWordData(row: Int) -> WordDbData {
-        let wordData = RealmManager.sharedInstance.findWordDataFromIndex(index: row)
+        let wordData = RealmManager.sharedInstance.findWordDataFromIndex(row)
         return wordData!
     }
     
@@ -183,12 +183,12 @@ class WordTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
-        if segue.identifier == "showWordDetail" {
+        if segue.identifier == "showWordDetailSegue" {
             
             let cell = sender as! WordDataTableViewCell
             
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.detailWordItem = RealmManager.sharedInstance.findWordDataFromWordId(id: cell.wordId)
+            controller.detailWordItem = RealmManager.sharedInstance.findWordDataFromWordId(cell.wordId)
             controller.navigationItem.leftItemsSupplementBackButton = true
             
             

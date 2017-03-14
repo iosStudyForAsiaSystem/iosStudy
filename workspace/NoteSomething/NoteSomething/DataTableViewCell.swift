@@ -36,7 +36,7 @@ class GroupDataTableViewCell: UITableViewCell {
     
     func dispCell (grpData:GroupDbData)  {
         if grpData.hasImage() {
-            groupImgView.image = UIImage(named: grpData.imageNm)
+            groupImgView.image = UIImage(named: grpData.thumnailNm)
         }
         self.groupId = grpData.id
         groupNameL.text = grpData.nmJp
@@ -76,7 +76,7 @@ class WordDataTableViewCell: UITableViewCell {
     
     func dispCell (wordData:WordDbData)  {
         if wordData.hasImage() {
-            wordImgView.image = UIImage(named: wordData.imageNm)
+            wordImgView.image = UIImage(named: wordData.thumnailNm)
         }
         self.wordId = wordData.id
         wordNameL.text = wordData.nmJp

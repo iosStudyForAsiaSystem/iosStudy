@@ -22,4 +22,11 @@ enum MenuSegment:Int
     case groupSegMenu = 0
     case wordSegMenu = 1
     case imageSegMenu = 2
+    case easyAllSegMenu = 3
 }
+
+
+typealias CheckedInputTuple = (key:String,value:String)
+
+typealias CheckedInputDic = [String:String]
+

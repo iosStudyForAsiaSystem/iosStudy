@@ -17,11 +17,12 @@ class CustomSegue: UIStoryboardSegue {
         let navigationController = sourceViewController.navigationController
         
         // Pop to root view controller (not animated) before pushing
-        if self.identifier == "showWordList"{
+        if self.identifier == "showWordListSegue"{
             
             let controller = (self.destination as! UINavigationController).topViewController as! WordTableViewController
             navigationController?.pushViewController(controller, animated: true)
-        } else if self.identifier == "showDetail"  || self.identifier == "showWordDetail" {
+        } else if self.identifier == "showDetailSegue"
+            || self.identifier == "showWordDetailSegue" {
             
             let controller = (self.destination as! UINavigationController).topViewController as! DetailViewController
             navigationController?.pushViewController(controller, animated: true)

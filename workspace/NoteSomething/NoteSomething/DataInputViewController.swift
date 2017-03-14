@@ -55,7 +55,7 @@ class DataInputViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "segueSubDataInputVc" {
+        if segue.identifier == "SubDataInputSegue" {
             
             let subDataInputVc = segue.destination  as! SubDataInputViewController
             // Pass data to secondViewController before the transition
@@ -109,7 +109,7 @@ class DataInputViewController: UIViewController {
                 self.parentInfoL.text = "親グループ:" + parentNm!
         } else if parentId.word != "" {
             
-                parentNm = RealmManager.sharedInstance.findWordDataFromWordId(id: parentId.word)?.nmJp
+                parentNm = RealmManager.sharedInstance.findWordDataFromWordId(parentId.word)?.nmJp
                 if parentNm == nil ||  parentNm == "" {
                     parentNm = "未指定"
                 }
