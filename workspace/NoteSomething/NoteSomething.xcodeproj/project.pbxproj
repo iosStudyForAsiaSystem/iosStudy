@@ -18,6 +18,13 @@
 		033E700B1E765D4000C661D0 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */; };
 		033E700D1E76725E00C661D0 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */; };
 		033EF27A1E6FA03300973595 /* Util in Resources */ = {isa = PBXBuildFile; fileRef = 033EF2791E6FA03300973595 /* Util */; };
+		0345A2B21E79015300F4B8C2 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345A2B11E79015300F4B8C2 /* PhotoDataSource.swift */; };
+		0345A2B41E79021800F4B8C2 /* photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0345A2B31E79021800F4B8C2 /* photos.plist */; };
+		0345A2B81E790FB000F4B8C2 /* ImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345A2B71E790FB000F4B8C2 /* ImageCollectionViewController.swift */; };
+		0345A2BE1E7919B900F4B8C2 /* PhotoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345A2BB1E7919B900F4B8C2 /* PhotoListCell.swift */; };
+		0345A2BF1E7919B900F4B8C2 /* PhotoListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345A2BC1E7919B900F4B8C2 /* PhotoListCollectionView.swift */; };
+		0345A2C01E7919B900F4B8C2 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345A2BD1E7919B900F4B8C2 /* PinterestLayout.swift */; };
+		0345A2C51E791C9300F4B8C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0345A2C41E791C9300F4B8C2 /* AVFoundation.framework */; };
 		03C2370D1E76B78A005A7DDA /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2370C1E76B78A005A7DDA /* CustomSegue.swift */; };
 		03C237111E77BC12005A7DDA /* EasyDataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C237101E77BC12005A7DDA /* EasyDataInputViewController.swift */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
@@ -80,6 +87,13 @@
 		033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		033EF2791E6FA03300973595 /* Util */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Util; sourceTree = "<group>"; };
+		0345A2B11E79015300F4B8C2 /* PhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
+		0345A2B31E79021800F4B8C2 /* photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = photos.plist; sourceTree = "<group>"; };
+		0345A2B71E790FB000F4B8C2 /* ImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewController.swift; sourceTree = "<group>"; };
+		0345A2BB1E7919B900F4B8C2 /* PhotoListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoListCell.swift; sourceTree = "<group>"; };
+		0345A2BC1E7919B900F4B8C2 /* PhotoListCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoListCollectionView.swift; sourceTree = "<group>"; };
+		0345A2BD1E7919B900F4B8C2 /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		0345A2C41E791C9300F4B8C2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		03C2370C1E76B78A005A7DDA /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSegue.swift; path = NoteSomething/CustomSegue.swift; sourceTree = "<group>"; };
 		03C237101E77BC12005A7DDA /* EasyDataInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyDataInputViewController.swift; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0345A2C51E791C9300F4B8C2 /* AVFoundation.framework in Frameworks */,
 				03F5CB811E692992009B29FA /* RealmSwift.framework in Frameworks */,
 				03F5CB7F1E692992009B29FA /* Realm.framework in Frameworks */,
 			);
@@ -135,6 +150,7 @@
 				03F5CB871E6935F6009B29FA /* CustomDataDef.swift */,
 				0335DC141E6D541B00763FDA /* RealmManger.swift */,
 				0335DC191E6D5BFC00763FDA /* CustomConst.swift */,
+				0345A2B11E79015300F4B8C2 /* PhotoDataSource.swift */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -142,6 +158,7 @@
 		0335DC171E6D543E00763FDA /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				0345A2B31E79021800F4B8C2 /* photos.plist */,
 				03F5CB531E6927CC009B29FA /* Main.storyboard */,
 				03F5CB561E6927CC009B29FA /* Assets.xcassets */,
 				03F5CB581E6927CC009B29FA /* LaunchScreen.storyboard */,
@@ -154,20 +171,48 @@
 		0335DC181E6D545400763FDA /* source */ = {
 			isa = PBXGroup;
 			children = (
+				0345A2C21E791A1A00F4B8C2 /* DataInput */,
+				0345A2C11E7919FA00F4B8C2 /* PhotoList */,
 				03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */,
 				03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */,
 				0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */,
 				03F5CB511E6927CC009B29FA /* DetailViewController.swift */,
 				03F5CB851E693411009B29FA /* DataTableViewCell.swift */,
+				033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */,
+				033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */,
+				0345A2B71E790FB000F4B8C2 /* ImageCollectionViewController.swift */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
+		0345A2C11E7919FA00F4B8C2 /* PhotoList */ = {
+			isa = PBXGroup;
+			children = (
+				0345A2BB1E7919B900F4B8C2 /* PhotoListCell.swift */,
+				0345A2BC1E7919B900F4B8C2 /* PhotoListCollectionView.swift */,
+				0345A2BD1E7919B900F4B8C2 /* PinterestLayout.swift */,
+			);
+			name = PhotoList;
+			sourceTree = "<group>";
+		};
+		0345A2C21E791A1A00F4B8C2 /* DataInput */ = {
+			isa = PBXGroup;
+			children = (
 				0335DC3E1E6E9D1E00763FDA /* DataInputViewController.swift */,
 				0335DC401E6EA48100763FDA /* SubDataInputViewController.swift */,
 				0335DC441E6F888400763FDA /* DataConfirmViewController.swift */,
 				0335DC421E6EB0C100763FDA /* InputCompleteViewController.swift */,
-				033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */,
-				033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */,
 				03C237101E77BC12005A7DDA /* EasyDataInputViewController.swift */,
 			);
-			name = source;
+			name = DataInput;
+			sourceTree = "<group>";
+		};
+		0345A2C31E791C9200F4B8C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0345A2C41E791C9300F4B8C2 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		03F5CB411E6927CC009B29FA = {
@@ -180,6 +225,7 @@
 				03F5CB631E6927CD009B29FA /* NoteSomethingTests */,
 				03F5CB6E1E6927CD009B29FA /* NoteSomethingUITests */,
 				03F5CB4B1E6927CC009B29FA /* Products */,
+				0345A2C31E791C9200F4B8C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -337,6 +383,7 @@
 				0335DC471E6F895800763FDA /* InputData.storyboard in Resources */,
 				03F5CB5A1E6927CC009B29FA /* LaunchScreen.storyboard in Resources */,
 				03F5CB571E6927CC009B29FA /* Assets.xcassets in Resources */,
+				0345A2B41E79021800F4B8C2 /* photos.plist in Resources */,
 				03F5CB551E6927CC009B29FA /* Main.storyboard in Resources */,
 				033EF27A1E6FA03300973595 /* Util in Resources */,
 			);
@@ -382,15 +429,20 @@
 				03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */,
 				033E700D1E76725E00C661D0 /* MenuCollectionViewCell.swift in Sources */,
 				033E700B1E765D4000C661D0 /* MenuCollectionViewController.swift in Sources */,
+				0345A2C01E7919B900F4B8C2 /* PinterestLayout.swift in Sources */,
 				0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */,
 				03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */,
 				03C237111E77BC12005A7DDA /* EasyDataInputViewController.swift in Sources */,
+				0345A2B81E790FB000F4B8C2 /* ImageCollectionViewController.swift in Sources */,
 				0335DC3F1E6E9D1E00763FDA /* DataInputViewController.swift in Sources */,
 				0335DC411E6EA48100763FDA /* SubDataInputViewController.swift in Sources */,
 				0335DC451E6F888400763FDA /* DataConfirmViewController.swift in Sources */,
 				03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */,
 				0335DC151E6D541B00763FDA /* RealmManger.swift in Sources */,
 				03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */,
+				0345A2BF1E7919B900F4B8C2 /* PhotoListCollectionView.swift in Sources */,
+				0345A2B21E79015300F4B8C2 /* PhotoDataSource.swift in Sources */,
+				0345A2BE1E7919B900F4B8C2 /* PhotoListCell.swift in Sources */,
 				0335DC431E6EB0C100763FDA /* InputCompleteViewController.swift in Sources */,
 				0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */,
 				03C2370D1E76B78A005A7DDA /* CustomSegue.swift in Sources */,

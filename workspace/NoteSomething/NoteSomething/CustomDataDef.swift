@@ -13,85 +13,14 @@ class CustomUtil: NSObject {
     
     static let sharedInstance = CustomUtil()
     
-    var groupList:[String] = []
-    
-    var wordList:[String] = []
-    
-    var groupDic:[String:GroupData] = [:]
-    
-    var wordDic:[String:WordData] = [:]
+    var loadedPhotos:[Photo] = []
     
     
-    
-    func findAllGroupsCount() -> Int {
+    func loadPhotsData()  {
         
-        return groupList.count
-    }
-    
-    func findAllWordsCount () -> Int {
-        
-        return wordList.count
+        CustomUtil.sharedInstance.loadedPhotos = PhotoDataSource.plist()
         
     }
-    func makeAndInsertDummyGroupData() {
-        let grpData:GroupData = GroupData()
-        groupList.append(grpData.id)
-        groupDic[grpData.id] = grpData
-    }
-    
-    func makeAndInsertDummyWordData ()  {
-        let wordData:WordData = WordData()
-        wordList.append(wordData.id)
-        wordDic[wordData.id] = wordData
-        
-        print("makeAndInsertDummyWordData wordDic.count \(wordDic.count)")
-        
-    }
-    
-    
-    func findGroupDataFromIndex(index:Int ) -> GroupData? {
-        print("findGroupDataFromIndex param \(index) , groupList.count \(groupList.count)")
-        
-        if groupList.count > index {
-            let data =  findGroupDataFromGroupId( id: groupList[index])
-            
-            print(data?.description ?? "GroupData ... ")
-            
-            return data
-        }
-        return nil
-    }
-    
-    func findWordDataFromIndex(index:Int ) -> WordData? {
-        
-        if wordList.count > index {
-            return findWordDataFromWordId(id: wordList[index])
-        }
-        return nil
-    }
-    
-    func findGroupDataFromGroupId(id : String ) -> GroupData? {
-        print("findGroupDataFromIndex param \(id) , groupDic.count \(groupDic.count)")
-        return groupDic[id ]
-    }
-    
-    func findWordDataFromWordId(id:String ) -> WordData? {
-        
-        print("findWordDataFromWordId param \(id) , wordDic.count \(wordDic.count)")
-        return wordDic[id ]
-       
-    }
-    
-    func saveGroupData () {
-        
-        let userDefaults = UserDefaults.standard
-        for keyString:String in groupDic.keys {
-            userDefaults.setValue(groupDic[keyString], forKey: keyString)
-        }
-        userDefaults.synchronize()
-    }
-    
-    
     
     // MARK: - Util
     //===================
@@ -109,6 +38,8 @@ class CustomUtil: NSObject {
         }
         return ""
     }
+    
+
     
 }
 
@@ -161,7 +92,7 @@ class GroupData : CommonInfo {
     
     override init() {
         super.init()
-        let currentGrpCount = CustomUtil.sharedInstance.groupList.count
+        let currentGrpCount = 0 //CustomUtil.sharedInstance.groupList.count
         self.nmJp = "group" +  String(currentGrpCount)
         self.id = String( currentGrpCount + 1 )
         self.type = DataType.GroupType
@@ -217,7 +148,7 @@ class WordData : CommonInfo {
     
     override init() {
         super.init()
-        let currentWordCount = CustomUtil.sharedInstance.wordList.count
+        let currentWordCount = 0 //CustomUtil.sharedInstance.wordList.count
         self.nmJp = "word" +  String(currentWordCount)
         self.id = String(1000 + currentWordCount + 1)
         self.type = DataType.WordType
