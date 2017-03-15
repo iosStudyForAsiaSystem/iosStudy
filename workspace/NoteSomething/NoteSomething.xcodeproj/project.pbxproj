@@ -15,6 +15,8 @@
 		0335DC431E6EB0C100763FDA /* RegistFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC421E6EB0C100763FDA /* RegistFinishViewController.swift */; };
 		0335DC451E6F888400763FDA /* DataConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC441E6F888400763FDA /* DataConfirmViewController.swift */; };
 		0335DC471E6F895800763FDA /* InputData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0335DC461E6F895800763FDA /* InputData.storyboard */; };
+		033E700B1E765D4000C661D0 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */; };
+		033E700D1E76725E00C661D0 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */; };
 		033EF27A1E6FA03300973595 /* Util in Resources */ = {isa = PBXBuildFile; fileRef = 033EF2791E6FA03300973595 /* Util */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
@@ -73,6 +75,8 @@
 		0335DC421E6EB0C100763FDA /* RegistFinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistFinishViewController.swift; sourceTree = "<group>"; };
 		0335DC441E6F888400763FDA /* DataConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConfirmViewController.swift; sourceTree = "<group>"; };
 		0335DC461E6F895800763FDA /* InputData.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InputData.storyboard; sourceTree = "<group>"; };
+		033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
+		033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		033EF2791E6FA03300973595 /* Util */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Util; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				0335DC401E6EA48100763FDA /* SubDataInputViewController.swift */,
 				0335DC441E6F888400763FDA /* DataConfirmViewController.swift */,
 				0335DC421E6EB0C100763FDA /* RegistFinishViewController.swift */,
+				033E700A1E765D4000C661D0 /* MenuCollectionViewController.swift */,
+				033E700C1E76725E00C661D0 /* MenuCollectionViewCell.swift */,
 			);
 			name = source;
 			sourceTree = "<group>";
@@ -368,6 +374,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */,
+				033E700D1E76725E00C661D0 /* MenuCollectionViewCell.swift in Sources */,
+				033E700B1E765D4000C661D0 /* MenuCollectionViewController.swift in Sources */,
 				0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */,
 				03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */,
 				0335DC3F1E6E9D1E00763FDA /* DataInputViewController.swift in Sources */,

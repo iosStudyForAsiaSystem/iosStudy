@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ug4-R2-tOG">
-                                <rect key="frame" x="10" y="72" width="394" height="576"/>
+                                <rect key="frame" x="10" y="117" width="394" height="531"/>
                                 <connections>
                                     <segue destination="JjJ-oe-Xap" kind="embed" id="Hva-Z9-L9z"/>
                                 </connections>
@@ -67,19 +66,36 @@
                                     <constraint firstItem="u6P-Pt-oWK" firstAttribute="leading" secondItem="zwa-nI-8lH" secondAttribute="leading" id="kuW-WW-pEB"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="親グループ名：？？？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx6-Vx-aDn">
+                                <rect key="frame" x="10" y="72" width="394" height="37"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="tIq-Ph-jrh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Qx6-Vx-aDn" secondAttribute="trailing" constant="10" id="IGQ-iX-TQa"/>
                             <constraint firstItem="yX6-mQ-Zdo" firstAttribute="top" secondItem="Ug4-R2-tOG" secondAttribute="bottom" constant="7" id="Iho-oW-h8s"/>
                             <constraint firstItem="yX6-mQ-Zdo" firstAttribute="leading" secondItem="CxC-vl-aEk" secondAttribute="leading" constant="10" id="LlS-b1-lvl"/>
-                            <constraint firstItem="Ug4-R2-tOG" firstAttribute="top" secondItem="ke8-tx-S5k" secondAttribute="bottom" constant="8" symbolic="YES" id="Pnu-8A-VDf"/>
+                            <constraint firstItem="Ug4-R2-tOG" firstAttribute="top" secondItem="ke8-tx-S5k" secondAttribute="bottom" constant="53" id="Pnu-8A-VDf"/>
                             <constraint firstItem="Ug4-R2-tOG" firstAttribute="trailing" secondItem="yX6-mQ-Zdo" secondAttribute="trailing" id="VMY-2O-rhH"/>
                             <constraint firstItem="Ug4-R2-tOG" firstAttribute="leading" secondItem="yX6-mQ-Zdo" secondAttribute="leading" id="gRK-7B-SGo"/>
+                            <constraint firstItem="Qx6-Vx-aDn" firstAttribute="top" secondItem="ke8-tx-S5k" secondAttribute="bottom" constant="8" id="jec-RR-D0R"/>
+                            <constraint firstItem="Qx6-Vx-aDn" firstAttribute="leading" secondItem="CxC-vl-aEk" secondAttribute="leading" constant="10" id="m8S-ds-tde"/>
                             <constraint firstItem="1lO-sc-8iI" firstAttribute="top" secondItem="yX6-mQ-Zdo" secondAttribute="bottom" constant="1" id="n84-Nj-ySr"/>
                             <constraint firstAttribute="trailing" secondItem="yX6-mQ-Zdo" secondAttribute="trailing" constant="10" id="yvp-fu-0vN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="データ情報入力画面" id="Ra2-Yb-BhJ"/>
+                    <connections>
+                        <outlet property="parentInfoL" destination="Qx6-Vx-aDn" id="lbo-Mm-E3Z"/>
+                        <outlet property="topConstraintForContainerView" destination="Pnu-8A-VDf" id="EVn-Ot-x4z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CRy-y4-dhE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,7 +110,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Rm7-cF-FFe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aec-WZ-qO0">
-                        <rect key="frame" x="0.0" y="0.0" width="394" height="576"/>
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="531"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rRq-pU-cYr">
@@ -109,7 +125,7 @@
                                 </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haw-2j-gLn">
-                                <rect key="frame" x="0.0" y="30" width="394" height="546"/>
+                                <rect key="frame" x="0.0" y="30" width="394" height="501"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-Ss-wX9">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="360"/>
@@ -436,6 +452,7 @@
                         <outlet property="dataTitleL7" destination="3dQ-az-Yne" id="fij-gU-lR5"/>
                         <outlet property="listCountL" destination="ydq-iS-m71" id="3cX-ih-ZbX"/>
                         <outlet property="listTitleL" destination="2yL-id-kNs" id="FJB-5W-5iS"/>
+                        <outlet property="menuSegCtrl" destination="rRq-pU-cYr" id="7b0-Fg-Ds0"/>
                         <outlet property="showListBtn" destination="1Wx-oZ-Ec5" id="5Ir-Hf-pBX"/>
                     </connections>
                 </viewController>
@@ -622,7 +639,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nly-Mt-dim">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WW4-t0-z2Z" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DataInputNavc" automaticallyAdjustsScrollViewInsets="NO" id="WW4-t0-z2Z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pkg-CD-8fr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
