@@ -32,6 +32,9 @@ class ImageCollectionViewController: UICollectionViewController,PinterestLayoutD
 //        if let layout = self.collectionView?.collectionViewLayout as? PinterestLayout {
 //            layout.delegate = self
 //        }
+        
+        //background color
+        CustomUtil.paletteImageToView(self.collectionView!, imageNm: "bg_img_h_2")
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +75,7 @@ class ImageCollectionViewController: UICollectionViewController,PinterestLayoutD
         // Configure the cell
         
 //        cell.photo = photos[indexPath.row]
-//        cell.backgroundColor = UIColor.green
+        cell.backgroundColor = UIColor.green
 //        let label:UILabel = UILabel(frame: cell.frame)
 //        let msg = String(format: "%@ \n %@",  (cell.photo?.caption)!, (cell.photo?.comment)! )
 //        label.text  =  msg

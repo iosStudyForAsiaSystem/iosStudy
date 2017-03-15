@@ -42,6 +42,11 @@ class CustomUtil: NSObject {
         return ""
     }
     
+    static func  paletteImageToView(_ view:UIView, imageNm:String ) {
+        
+            view.backgroundColor = UIColor(patternImage: UIImage(named:imageNm)!)
+    }
+    
 
     
 }

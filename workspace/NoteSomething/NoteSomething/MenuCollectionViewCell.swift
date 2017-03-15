@@ -32,7 +32,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
             self.imageView.image = UIImage(named: "flower")
             break
         case .AllType:
-                self.imageView.image = UIImage(named: "ease_input")
+                self.imageView.image = UIImage(named: "easy_input")
             break
         default:
             break

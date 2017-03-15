@@ -40,6 +40,8 @@ class WordTableViewController: UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertWordObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         
+        //background color
+        CustomUtil.paletteImageToView(self.view, imageNm: "bg_img_h_4")
     }
     
     override func viewDidAppear(_ animated: Bool) {

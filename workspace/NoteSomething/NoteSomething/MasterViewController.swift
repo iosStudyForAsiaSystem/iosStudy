@@ -22,7 +22,8 @@ class MasterViewController: UITableViewController {
         //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertGroupObject(_:)))
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentMenuVC))
         self.navigationItem.rightBarButtonItem = addButton
-        
+        //background color 
+        CustomUtil.paletteImageToView(self.view,imageNm: "bg_img_h_1")
     }
 
     override func viewWillAppear(_ animated: Bool) {
