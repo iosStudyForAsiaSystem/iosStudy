@@ -30,3 +30,12 @@ typealias CheckedInputTuple = (key:String,value:String)
 
 typealias CheckedInputDic = [String:String]
 
+
+ let kGroupNm =         "groupNm"
+ let kGroupComment =    "groupComment"
+ let kGroupEtc1 =       "groupEtc1"
+ let kGroupEtc2 =       "groupEtc2"
+ let kWordNm =          "wordNm"
+ let kWordComment =     "wordComment"
+ let kImageNm =         "imageNm"
+ let kImageComment =    "imageComment"

@@ -102,7 +102,7 @@ class DataInputViewController: UIViewController {
         self.parentInfoL.text = ""
 
         if parentId.grp != "" {
-                parentNm = RealmManager.sharedInstance.findGroupDataFromGroupId(id: parentId.grp)?.nmJp
+                parentNm = RealmManager.sharedInstance.findGroupDataFromGroupId(parentId.grp)?.nmJp
                 if parentNm == nil ||  parentNm == "" {
                     parentNm = "未指定"
                 }

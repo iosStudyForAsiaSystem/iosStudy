@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class CustomUtil: NSObject {
@@ -14,6 +15,8 @@ class CustomUtil: NSObject {
     static let sharedInstance = CustomUtil()
     
     var loadedPhotos:[Photo] = []
+    
+    var firstModalVc:Any?
     
     
     func loadPhotsData()  {

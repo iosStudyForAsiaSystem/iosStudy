@@ -50,13 +50,64 @@ class DataConfirmViewController: UIViewController {
         // Pass the selected object to the new view controller.
         //DataInputCompleteVc
         
-        if segue.identifier == "DataInputCompleteVc" {
+        if segue.identifier == "DataInputCompleteSegue" {
             
             print("segue.identifier == DataInputCompleteVc")
             let completeVc:InputCompleteViewController = segue.destination as! InputCompleteViewController
             completeVc.dataNm = results?["groupNm"]
             completeVc.dataId = ""
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == "DataInputCompleteSegue" {
+            
+            print("shouldPerformSegue.identifier == DataInputCompleteVc")
+            
+            //データ保存処理
+            let realMgr = RealmManager.sharedInstance
+            
+            let grpNm:String?  = results?[kGroupNm]
+            let wordNm:String? = results?[kWordNm]
+            let imgNm:String?  = results?[kImageNm]
+            var wordid:String = ""
+            
+            //group data
+            let grpid = realMgr.makeAndInsertDummyGroupData(grpNm,
+                                                            comment: results?[kGroupComment] )
+            
+            let dic:CheckedInputDic = ["etc1":results?[kGroupEtc1] ?? "",
+                                       "etc2":results?[kGroupEtc2] ?? ""]
+            realMgr.updateGroupDataFromGroupId(grpid, itemDic:dic)
+            
+            
+            //word data
+            if  !grpid.isEmpty && !((wordNm?.isEmpty)!) {
+                
+               wordid =  realMgr.makeAndInsertDummyWordData(grpid, inputNm:wordNm ,
+                                                            comment: results?[kWordComment] )
+               
+            } else {
+                wordid =  realMgr.makeAndInsertDummyWordData()
+            }
+            
+            //image
+            if  !wordid.isEmpty && !((imgNm?.isEmpty)!)  {
+                let imgId = realMgr.makeAndInsertDummyImageData(wordid,inputNm:imgNm ,
+                                                                comment: results?[kImageComment] )
+                
+                print("create imageid Id : \(imgId)")
+            }
+            
+            let dbInfo = String(format: "group count:%d, word count:%d,image count:%d", realMgr.findAllGroupsCount(),
+                                realMgr.findAllWordsCount(), realMgr.findAllImagesCount())
+            print(dbInfo)
+            
+        }
+        return true
+        
+
     }
     
     // MARK: - Custom

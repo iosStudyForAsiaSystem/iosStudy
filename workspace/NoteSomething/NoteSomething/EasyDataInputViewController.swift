@@ -120,15 +120,15 @@ class EasyDataInputViewController: UIViewController {
         
         var dataDic:CheckedInputDic = [:]
         
-   
-        dataDic["groupNm"] = groupNm
-        dataDic["groupComment"] = groupComment
-        dataDic["groupEtc1"] = groupEtc1
-        dataDic["groupEtc2"] = groupEtc2
-        dataDic["wordNm"] = wordNm
-        dataDic["wordComment"] = wordComment
-        dataDic["imageNm"] = imageNm
-        dataDic["imageComment"] = imageComment
+        //入力データ設定
+        dataDic[kGroupNm] = groupNm
+        dataDic[kGroupComment] = groupComment
+        dataDic[kGroupEtc1] = groupEtc1
+        dataDic[kGroupEtc2] = groupEtc2
+        dataDic[kWordNm] = wordNm
+        dataDic[kWordComment] = wordComment
+        dataDic[kImageNm] = imageNm
+        dataDic[kImageComment] = imageComment
         
         
         return dataDic

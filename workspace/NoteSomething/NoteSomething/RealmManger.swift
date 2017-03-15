@@ -41,19 +41,34 @@ class RealmManager: NSObject {
         return nmJp
     }
     //ダミーグループ情報追加
-    func makeAndInsertDummyGroupData () {
+    func makeAndInsertDummyGroupData (_ grpNm: String? = "", comment:String? = "") -> String {
         
-        let nmJp:String = self.makeDummyGroupName()
+        var nmJp:String?
+        if let nm = grpNm ,  nm.isEmpty {
+            nmJp = self.makeDummyGroupName()
+        } else {
+            nmJp = grpNm
+        }
         let currentGrpCount = self.findAllGroupsCount()
         let groupId:String = String( currentGrpCount + 1 )
         let type:String = String(describing: DataType.GroupType)
         
         let groupData = GroupDbData(value: ["id":groupId,"nmJp":nmJp, "comment": "", "type":type])
         groupData.thumnailNm = "groupImg"
+        
+        if (comment?.isEmpty)!  {
+            groupData.comment = comment!
+        }
+        
         try! dataRealm.write() {
             dataRealm.add(groupData)
         }
+        
+        print("create groupid Id : \(groupId)")
+        
+        return groupId
     }
+    
     //グループ情報取得（インデックス検索）
     func findGroupDataFromIndex(index:Int ) -> GroupDbData? {
         
@@ -70,15 +85,31 @@ class RealmManager: NSObject {
         return nil
     }
     //グループ情報取得（ID検索）
-    func findGroupDataFromGroupId(id : String ) -> GroupDbData? {
+    func findGroupDataFromGroupId(_ id : String ) -> GroupDbData? {
         
-        let currentGrpCount = self.findAllGroupsCount()
-        
-        print("findGroupDataFromIndex param: \(id) , currentGrpCount: \(currentGrpCount)")
+        //let currentGrpCount = self.findAllGroupsCount()
+        //print("findGroupDataFromIndex currentGrpCount: \(currentGrpCount)")
+        print("findGroupDataFromIndex param: \(id)" )
         
         let results = dataRealm.objects(GroupDbData.self).filter("id = %@ ", id)
         
         return results[0]
+    }
+    
+    func updateGroupDataFromGroupId(_ id :String? , itemDic:CheckedInputDic) {
+        
+        guard  (id != nil) else {
+            return
+        }
+        
+        try! dataRealm.write() {
+            let groupData = self.findGroupDataFromGroupId(id!)
+            
+            itemDic.forEach{key,value in
+                print("updateGroupDataFromGroupId key\(key) value\(value)")
+                groupData?.setValue(value, forKeyPath: key)
+            }
+        }
     }
 
     
@@ -133,13 +164,13 @@ class RealmManager: NSObject {
     
 
      //ダミー単語情報追加（親グループあり）
-    func makeAndInsertDummyWordData(_ parentId:String, inputNm:String = "" ) -> String {
+    func makeAndInsertDummyWordData(_ parentId:String, inputNm:String? = "", comment:String? = "" ) -> String {
         
         var  nmJp:String = ""
-        if inputNm == "" {
+        if inputNm == nil ,inputNm == "" {
             nmJp = self.makeDummyWordName()
         } else {
-            nmJp = inputNm
+            nmJp = inputNm!
         }
         let currentWordCount = self.findAllWordsCount()
         let wordId:String = String( currentWordCount + 1 )
@@ -152,10 +183,17 @@ class RealmManager: NSObject {
         if parentId != ""  {
             wordData.parentId = parentId
         }
+        
+        if (comment?.isEmpty)!  {
+            wordData.comment = comment!
+        }
 
         try! dataRealm.write() {
             dataRealm.add(wordData)
         }
+        
+        
+        print("create wordId Id : \(wordId)")
         
         return wordId
 
@@ -225,13 +263,13 @@ class RealmManager: NSObject {
     
     
     //ダミーイメージ情報追加（親単語あり）
-    func makeAndInsertDummyImageData(_ parentId:String, inputNm:String = "" ) -> String {
+    func makeAndInsertDummyImageData(_ parentId:String, inputNm:String? = "" , comment:String? = "") -> String {
         
         var  nmJp:String = ""
-        if inputNm == "" {
+        if inputNm == nil ,  inputNm == "" {
             nmJp = self.makeDummyImageName()
         } else {
-            nmJp = inputNm
+            nmJp = inputNm!
         }
         
         let currentCount = self.findAllWordsCount()
@@ -242,13 +280,18 @@ class RealmManager: NSObject {
         let tmpData = ImageDbData(value: ["id":tmpId,"nmJp":nmJp, "comment": "", "type":type])
         tmpData.thumnailNm = "flower"
         
-        if parentId != ""  {
+        if parentId.isEmpty  {
             tmpData.parentId = parentId
+        }
+        if (comment?.isEmpty)!  {
+            tmpData.comment = comment!
         }
         
         try! dataRealm.write() {
             dataRealm.add(tmpData)
         }
+        
+        print("create imageid Id : \(tmpId)")
         
         return tmpId
         
@@ -344,7 +387,7 @@ class GroupDbData : CommonDbInfo {
 
     override var  description :String  {
         
-        return "GroupDbData id : \(self.id) name:\( self.nmJp)   comment:  \(self.comment)"
+        return "GroupDbData id : \(self.id) \n name:\( self.nmJp)  \n comment:  \(self.comment) \n etc1:\(etc1) \n etc2:\(etc2)"
     }
 }
 
@@ -358,7 +401,7 @@ class WordDbData : CommonDbInfo {
     
     override var  description :String  {
         
-        return "WordDbData id : \(self.id) name:\( self.nmJp)   comment:  \(self.comment)"
+        return "WordDbData id : \(self.id) \n name:\( self.nmJp)   \n comment:  \(self.comment) \n etc1:\(etc1) \n etc2:\(etc2)"
     }
 }
 //イメージ情報定義
@@ -371,6 +414,6 @@ class ImageDbData : CommonDbInfo {
 
     override var  description :String  {
         
-        return "ImageDbData id : \(self.id) name:\( self.nmJp)   parentId:  \(self.parentId)"
+        return "ImageDbData id : \(self.id) \n name:\( self.nmJp)  \n parentId:  \(self.parentId) \n comment:  \(self.comment) \n etc1:\(etc1) \n etc2:\(etc2)"
     }
 }

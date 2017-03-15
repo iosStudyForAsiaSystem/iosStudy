@@ -925,7 +925,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="登録する"/>
                                         <connections>
-                                            <segue destination="eT7-TW-3EM" kind="show" identifier="dataInputCompleteSegue" id="tFt-oI-TJi"/>
+                                            <segue destination="eT7-TW-3EM" kind="show" identifier="DataInputCompleteSegue" id="tFt-oI-TJi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVk-ZT-kXc">
@@ -1075,6 +1075,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="データ登録完了画面" id="mT2-ZX-QfR"/>
+                    <connections>
+                        <outlet property="itemNm" destination="eHA-uB-he4" id="PDk-Bh-IiG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzn-jU-uUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

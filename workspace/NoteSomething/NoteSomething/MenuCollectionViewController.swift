@@ -174,7 +174,8 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
         
         let navigationController:UINavigationController = UINavigationController.init(rootViewController: dataInputVC)
         
-        
+        //現在の表示VCを設定
+        CustomUtil.sharedInstance.firstModalVc = self
         
         self.present(navigationController, animated: true) {
   
