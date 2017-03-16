@@ -115,15 +115,15 @@ class DataConfirmViewController: UIViewController {
     func showConfirmInfo() {
         //メッセージ内容生成
         
-        let msg:String = String(format: "入力した%@情報は以下の通りです。\n　%@,\n%@,\n%@,\n%@,\n%@,\n%@,\n%@,\n",
-        " \(results!["groupNm"] ?? "")",
-        "groupComment \(results!["groupComment"] ?? "")",
-        "groupEtc1 \(results!["groupEtc1"] ?? "")",
-        "groupEtc2 \(results!["groupEtc2"] ?? "")",
-        "wordNm \(results!["wordNm"] ?? "")",
-        "wordComment \(results!["wordComment"] ?? "")",
-        "imageNm \(results!["imageNm"] ?? "")",
-        "imageComment \(results!["imageComment"] ?? "")")
+        let msg:String = String(format: "入力した%@情報は以下の通りです。\n%@,\n%@,\n%@,\n%@,\n%@,\n%@,\n%@,\n",
+        "グループ名称　　　： \(results!["groupNm"] ?? "")",
+        "グループコメント　：\(results!["groupComment"] ?? "")",
+        "その他１ 　　　　：\(results!["groupEtc1"] ?? "")",
+        "その他２ 　　　　：\(results!["groupEtc2"] ?? "")",
+        "単語名称 　　　　：\(results!["wordNm"] ?? "")",
+        "単語コメント 　　：\(results!["wordComment"] ?? "")",
+        "イメージ名称 　　：\(results!["imageNm"] ?? "")",
+        "イメージコメント ：\(results!["imageComment"] ?? "")")
         
         confirmTextv.text = msg
         

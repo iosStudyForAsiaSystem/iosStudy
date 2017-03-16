@@ -15,10 +15,10 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
     
     var parentId:String?
     
-    let menuList:[(name:String,type:DataType)] = [("グループデータ", DataType.GroupType),
-                                                  ("単語データ",DataType.WordType ),
-                                                  ("イメージデータ", DataType.ImageType),
-                                                   ("簡易(全て)データ", DataType.AllType)]
+    let menuList:[(name:String,type:DataType)] = [("グループデータ登録", DataType.GroupType),
+                                                  ("単語データ登録",DataType.WordType ),
+                                                  ("イメージデータ登録", DataType.ImageType),
+                                                   ("簡易(全て)データ登録", DataType.AllType)]
     @IBOutlet weak var collectionView:UICollectionView!
     
 
