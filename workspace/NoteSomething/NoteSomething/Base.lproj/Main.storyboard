@@ -9,25 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--設定-->
-        <scene sceneID="0DH-ab-ER0">
-            <objects>
-                <viewController id="5ng-im-qWc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mfL-cJ-XKx"/>
-                        <viewControllerLayoutGuide type="bottom" id="Rsf-Tr-rtd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4tp-MQ-3Ly">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="設定" id="Aos-My-WcB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZwF-de-ioF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1646" y="-646"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Tvy-wT-yAu">
             <objects>
@@ -41,9 +22,9 @@
                         <segue destination="RMx-3f-FxP" kind="relationship" relationship="viewControllers" id="CN3-MV-xh1"/>
                         <segue destination="R1q-c3-PU5" kind="relationship" relationship="viewControllers" id="V8i-5u-tFC"/>
                         <segue destination="lul-E5-Jty" kind="relationship" relationship="viewControllers" id="PGs-DM-w3k"/>
-                        <segue destination="S5E-O5-wKi" kind="relationship" relationship="viewControllers" id="6Cg-bY-1uW"/>
-                        <segue destination="6mq-at-hKd" kind="relationship" relationship="viewControllers" id="hCL-zr-Hcx"/>
-                        <segue destination="m8T-Mq-5FY" kind="relationship" relationship="viewControllers" id="RwN-bb-PZQ"/>
+                        <segue destination="Whv-6y-dcD" kind="relationship" relationship="viewControllers" id="WWZ-Tb-1h4"/>
+                        <segue destination="6mq-at-hKd" kind="relationship" relationship="viewControllers" id="pBC-Zt-Xcr"/>
+                        <segue destination="m8T-Mq-5FY" kind="relationship" relationship="viewControllers" id="gaf-wC-LaQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3C-nn-PQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,6 +179,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbY-OU-Lp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="851.25" y="227.5"/>
+        </scene>
+        <!--settingNaviVc-->
+        <scene sceneID="CKd-f5-5NP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" referencedIdentifier="settingNaviVc" id="Whv-6y-dcD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="設定" image="setting_menu" id="rHb-jI-eQd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WzK-If-EYO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106" y="-371"/>
         </scene>
         <!--GroupListNav-->
         <scene sceneID="pY4-Hu-kfo">
@@ -667,26 +658,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPf-AJ-ruO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-744.375" y="-1353.75"/>
-        </scene>
-        <!--設定-->
-        <scene sceneID="IQw-26-6eY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S5E-O5-wKi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="設定" image="setting_menu" id="ygP-0a-xXi"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y5C-BO-bNd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.09451419860124588" green="0.59871798753738403" blue="0.50131899118423462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="5ng-im-qWc" kind="relationship" relationship="rootViewController" id="jf3-aw-qjX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WQ3-V1-K2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2426.25" y="-595"/>
         </scene>
         <!--スケージュラ-->
         <scene sceneID="QA7-Ph-hEl">

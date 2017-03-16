@@ -12,7 +12,7 @@
         <!--各種設定-->
         <scene sceneID="0DH-ab-ER0">
             <objects>
-                <viewController title="Setting" id="5ng-im-qWc" userLabel="各種設定" customClass="SettingViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingVc" title="Setting" id="5ng-im-qWc" userLabel="各種設定" customClass="SettingViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mfL-cJ-XKx"/>
                         <viewControllerLayoutGuide type="bottom" id="Rsf-Tr-rtd"/>
@@ -124,14 +124,14 @@
                             <constraint firstItem="ZZa-g5-sgO" firstAttribute="top" secondItem="4tp-MQ-3Ly" secondAttribute="top" constant="60" id="lMh-dg-U1B"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="0ki-MO-kVF"/>
+                    <navigationItem key="navigationItem" title="設定" id="0ki-MO-kVF"/>
                     <connections>
                         <outlet property="tableview" destination="ZZa-g5-sgO" id="kRF-9E-6cU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZwF-de-ioF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-781.15942028985512" y="-545.38043478260875"/>
+            <point key="canvasLocation" x="-1009" y="-546"/>
         </scene>
         <!--ソート設定-->
         <scene sceneID="6o8-xn-Mqd">
@@ -332,8 +332,8 @@
         <!--設定-->
         <scene sceneID="JmR-sY-8It">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v2K-zV-op4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="設定" id="aPp-WX-4dJ"/>
+                <navigationController storyboardIdentifier="settingNaviVc" automaticallyAdjustsScrollViewInsets="NO" id="v2K-zV-op4" customClass="SettingNaviViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="設定" image="setting_menu" id="aPp-WX-4dJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZaO-nl-k5f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -349,4 +349,7 @@
             <point key="canvasLocation" x="-1686.9565217391305" y="-545.38043478260875"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="setting_menu" width="24" height="24"/>
+    </resources>
 </document>
