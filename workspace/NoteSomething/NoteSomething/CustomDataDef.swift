@@ -70,6 +70,21 @@ class CustomUtil: NSObject {
         alertVc.show(target, sender: nil)
         
     }
+    
+    //メニュー選択画面遷移
+    static func presentMenuVC (_ target:UIViewController ) {
+        
+        
+        let mainDataStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        let menuCollectionVC: MenuCollectionViewController = mainDataStoryboard.instantiateViewController(withIdentifier: "MenuCollectionVC") as! MenuCollectionViewController
+        
+        
+        target.present(menuCollectionVC, animated: true) {
+            
+        }
+    }
 
     
 }

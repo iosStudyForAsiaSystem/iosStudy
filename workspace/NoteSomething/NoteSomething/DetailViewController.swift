@@ -137,7 +137,7 @@ class DetailViewController: UIViewController {
         let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
         
         
-        let dataInputVC: DataInputViewController = inputDataStoryboard.instantiateViewController(withIdentifier: "DataInputVC") as! DataInputViewController
+        let dataInputVC: DataInputViewController = inputDataStoryboard.instantiateViewController(withIdentifier: "kihonDataInputVC") as! DataInputViewController
         
         let navigationController:UINavigationController = UINavigationController.init(rootViewController: dataInputVC)
         

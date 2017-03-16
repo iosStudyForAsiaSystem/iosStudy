@@ -39,3 +39,4 @@ typealias CheckedInputDic = [String:String]
  let kWordComment =     "wordComment"
  let kImageNm =         "imageNm"
  let kImageComment =    "imageComment"
+
