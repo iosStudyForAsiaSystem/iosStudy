@@ -39,6 +39,7 @@
 		03F5CB821E692992009B29FA /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7E1E692992009B29FA /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB851E693411009B29FA /* DataTableViewCell.swift */; };
 		03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB871E6935F6009B29FA /* CustomDataDef.swift */; };
+		A9EEE5951E7A6BB900AE32B2 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9EEE5931E7A6BB900AE32B2 /* Setting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		03F5CB7E1E692992009B29FA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		03F5CB851E693411009B29FA /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		03F5CB871E6935F6009B29FA /* CustomDataDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDataDef.swift; sourceTree = "<group>"; };
+		A9EEE5941E7A6BB900AE32B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		0335DC171E6D543E00763FDA /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				A9EEE5931E7A6BB900AE32B2 /* Setting.storyboard */,
 				0345A2B31E79021800F4B8C2 /* photos.plist */,
 				03F5CB531E6927CC009B29FA /* Main.storyboard */,
 				03F5CB561E6927CC009B29FA /* Assets.xcassets */,
@@ -376,6 +379,7 @@
 			files = (
 				0335DC471E6F895800763FDA /* InputData.storyboard in Resources */,
 				03F5CB5A1E6927CC009B29FA /* LaunchScreen.storyboard in Resources */,
+				A9EEE5951E7A6BB900AE32B2 /* Setting.storyboard in Resources */,
 				03F5CB571E6927CC009B29FA /* Assets.xcassets in Resources */,
 				0345A2B41E79021800F4B8C2 /* photos.plist in Resources */,
 				03F5CB551E6927CC009B29FA /* Main.storyboard in Resources */,
@@ -488,6 +492,14 @@
 				03F5CB591E6927CC009B29FA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A9EEE5931E7A6BB900AE32B2 /* Setting.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9EEE5941E7A6BB900AE32B2 /* Base */,
+			);
+			name = Setting.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
