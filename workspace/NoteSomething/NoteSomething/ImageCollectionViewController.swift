@@ -9,11 +9,13 @@
 import UIKit
 import AVFoundation
 
-private let reuseIdentifier = "PhotoListCell"
+private let reuseIdentifier = "ImgCollectionViewCell"
 
-class ImageCollectionViewController: UICollectionViewController,PinterestLayoutDelegate{
+class ImageCollectionViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource {
 
     var photos:[Photo] = []
+    
+    @IBOutlet weak var collectionView:UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,7 @@ class ImageCollectionViewController: UICollectionViewController,PinterestLayoutD
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(PhotoListCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(ImgCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
@@ -33,8 +35,6 @@ class ImageCollectionViewController: UICollectionViewController,PinterestLayoutD
 //            layout.delegate = self
 //        }
         
-        //background color
-        CustomUtil.paletteImageToView(self.collectionView!, imageNm: "bg_img_h_2")
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,39 +54,32 @@ class ImageCollectionViewController: UICollectionViewController,PinterestLayoutD
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return photos.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
         
-        let cell:PhotoListCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoListCell
+        let cell:ImgCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImgCollectionViewCell
         
         print(NSStringFromCGRect(cell.frame))
         
         // Configure the cell
         
-//        cell.photo = photos[indexPath.row]
+        cell.photo = photos[indexPath.row]
         cell.backgroundColor = UIColor.green
-//        let label:UILabel = UILabel(frame: cell.frame)
-//        let msg = String(format: "%@ \n %@",  (cell.photo?.caption)!, (cell.photo?.comment)! )
-//        label.text  =  msg
-//        label.numberOfLines = 0
-//        label.sizeToFit()
-//        
-//        cell.addSubview(label)
+
+        //cell.displayInfo(photo)
+
         
-        //cell.displayInfo()
-        
-    
         return cell
     }
 

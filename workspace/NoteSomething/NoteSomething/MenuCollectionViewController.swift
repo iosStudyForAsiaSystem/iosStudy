@@ -34,6 +34,9 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
         self.collectionView?.dataSource = self
     
 
+        //background color
+        CustomUtil.paletteImageToView(self.collectionView!, imageNm: "bg_img_h_2")
+        
         // Do any additional setup after loading the view.
     }
 

@@ -75,10 +75,10 @@ class EasyDataInputViewController: UIViewController {
             
             results = self.checkInputData()
             
-            if (results != nil) , (results?.count)! > 0   {
+            if  (results?.count)! == 0   {
                 
                 //show alert
-                self.showAlertVc()
+                CustomUtil.showErrorAlertVc(self,message:"check input data")
                 return true
             }
             
@@ -113,8 +113,8 @@ class EasyDataInputViewController: UIViewController {
         let imageNm = CustomUtil.checkFieldEmpty(self.imgDataInputText1.text!)
         let imageComment = CustomUtil.checkFieldEmpty(self.imgDataInputText2.text!)
         
-        if groupNm.isEmpty || wordNm.isEmpty || imageNm.isEmpty {
-
+        if groupNm.isEmpty {  // || wordNm.isEmpty || imageNm.isEmpty {
+            //グループ情報の入力のみチェック
             return [:]
         }
         
@@ -125,21 +125,25 @@ class EasyDataInputViewController: UIViewController {
         dataDic[kGroupComment] = groupComment
         dataDic[kGroupEtc1] = groupEtc1
         dataDic[kGroupEtc2] = groupEtc2
-        dataDic[kWordNm] = wordNm
-        dataDic[kWordComment] = wordComment
-        dataDic[kImageNm] = imageNm
-        dataDic[kImageComment] = imageComment
+        if !wordNm.isEmpty {
+            dataDic[kWordNm] = wordNm
+            dataDic[kWordComment] = wordComment
+        }
+        if !imageNm.isEmpty {
+            dataDic[kImageNm] = imageNm
+            dataDic[kImageComment] = imageComment
+        }
         
         
         return dataDic
     }
     
-    func showAlertVc () {
+    func showAlertVc (_ target:UIViewController) {
         let alertVc:UIAlertController = UIAlertController(title: "error", message: "check input data", preferredStyle: .alert)
         let action:UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertVc.addAction(action)
         
-        alertVc.show(self, sender: nil)
+        alertVc.show(target, sender: nil)
         
     }
     

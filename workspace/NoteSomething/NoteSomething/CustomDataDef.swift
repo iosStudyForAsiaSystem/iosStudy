@@ -27,6 +27,13 @@ class CustomUtil: NSObject {
     
     // MARK: - Util
     //===================
+    
+    static func  checkKeyTextFieldEmpty(_ field:UITextField) ->String {
+        let param = field.text!
+        return self.checkKeyFieldEmpty(param)
+        
+    }
+    
     static func  checkKeyFieldEmpty(_ param:String?) ->String {
         
         guard let groupId = param, !groupId.isEmpty  else {
@@ -35,6 +42,13 @@ class CustomUtil: NSObject {
         return param!
         
     }
+    
+    static func  checkTextFieldEmpty(_ field:UITextField) ->String {
+        let param = field.text!
+        return self.checkFieldEmpty(param)
+        
+    }
+    
     static func  checkFieldEmpty(_ param:String? ) -> String {
         if let data = param, !data.isEmpty   {
             return data
@@ -47,6 +61,15 @@ class CustomUtil: NSObject {
             view.backgroundColor = UIColor(patternImage: UIImage(named:imageNm)!)
     }
     
+    
+    static func showErrorAlertVc (_ target:UIViewController, message:String ) {
+        let alertVc:UIAlertController = UIAlertController(title: "error", message: message, preferredStyle: .alert)
+        let action:UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertVc.addAction(action)
+        
+        alertVc.show(target, sender: nil)
+        
+    }
 
     
 }

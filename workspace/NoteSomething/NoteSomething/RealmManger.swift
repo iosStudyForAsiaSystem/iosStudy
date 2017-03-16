@@ -54,7 +54,7 @@ class RealmManager: NSObject {
         let type:String = String(describing: DataType.GroupType)
         
         let groupData = GroupDbData(value: ["id":groupId,"nmJp":nmJp, "comment": "", "type":type])
-        groupData.thumnailNm = "groupImg"
+        groupData.thumnailNm = "grp_list_full_menu"
         
         if (comment?.isEmpty)!  {
             groupData.comment = comment!

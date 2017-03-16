@@ -139,11 +139,12 @@ class WordTableViewController: UITableViewController {
     
     func insertWordObject(_ sender: Any) {
         
+        var wordId = ""
         if self.hasParentId() {
-           let wordId =   RealmManager.sharedInstance.makeAndInsertDummyWordData(self.parentId!)
+            wordId =   RealmManager.sharedInstance.makeAndInsertDummyWordData(self.parentId!)
            self.wordIdList.append(wordId)
         } else {
-            RealmManager.sharedInstance.makeAndInsertDummyWordData()
+           wordId = RealmManager.sharedInstance.makeAndInsertDummyWordData()
         }
         
         let indexPath = IndexPath(row: 0, section: 0)
