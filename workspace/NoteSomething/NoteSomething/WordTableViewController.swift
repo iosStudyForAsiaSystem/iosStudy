@@ -139,6 +139,11 @@ class WordTableViewController: UITableViewController {
     
     func insertWordObject(_ sender: Any) {
         
+        CustomUtil.presentMenuVC(self)
+    }
+    
+    func insertDummyWordObject(_ sender: Any) {
+        
         var wordId = ""
         if self.hasParentId() {
             wordId =   RealmManager.sharedInstance.makeAndInsertDummyWordData(self.parentId!)

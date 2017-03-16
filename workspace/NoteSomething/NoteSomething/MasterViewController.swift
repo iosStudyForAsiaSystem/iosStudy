@@ -152,15 +152,8 @@ class MasterViewController: UITableViewController {
     //メニュー選択画面遷移
     func presentMenuVC () {
         
-        let mainDataStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
-
-        let menuCollectionVC: MenuCollectionViewController = mainDataStoryboard.instantiateViewController(withIdentifier: "MenuCollectionVC") as! MenuCollectionViewController
+        CustomUtil.presentMenuVC(self)
         
-        
-        self.present(menuCollectionVC, animated: true) {
-
-        }
     }
 
 }

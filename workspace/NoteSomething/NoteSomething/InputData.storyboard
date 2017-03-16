@@ -496,7 +496,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWa-Lh-irv" userLabel="contentView">
-                                        <rect key="frame" x="10" y="0.0" width="206" height="360"/>
+                                        <rect key="frame" x="10" y="0.0" width="300" height="360"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEh-qQ-aty" userLabel="View1">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="39"/>
@@ -1169,6 +1169,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DT8-qh-UdO"/>
+        <segue reference="gWw-Rp-5oc"/>
     </inferredMetricsTieBreakers>
 </document>
