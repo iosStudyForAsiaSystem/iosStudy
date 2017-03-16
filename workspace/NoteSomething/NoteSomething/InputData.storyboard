@@ -496,7 +496,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWa-Lh-irv" userLabel="contentView">
-                                        <rect key="frame" x="10" y="0.0" width="300" height="360"/>
+                                        <rect key="frame" x="10" y="0.0" width="206" height="360"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEh-qQ-aty" userLabel="View1">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="39"/>
@@ -853,10 +853,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g61-S7-Sc6" userLabel="buttonView">
                                 <rect key="frame" x="0.0" y="389" width="320" height="91"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ1-Ov-kDa">
-                                        <rect key="frame" x="64" y="0.0" width="280" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ1-Ov-kDa">
+                                        <rect key="frame" x="64" y="0.0" width="186" height="35"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="3bK-uo-VDe"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="確認画面へ"/>
                                         <userDefinedRuntimeAttributes>
@@ -868,9 +870,8 @@
                                             <segue destination="Fc3-qF-5KT" kind="show" identifier="showInputConfirmSegue" id="DT8-qh-UdO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXN-8J-JbU">
-                                        <rect key="frame" x="64" y="40" width="280" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXN-8J-JbU">
+                                        <rect key="frame" x="64" y="40" width="186" height="35"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="閉じる"/>
@@ -888,6 +889,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="91" id="3v1-kF-67I"/>
+                                    <constraint firstAttribute="bottom" secondItem="KXN-8J-JbU" secondAttribute="bottom" constant="16" id="YQM-ze-3Tw"/>
+                                    <constraint firstItem="OJ1-Ov-kDa" firstAttribute="top" secondItem="g61-S7-Sc6" secondAttribute="top" id="ePJ-5h-2zP"/>
+                                    <constraint firstItem="KXN-8J-JbU" firstAttribute="top" secondItem="OJ1-Ov-kDa" secondAttribute="bottom" constant="5" id="few-RG-sRq"/>
+                                    <constraint firstItem="OJ1-Ov-kDa" firstAttribute="trailing" secondItem="KXN-8J-JbU" secondAttribute="trailing" id="iE5-AP-slL"/>
+                                    <constraint firstItem="OJ1-Ov-kDa" firstAttribute="leading" secondItem="KXN-8J-JbU" secondAttribute="leading" id="kr5-kQ-gB6"/>
+                                    <constraint firstItem="OJ1-Ov-kDa" firstAttribute="leading" secondItem="g61-S7-Sc6" secondAttribute="leading" constant="64" id="ytm-Xe-lEs"/>
+                                    <constraint firstAttribute="trailing" secondItem="OJ1-Ov-kDa" secondAttribute="trailing" constant="70" id="z0D-R5-SWV"/>
                                 </constraints>
                             </view>
                         </subviews>
