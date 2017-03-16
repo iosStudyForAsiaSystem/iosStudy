@@ -18,14 +18,22 @@ class CustomSegue: UIStoryboardSegue {
         
         // Pop to root view controller (not animated) before pushing
         if self.identifier == "showWordListSegue"{
-            
+            //単語リスト画面遷移
             let controller = (self.destination as! UINavigationController).topViewController as! WordTableViewController
             navigationController?.pushViewController(controller, animated: true)
         } else if self.identifier == "showDetailSegue"
-            || self.identifier == "showWordDetailSegue" {
+            || self.identifier == "showWordDetailSegue"
+            || self.identifier == "showImageDetailSegue" {
             
+            //各データの詳細画面遷移（ナビゲーション）
             let controller = (self.destination as! UINavigationController).topViewController as! DetailViewController
             navigationController?.pushViewController(controller, animated: true)
+        } else if self.identifier == "showImgListSegue" {
+            //イメージリスト画面遷移
+            let controller = (self.destination as! UINavigationController).topViewController as! ImageCollectionViewController
+            navigationController?.pushViewController(controller, animated: true)
+        } else if self.identifier == "" {
+            
         }
     }
 }

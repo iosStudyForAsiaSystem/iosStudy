@@ -1,5 +1,5 @@
 //
-//  SettingNaviViewController.swift
+//  BaseNaviViewController.swift
 //  NoteSomething
 //
 //  Created by snowman on 2017/03/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingNaviViewController: UINavigationController {
+class BaseNaviViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class SettingNaviViewController: UINavigationController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -30,6 +30,34 @@ class SettingNaviViewController: UINavigationController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
+}
+
+class SettingNaviViewController: BaseNaviViewController {
+
+
+}
+
+
+class GrpListNaviViewController: BaseNaviViewController {
+    
+    
+}
+
+
+class WordListNaviViewController: BaseNaviViewController {
+    
+    
+}
+
+
+class ImageListNaviViewController: BaseNaviViewController {
+    
+    
+}
+
+class DetailListNaviViewController: BaseNaviViewController {
+    
+    
 }
