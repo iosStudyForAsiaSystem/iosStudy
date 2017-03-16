@@ -15,10 +15,10 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
     
     var parentId:String?
     
-    let menuList:[(name:String,type:DataType)] = [("グループデータ", DataType.GroupType),
-                                                  ("単語データ",DataType.WordType ),
-                                                  ("イメージデータ", DataType.ImageType),
-                                                   ("全体データ", DataType.AllType)]
+    let menuList:[(name:String,type:DataType)] = [("グループデータ登録", DataType.GroupType),
+                                                  ("単語データ登録",DataType.WordType ),
+                                                  ("イメージデータ登録", DataType.ImageType),
+                                                   ("簡易(全て)データ登録", DataType.AllType)]
     @IBOutlet weak var collectionView:UICollectionView!
     
 
@@ -34,6 +34,9 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
         self.collectionView?.dataSource = self
     
 
+        //background color
+        CustomUtil.paletteImageToView(self.collectionView!, imageNm: "bg_img_h_2")
+        
         // Do any additional setup after loading the view.
     }
 
@@ -108,7 +111,7 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
     
     }
  
-    // MARK : action
+    // MARK : - action
     
     @IBAction func onClickCloseBtn(_ sender: UIButton) {
         self.dismiss(animated: true) { 
@@ -121,18 +124,27 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
         
         let type:DataType = DataType(rawValue: sender.tag)!
 
-        self.presentDataInputVC( dataType: type)
+        switch type {
+        case .AllType:
+            //簡易で全て（グループ、単語、イメージ）のデータ生成画面に遷移
+            self.presentEasyDataInputVC()
+            break
+        default:
+            break
+        }
+        //基本データ生成画面に遷移
+        self.presentKihonDataInputVC( dataType: type)
         
     }
-    
-    func presentDataInputVC (_ parentId: String? = "", dataType: DataType) {
+    //基本データ生成画面に遷移
+    func presentKihonDataInputVC (_ parentId: String? = "", dataType: DataType) {
         
-        print ("presentDataInputVC param:\(parentId)")
+        print ("presentKihonDataInputVC param:\(parentId)")
         
         let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
         
         
-        let dataInputVC: DataInputViewController = inputDataStoryboard.instantiateViewController(withIdentifier: "DataInputVC") as! DataInputViewController
+        let dataInputVC: DataInputViewController = inputDataStoryboard.instantiateViewController(withIdentifier: "kihonDataInputVC") as! DataInputViewController
         
         let navigationController:UINavigationController = UINavigationController.init(rootViewController: dataInputVC)
         
@@ -150,6 +162,26 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
             } else {
                 dataInputVC.parentId = ("","")
             }
+        }
+    }
+    
+    //簡易で全て（グループ、単語、イメージ）のデータ生成画面に遷移
+    func presentEasyDataInputVC () {
+        
+        print ("presentKihonDataInputVC param:\(parentId)")
+        
+        let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
+        
+        
+        let dataInputVC: EasyDataInputViewController = inputDataStoryboard.instantiateViewController(withIdentifier: "EasyDataInputVC") as! EasyDataInputViewController
+        
+        let navigationController:UINavigationController = UINavigationController.init(rootViewController: dataInputVC)
+        
+        //現在の表示VCを設定
+        CustomUtil.sharedInstance.firstModalVc = self
+        
+        self.present(navigationController, animated: true) {
+  
         }
     }
 

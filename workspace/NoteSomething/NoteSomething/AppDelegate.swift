@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            return true
 //        }
         
+        //plist からイメージの読み取り
+        CustomUtil.sharedInstance.loadPhotsData()
+
+        
         return true
     }
 

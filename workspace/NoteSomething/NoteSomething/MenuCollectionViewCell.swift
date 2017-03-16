@@ -28,6 +28,12 @@ class MenuCollectionViewCell: UICollectionViewCell {
         case .WordType:
                 self.imageView.image = UIImage(named: "wordImg")
                 break
+        case .ImageType:
+            self.imageView.image = UIImage(named: "flower")
+            break
+        case .AllType:
+                self.imageView.image = UIImage(named: "easy_input")
+            break
         default:
             break
         }

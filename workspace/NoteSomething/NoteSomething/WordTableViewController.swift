@@ -40,6 +40,8 @@ class WordTableViewController: UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertWordObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         
+        //background color
+        CustomUtil.paletteImageToView(self.view, imageNm: "bg_img_h_4")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,7 +79,7 @@ class WordTableViewController: UITableViewController {
 
         if self.hasParentId() {
             let targetWordId = wordIdList[(wordIdList.count-1) - indexPath.row]
-            cell.dispCell(wordData:RealmManager.sharedInstance.findWordDataFromWordId(id: targetWordId)!)
+            cell.dispCell(wordData:RealmManager.sharedInstance.findWordDataFromWordId(targetWordId)!)
         } else {
             let maxCount = RealmManager.sharedInstance.findAllWordsCount()-1
             cell.dispCell(wordData: self.findWordData(row: maxCount - indexPath.row))
@@ -137,11 +139,12 @@ class WordTableViewController: UITableViewController {
     
     func insertWordObject(_ sender: Any) {
         
+        var wordId = ""
         if self.hasParentId() {
-           let wordId =   RealmManager.sharedInstance.makeAndInsertDummyWordData(parentId: self.parentId!)
+            wordId =   RealmManager.sharedInstance.makeAndInsertDummyWordData(self.parentId!)
            self.wordIdList.append(wordId)
         } else {
-            RealmManager.sharedInstance.makeAndInsertDummyWordData()
+           wordId = RealmManager.sharedInstance.makeAndInsertDummyWordData()
         }
         
         let indexPath = IndexPath(row: 0, section: 0)
@@ -164,7 +167,7 @@ class WordTableViewController: UITableViewController {
     
     
     func findWordData(row: Int) -> WordDbData {
-        let wordData = RealmManager.sharedInstance.findWordDataFromIndex(index: row)
+        let wordData = RealmManager.sharedInstance.findWordDataFromIndex(row)
         return wordData!
     }
     
@@ -183,12 +186,12 @@ class WordTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
-        if segue.identifier == "showWordDetail" {
+        if segue.identifier == "showWordDetailSegue" {
             
             let cell = sender as! WordDataTableViewCell
             
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.detailWordItem = RealmManager.sharedInstance.findWordDataFromWordId(id: cell.wordId)
+            controller.detailWordItem = RealmManager.sharedInstance.findWordDataFromWordId(cell.wordId)
             controller.navigationItem.leftItemsSupplementBackButton = true
             
             

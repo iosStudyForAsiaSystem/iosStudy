@@ -7,89 +7,70 @@
 //
 
 import Foundation
+import UIKit
 
 
 class CustomUtil: NSObject {
     
     static let sharedInstance = CustomUtil()
     
-    var groupList:[String] = []
+    var loadedPhotos:[Photo] = []
     
-    var wordList:[String] = []
-    
-    var groupDic:[String:GroupData] = [:]
-    
-    var wordDic:[String:WordData] = [:]
+    var firstModalVc:Any?
     
     
-    
-    func findAllGroupsCount() -> Int {
+    func loadPhotsData()  {
         
-        return groupList.count
-    }
-    
-    func findAllWordsCount () -> Int {
-        
-        return wordList.count
-        
-    }
-    func makeAndInsertDummyGroupData() {
-        let grpData:GroupData = GroupData()
-        groupList.append(grpData.id)
-        groupDic[grpData.id] = grpData
-    }
-    
-    func makeAndInsertDummyWordData ()  {
-        let wordData:WordData = WordData()
-        wordList.append(wordData.id)
-        wordDic[wordData.id] = wordData
-        
-        print("makeAndInsertDummyWordData wordDic.count \(wordDic.count)")
+        CustomUtil.sharedInstance.loadedPhotos = PhotoDataSource.plist()
         
     }
     
+    // MARK: - Util
+    //===================
     
-    func findGroupDataFromIndex(index:Int ) -> GroupData? {
-        print("findGroupDataFromIndex param \(index) , groupList.count \(groupList.count)")
+    static func  checkKeyTextFieldEmpty(_ field:UITextField) ->String {
+        let param = field.text!
+        return self.checkKeyFieldEmpty(param)
         
-        if groupList.count > index {
-            let data =  findGroupDataFromGroupId( id: groupList[index])
-            
-            print(data?.description ?? "GroupData ... ")
-            
+    }
+    
+    static func  checkKeyFieldEmpty(_ param:String?) ->String {
+        
+        guard let groupId = param, !groupId.isEmpty  else {
+            return "tmp"
+        }
+        return param!
+        
+    }
+    
+    static func  checkTextFieldEmpty(_ field:UITextField) ->String {
+        let param = field.text!
+        return self.checkFieldEmpty(param)
+        
+    }
+    
+    static func  checkFieldEmpty(_ param:String? ) -> String {
+        if let data = param, !data.isEmpty   {
             return data
         }
-        return nil
+        return ""
     }
     
-    func findWordDataFromIndex(index:Int ) -> WordData? {
+    static func  paletteImageToView(_ view:UIView, imageNm:String ) {
         
-        if wordList.count > index {
-            return findWordDataFromWordId(id: wordList[index])
-        }
-        return nil
+            view.backgroundColor = UIColor(patternImage: UIImage(named:imageNm)!)
     }
     
-    func findGroupDataFromGroupId(id : String ) -> GroupData? {
-        print("findGroupDataFromIndex param \(id) , groupDic.count \(groupDic.count)")
-        return groupDic[id ]
-    }
     
-    func findWordDataFromWordId(id:String ) -> WordData? {
+    static func showErrorAlertVc (_ target:UIViewController, message:String ) {
+        let alertVc:UIAlertController = UIAlertController(title: "error", message: message, preferredStyle: .alert)
+        let action:UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertVc.addAction(action)
         
-        print("findWordDataFromWordId param \(id) , wordDic.count \(wordDic.count)")
-        return wordDic[id ]
-       
-    }
-    
-    func saveGroupData () {
+        alertVc.show(target, sender: nil)
         
-        let userDefaults = UserDefaults.standard
-        for keyString:String in groupDic.keys {
-            userDefaults.setValue(groupDic[keyString], forKey: keyString)
-        }
-        userDefaults.synchronize()
     }
+
     
 }
 
@@ -142,7 +123,7 @@ class GroupData : CommonInfo {
     
     override init() {
         super.init()
-        let currentGrpCount = CustomUtil.sharedInstance.groupList.count
+        let currentGrpCount = 0 //CustomUtil.sharedInstance.groupList.count
         self.nmJp = "group" +  String(currentGrpCount)
         self.id = String( currentGrpCount + 1 )
         self.type = DataType.GroupType
@@ -198,7 +179,7 @@ class WordData : CommonInfo {
     
     override init() {
         super.init()
-        let currentWordCount = CustomUtil.sharedInstance.wordList.count
+        let currentWordCount = 0 //CustomUtil.sharedInstance.wordList.count
         self.nmJp = "word" +  String(currentWordCount)
         self.id = String(1000 + currentWordCount + 1)
         self.type = DataType.WordType

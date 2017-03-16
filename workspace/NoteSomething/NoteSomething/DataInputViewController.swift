@@ -17,6 +17,9 @@ class DataInputViewController: UIViewController {
     //let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
 
     var selectedType:DataType = .NoneType
+    
+    var results:CheckedInputDic?
+    
     //グループID
     var parentId:(grp:String, word:String)? {
         didSet{
@@ -55,14 +58,38 @@ class DataInputViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "segueSubDataInputVc" {
+        if segue.identifier == "SubDataInputSegue" {
             
             let subDataInputVc = segue.destination  as! SubDataInputViewController
             // Pass data to secondViewController before the transition
             
             subDataInputVc.selectedType = self.selectedType
             
+        } else if segue.identifier == "showInputConfirmSegue" {
+            //
+            let confirmVc:DataConfirmViewController = segue.destination as! DataConfirmViewController
+            confirmVc.results = results
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == "showInputConfirmSegue" {
+            
+            print("shouldPerformSegue.identifier == showInputConfirmSegue")
+            
+            results = self.checkInputData()
+            
+            if  (results?.count)! == 0   {
+                
+                //show alert
+                CustomUtil.showErrorAlertVc(self,message:"error input")
+                return true
+            }
+            
+        }
+        return true
+        
     }
  
     
@@ -102,14 +129,14 @@ class DataInputViewController: UIViewController {
         self.parentInfoL.text = ""
 
         if parentId.grp != "" {
-                parentNm = RealmManager.sharedInstance.findGroupDataFromGroupId(id: parentId.grp)?.nmJp
+                parentNm = RealmManager.sharedInstance.findGroupDataFromGroupId(parentId.grp)?.nmJp
                 if parentNm == nil ||  parentNm == "" {
                     parentNm = "未指定"
                 }
                 self.parentInfoL.text = "親グループ:" + parentNm!
         } else if parentId.word != "" {
             
-                parentNm = RealmManager.sharedInstance.findWordDataFromWordId(id: parentId.word)?.nmJp
+                parentNm = RealmManager.sharedInstance.findWordDataFromWordId(parentId.word)?.nmJp
                 if parentNm == nil ||  parentNm == "" {
                     parentNm = "未指定"
                 }
@@ -119,6 +146,50 @@ class DataInputViewController: UIViewController {
         
         print("displayParentName parentNm: \(parentNm)" )
         
+    }
+    
+
+    
+    
+    
+    // MARK : - Custom
+    func  checkInputData () -> CheckedInputDic {
+        //TODO : fix logic
+        let groupNm = CustomUtil.checkFieldEmpty("dummy")
+        let groupComment = CustomUtil.checkFieldEmpty("")
+        
+        let groupEtc1 = CustomUtil.checkFieldEmpty("")
+        let groupEtc2 = CustomUtil.checkFieldEmpty("")
+        
+        let wordNm = CustomUtil.checkFieldEmpty("")
+        let wordComment = CustomUtil.checkFieldEmpty("")
+        
+        let imageNm = CustomUtil.checkFieldEmpty("")
+        let imageComment = CustomUtil.checkFieldEmpty("")
+        
+        if groupNm.isEmpty {  // || wordNm.isEmpty || imageNm.isEmpty {
+            //グループ情報の入力のみチェック
+            return [:]
+        }
+        
+        var dataDic:CheckedInputDic = [:]
+        
+        //入力データ設定
+        dataDic[kGroupNm] = groupNm
+        dataDic[kGroupComment] = groupComment
+        dataDic[kGroupEtc1] = groupEtc1
+        dataDic[kGroupEtc2] = groupEtc2
+        if !wordNm.isEmpty {
+            dataDic[kWordNm] = wordNm
+            dataDic[kWordComment] = wordComment
+        }
+        if !imageNm.isEmpty {
+            dataDic[kImageNm] = imageNm
+            dataDic[kImageComment] = imageComment
+        }
+        
+        
+        return dataDic
     }
 
     

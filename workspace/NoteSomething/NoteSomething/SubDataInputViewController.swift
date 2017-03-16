@@ -94,20 +94,24 @@ class SubDataInputViewController: UIViewController {
         case .imageSegMenu:
             self.configureImageView()
             break
+        case .easyAllSegMenu:
+            break
+        
         }
 
+        
     }
     func configureGrpView() {
         self.dataTitleL1.text = "グループ名称："
         self.listTitleL.text = "単語リストの数："
-        self.handleShowListButtonPart(true)
+        self.handleShowListButtonPart(false)
         self.restoreEditGrpInfo()
     }
     
     func configureWordView() {
         self.dataTitleL1.text = "単語名称："
         self.listTitleL.text = "イメージリストの数："
-        self.handleShowListButtonPart(true)
+        self.handleShowListButtonPart(false)
         self.restoreEditWordInfo()
     }
     
@@ -115,6 +119,13 @@ class SubDataInputViewController: UIViewController {
         self.dataTitleL1.text = "イメージ名称："
         self.handleShowListButtonPart(false)
         self.restoreEditImageInfo()
+    }
+    
+    func configureEasyAllView() {
+        self.dataTitleL1.text = "グループ名称："
+        self.listTitleL.text = "単語リストの数："
+        self.handleShowListButtonPart(false)
+        self.restoreEditGrpInfo()
     }
     
     func handleShowListButtonPart(_ show:Bool) {
@@ -134,6 +145,8 @@ class SubDataInputViewController: UIViewController {
             break
         case .imageSegMenu:
             self.saveTmpImageData()
+            break
+        case .easyAllSegMenu:
             break
         }
         

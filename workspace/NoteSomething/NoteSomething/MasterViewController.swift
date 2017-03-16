@@ -22,7 +22,8 @@ class MasterViewController: UITableViewController {
         //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertGroupObject(_:)))
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentMenuVC))
         self.navigationItem.rightBarButtonItem = addButton
-        
+        //background color 
+        CustomUtil.paletteImageToView(self.view,imageNm: "bg_img_h_1")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,29 +43,32 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "showDetailSegue" {
+            
+            print("segue.identifier == showDetailSegue")
             
             let cell = sender as! GroupDataTableViewCell
 
             //let object = objects[indexPath.row] as! NSDate
             
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.detailItem = RealmManager.sharedInstance.findGroupDataFromGroupId(id: cell.groupId)!
+            controller.detailItem = RealmManager.sharedInstance.findGroupDataFromGroupId(cell.groupId)!
             controller.navigationItem.leftItemsSupplementBackButton = true
             
             
-        } else if segue.identifier == "showWordList" {
+        } else if segue.identifier == "showWordListSegue" {
             
-            let controller = segue.destination as!  WordTableViewController
-//            if let indexPath = self.tableView.indexPathForSelectedRow
-//            {
-//                controller.paramData = self.findGroupData(row: indexPath.row)
-//            } else {
-                let groupId:String = String((sender as! UIButton).tag)
-                controller.paramData = RealmManager.sharedInstance.findGroupDataFromGroupId(id:groupId)!
-//            }
-                controller.navigationItem.leftItemsSupplementBackButton = true
-//            }
+            print("segue.identifier == showWordListSegue")
+            //let controller = segue.destination as!  WordTableViewController
+            let controller = (segue.destination as! UINavigationController).topViewController as! WordTableViewController
+
+            let groupId:String = String((sender as! UIButton).tag)
+            controller.paramData = RealmManager.sharedInstance.findGroupDataFromGroupId(groupId)!
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            
+            //self.navigationController?.pushViewController(controller, animated: true)
+            
+
         }
         
     }
@@ -129,7 +133,7 @@ class MasterViewController: UITableViewController {
     
     func showWordListVc(groupId:String)  {
         
-        let groupData :GroupDbData = RealmManager.sharedInstance.findGroupDataFromGroupId(id: groupId)!
+        let groupData :GroupDbData = RealmManager.sharedInstance.findGroupDataFromGroupId(groupId)!
         
         self.performSegue(withIdentifier: "showWordList", sender: groupData)
     }
@@ -137,7 +141,8 @@ class MasterViewController: UITableViewController {
     //ダミのグループ情報を生成及び表示
     func insertGroupObject(_ sender: Any) {
         
-        RealmManager.sharedInstance.makeAndInsertDummyGroupData()
+        let tmpID = RealmManager.sharedInstance.makeAndInsertDummyGroupData("")
+        print(tmpID)
         //objects.insert(NSDate(), at: 0)
         //let index:Int = RealmManager.sharedInstance.findAllGroupsCount()-1
         let indexPath = IndexPath(row: 0 , section: 0)

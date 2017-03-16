@@ -1,5 +1,5 @@
 //
-//  RegistFinishViewController.swift
+//  InputCompleteViewController.swift
 //  NoteSomething
 //
 //  Created by snowman on 2017/03/07.
@@ -8,13 +8,20 @@
 
 import UIKit
 
-class RegistFinishViewController: UIViewController {
+class InputCompleteViewController: UIViewController {
 
+    //生成されたデータID, 名称,
+    var dataId :String?
+    var dataNm :String?
+    
+    @IBOutlet  weak var itemNm:UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.hidesBackButton = true
         
+        self.itemNm.text = "項目名： \(dataNm)"
         // Do any additional setup after loading the view.
     }
 
@@ -31,11 +38,14 @@ class RegistFinishViewController: UIViewController {
     }
     @IBAction func onClickBackListBtn(_ sender: UIButton) {
         
-        self.dismiss(animated: true) { 
+         self.navigationController?.dismiss(animated: true) {
             //自分を閉じる際に行うべき機能を追加
             //単語データを作成した場合、単語リストに戻る
             //グループデータを作成した場合、グループリストに戻る
             //イメージデータを作成した場合、。。。
+            if let oldVc:UIViewController = CustomUtil.sharedInstance.firstModalVc as! UIViewController?  {
+                oldVc.dismiss(animated: false, completion:nil)
+            }
         }
     }
     /*
