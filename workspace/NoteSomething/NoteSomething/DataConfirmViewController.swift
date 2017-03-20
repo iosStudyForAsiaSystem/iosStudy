@@ -79,7 +79,7 @@ class DataConfirmViewController: UIViewController {
             
             let dic:CheckedInputDic = ["etc1":results?[kGroupEtc1] ?? "",
                                        "etc2":results?[kGroupEtc2] ?? ""]
-            realMgr.updateGroupDataFromGroupId(grpid, itemDic:dic)
+            realMgr.updateGroupDataWithGroupId(grpid, itemDic:dic)
             
             
             //word data

@@ -14,6 +14,7 @@ private let reuseIdentifier = "ImgCollectionViewCell"
 class ImageCollectionViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource {
 
     var photos:[Photo] = []
+    var parentId:String = ""
     
     @IBOutlet weak var collectionView:UICollectionView!
     
@@ -29,12 +30,23 @@ class ImageCollectionViewController: UIViewController , UICollectionViewDelegate
 
         // Do any additional setup after loading the view.
         
-        photos = CustomUtil.sharedInstance.loadedPhotos
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertImageObject(_:)))
+        self.navigationItem.rightBarButtonItem = addButton
         
+
 //        if let layout = self.collectionView?.collectionViewLayout as? PinterestLayout {
 //            layout.delegate = self
 //        }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //photos = CustomUtil.sharedInstance.loadedPhotos
+        photos =  RealmManager.sharedInstance.findPhotoDataListWithWordId(parentId)
+        
+        self.collectionView!.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,15 +54,19 @@ class ImageCollectionViewController: UIViewController , UICollectionViewDelegate
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showImageDetailSegue" {
+            
+        }
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -140,4 +156,10 @@ class ImageCollectionViewController: UIViewController , UICollectionViewDelegate
     }
     */
 
+    // MARK: - Custom
+    
+    func insertImageObject(_ sender: Any) {
+        
+        CustomUtil.presentMenuVC(self)
+    }
 }

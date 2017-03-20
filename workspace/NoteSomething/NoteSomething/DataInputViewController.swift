@@ -136,7 +136,7 @@ class DataInputViewController: UIViewController {
                 self.parentInfoL.text = "親グループ:" + parentNm!
         } else if parentId.word != "" {
             
-                parentNm = RealmManager.sharedInstance.findWordDataFromWordId(parentId.word)?.nmJp
+                parentNm = RealmManager.sharedInstance.findWordDataWithWordId(parentId.word)?.nmJp
                 if parentNm == nil ||  parentNm == "" {
                     parentNm = "未指定"
                 }

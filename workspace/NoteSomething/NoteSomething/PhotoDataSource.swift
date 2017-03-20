@@ -15,6 +15,22 @@ struct Photo {
     var imageNm = ""
     var image: UIImage?
     
+    init() {
+        self.caption = ""
+        self.comment = ""
+        self.imageNm = ""
+        self.image = nil
+    }
+   
+    init(_ caption:String, comment:String = "", imageNm:String = "") {
+        self.caption = caption
+        self.comment = comment
+        self.imageNm = imageNm
+        if !self.imageNm.isEmpty {
+           self.image =  UIImage(named:imageNm)
+        }
+    }
+    
     func heightForCaption(_ font: UIFont, width: CGFloat) -> CGFloat {
         
         let rect = NSString(string: caption).boundingRect(

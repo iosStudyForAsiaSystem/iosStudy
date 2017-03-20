@@ -80,6 +80,12 @@ class WordDataTableViewCell: UITableViewCell {
         }
         self.wordId = wordData.id
         wordNameL.text = wordData.nmJp
+        self.showImageListBtn.tag = Int(wordData.id)!
+        
+//        let imgListCount = RealmManager.sharedInstance.findImageCountWithSameWord(wordId)
+//        self.showImageListBtn.setTitle(String(describing: imgListCount), for: UIControlState.normal)
+        self.showImageListBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
+        self.showImageListBtn.setTitleColor(UIColor.purple, for: UIControlState.selected)
     }
     
 }

@@ -79,7 +79,7 @@ class WordTableViewController: UITableViewController {
 
         if self.hasParentId() {
             let targetWordId = wordIdList[(wordIdList.count-1) - indexPath.row]
-            cell.dispCell(wordData:RealmManager.sharedInstance.findWordDataFromWordId(targetWordId)!)
+            cell.dispCell(wordData:RealmManager.sharedInstance.findWordDataWithWordId(targetWordId)!)
         } else {
             let maxCount = RealmManager.sharedInstance.findAllWordsCount()-1
             cell.dispCell(wordData: self.findWordData(row: maxCount - indexPath.row))
@@ -191,16 +191,24 @@ class WordTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
-        if segue.identifier == "showWordDetailSegue" {
+        if segue.identifier == "showWordDetailSegue"  {
             
             let cell = sender as! WordDataTableViewCell
             
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.detailWordItem = RealmManager.sharedInstance.findWordDataFromWordId(cell.wordId)
+            controller.detailWordItem = RealmManager.sharedInstance.findWordDataWithWordId(cell.wordId)
             controller.navigationItem.leftItemsSupplementBackButton = true
             
             
+        } else if  segue.identifier == "showImgListSegue" {
+            
+            let controller = (segue.destination as! UINavigationController).topViewController as! ImageCollectionViewController
+            let wordId:String = String((sender as! UIButton).tag)
+            controller.parentId = wordId
         }
     }
-
 }
+
+
+
+

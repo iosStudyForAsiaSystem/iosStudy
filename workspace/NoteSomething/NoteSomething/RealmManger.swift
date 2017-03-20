@@ -56,7 +56,7 @@ class RealmManager: NSObject {
         let groupData = GroupDbData(value: ["id":groupId,"nmJp":nmJp, "comment": "", "type":type])
         groupData.thumnailNm = "grp_list_full_menu"
         
-        if (comment?.isEmpty)!  {
+         if let comm = comment , !comm.isEmpty  {
             groupData.comment = comment!
         }
         
@@ -96,7 +96,7 @@ class RealmManager: NSObject {
         return results[0]
     }
     
-    func updateGroupDataFromGroupId(_ id :String? , itemDic:CheckedInputDic) {
+    func updateGroupDataWithGroupId(_ id :String? , itemDic:CheckedInputDic) {
         
         guard  (id != nil) else {
             return
@@ -106,7 +106,7 @@ class RealmManager: NSObject {
             let groupData = self.findGroupDataFromGroupId(id!)
             
             itemDic.forEach{key,value in
-                print("updateGroupDataFromGroupId key\(key) value\(value)")
+                print("updateGroupDataWithGroupId key\(key) value\(value)")
                 groupData?.setValue(value, forKeyPath: key)
             }
         }
@@ -167,10 +167,13 @@ class RealmManager: NSObject {
     func makeAndInsertDummyWordData(_ parentId:String, inputNm:String? = "", comment:String? = "" ) -> String {
         
         var  nmJp:String = ""
-        if inputNm == nil ,inputNm == "" {
-            nmJp = self.makeDummyWordName()
-        } else {
+        if  let  param = inputNm ,  !param.isEmpty {
             nmJp = inputNm!
+            
+        } else {
+    
+            nmJp = self.makeDummyWordName()
+            
         }
         let currentWordCount = self.findAllWordsCount()
         let wordId:String = String( currentWordCount + 1 )
@@ -180,11 +183,11 @@ class RealmManager: NSObject {
         let wordData = WordDbData(value: ["id":wordId,"nmJp":nmJp, "comment": "", "type":type])
         wordData.thumnailNm = "wordImg"
         
-        if parentId != ""  {
+        if !parentId.isEmpty  {
             wordData.parentId = parentId
         }
         
-        if (comment?.isEmpty)!  {
+        if let comm = comment , !comm.isEmpty  {
             wordData.comment = comment!
         }
 
@@ -216,7 +219,7 @@ class RealmManager: NSObject {
         return nil
     }
     //単語情報取得（ID検索）
-    func findWordDataFromWordId(_ id:String ) -> WordDbData? {
+    func findWordDataWithWordId(_ id:String ) -> WordDbData? {
         
         let currentWordCount = self.findAllWordsCount()
         
@@ -266,10 +269,10 @@ class RealmManager: NSObject {
     func makeAndInsertDummyImageData(_ parentId:String, inputNm:String? = "" , comment:String? = "") -> String {
         
         var  nmJp:String = ""
-        if inputNm == nil ,  inputNm == "" {
-            nmJp = self.makeDummyImageName()
-        } else {
+        if  let  param = inputNm ,  !param.isEmpty {
             nmJp = inputNm!
+        } else {
+            nmJp = self.makeDummyImageName()
         }
         
         let currentCount = self.findAllWordsCount()
@@ -280,10 +283,10 @@ class RealmManager: NSObject {
         let tmpData = ImageDbData(value: ["id":tmpId,"nmJp":nmJp, "comment": "", "type":type])
         tmpData.thumnailNm = "flower"
         
-        if parentId.isEmpty  {
+        if !parentId.isEmpty  {
             tmpData.parentId = parentId
         }
-        if (comment?.isEmpty)!  {
+        if let comm = comment , !comm.isEmpty  {
             tmpData.comment = comment!
         }
         
@@ -298,18 +301,56 @@ class RealmManager: NSObject {
     }
     
     //イメージ情報取得（ID検索）
-    func findImageDataFromImageId(_ id:String ) -> ImageDbData? {
+    func findImageCountWithSameWord(_ wordId:String = "" ) -> Int {
+        return self.findImageDataWithSameWord(wordId).count
+    }
+    
+    func findImageDataWithSameWord(_ wordId:String = "" ) -> Results<ImageDbData> {
+        return self.findImageDataWithCondition(wordId, searchKey: "id")
+    }
+    func findImageDataWithCondition(_ id:String = "" , searchKey:String = "") -> Results<ImageDbData> {
         
         let currentCount = self.findAllImagesCount()
         
-        print("findImageDataFromImageId param: \(id) , currentCount: \(currentCount)")
+        print("findImageDataFromImageId param: \(id) \(searchKey), currentCount: \(currentCount)")
         
-        let predicate = NSPredicate(format: "id = %@ ", id)
-        let results = dataRealm.objects(ImageDbData.self).filter(predicate)
+//TODO
+//        if !searchKey.isEmpty {
+//            let predicate = NSPredicate(format: "%@ = %@ ",searchKey, id)
+//            return   dataRealm.objects(ImageDbData.self).filter(predicate)
+//        }
         
-        return results[0]
+        return   dataRealm.objects(ImageDbData.self)
         
     }
+    
+    //イメージ情報リスト取得（親ID検索）
+    func findPhotoDataListWithWordId(_ parentId:String ) -> [Photo] {
+        
+        let currentCount = self.findAllImagesCount()
+        
+        print("findImageDataListFromWordId param: \(parentId) , currentCount: \(currentCount)")
+        
+        var photoDataList:[Photo] = []
+        
+        var dataList:Results<ImageDbData>
+        
+        if !parentId.isEmpty {
+            dataList = self.findImageDataWithCondition(parentId, searchKey: "parentId")
+        } else {
+            dataList = self.findImageDataWithCondition()
+        }
+        
+        for item:ImageDbData  in dataList {
+    
+            let photo = Photo.init(item.id, comment: item.comment, imageNm: item.thumnailNm)
+            photoDataList.append(photo)
+        }
+        
+        return photoDataList
+        
+    }
+
 
     
     // MARK: - sort

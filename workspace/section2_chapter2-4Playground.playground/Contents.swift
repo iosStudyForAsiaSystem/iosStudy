@@ -346,6 +346,92 @@ func examTest () {
 examTest()
 
 
+//func testClosure() {
+//    
+//    let tmp1 = { (val1:String , val2 :String ) -> String in
+//        return String( Int(val1)!  + Int(val2)!)
+//    }
+//    
+//    print( tmp1( "100" , "300"))
+//    
+// 
+//}
+//
+//testClosure()
+
+
+struct Data {
+    
+    var data1:Int?
+    var data2:Int?
+    var data3:String?
+    
+    mutating func clear() {
+        self.data1 = 1
+        self.data2 = 3
+        
+    }
+}
+
+//
+//func testOptionanlVar () {
+//    
+//    var opTmp1:String?
+//    var opTmp2:String?
+//    
+//    var tmp1:String
+//    var tmp2:String
+//
+//    
+//    var tmpData1:Data = Data(data1: nil, data2: 11, data3: nil)
+//    
+//    tmp1 = tmpData1.data1
+//    tmp2 = tmpData1.data2
+//    
+//    tmp1 = tmpData1.data1
+//    tmp2 = tmpData1.data2
+//    
+//    tmpData1.data1 = opTmp1
+//    tmpData1.data2 = opTmp2
+//
+//
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
