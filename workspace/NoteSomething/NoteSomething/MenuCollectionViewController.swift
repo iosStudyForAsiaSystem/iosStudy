@@ -129,6 +129,9 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
             //簡易で全て（グループ、単語、イメージ）のデータ生成画面に遷移
             self.presentEasyDataInputVC()
             break
+        case .ImageType:
+            self.presentImageDataInputVC()
+            break
         default:
             break
         }
@@ -144,7 +147,7 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
         let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
         
         
-        let dataInputVC: DataInputViewController = inputDataStoryboard.instantiateViewController(withIdentifier: "kihonDataInputVC") as! DataInputViewController
+        let dataInputVC = inputDataStoryboard.instantiateViewController(withIdentifier: "kihonDataInputVC") as! DataInputViewController
         
         let navigationController:UINavigationController = UINavigationController.init(rootViewController: dataInputVC)
         
@@ -161,6 +164,35 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
                 
             } else {
                 dataInputVC.parentId = ("","")
+            }
+        }
+    }
+    
+    //Imageデータ生成画面に遷移
+    func presentImageDataInputVC (_ parentId: String? = "") {
+        
+        print ("presentImageDataInputVC param:\(parentId)")
+        
+        let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
+        
+        
+        let dataInputVC = inputDataStoryboard.instantiateViewController(withIdentifier: "ImageInputVC") as! ImageInputViewController
+        
+        let navigationController:UINavigationController = UINavigationController.init(rootViewController: dataInputVC)
+        
+        //let navigationController:UINavigationController = inputDataStoryboard.instantiateViewController(withIdentifier: "ImageInputNav") as! ImageInputNaviViewController
+        
+        self.present(navigationController, animated: true) {
+            
+//            //生成するデータタイプの設定
+//            dataInputVC.selectedType =  dataType
+            //親情報の設定
+            if parentId != nil || parentId != "" {
+                
+                dataInputVC.parentId = parentId!
+                
+            } else {
+                dataInputVC.parentId = ""
             }
         }
     }

@@ -1,15 +1,17 @@
 //
-//  BaseNaviViewController.swift
+//  CustomPickerViewController.swift
 //  NoteSomething
 //
-//  Created by snowman on 2017/03/16.
+//  Created by snowman on 2017/03/21.
 //  Copyright © 2017年 snowman. All rights reserved.
 //
 
 import UIKit
 
-class BaseNaviViewController: UINavigationController {
+class CustomPickerViewController: UIViewController {
 
+    @IBOutlet weak var customPickerView: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +24,7 @@ class BaseNaviViewController: UINavigationController {
     }
     
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -30,39 +32,14 @@ class BaseNaviViewController: UINavigationController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
- 
+    */
 
-}
-
-class SettingNaviViewController: BaseNaviViewController {
-
-
-}
-
-
-class GrpListNaviViewController: BaseNaviViewController {
-    
-    
-}
-
-
-class WordListNaviViewController: BaseNaviViewController {
-    
-    
-}
-
-
-class ImageListNaviViewController: BaseNaviViewController {
-    
-    
-}
-
-class DetailListNaviViewController: BaseNaviViewController {
-    
-    
-}
-
-class ImageInputNaviViewController: BaseNaviViewController {
-    
-    
+    @IBAction func onClickSelectionBtn(_ sender: Any) {
+    }
+    @IBAction func onClickCloseBtn(_ sender: Any) {
+        
+        self.navigationController?.dismiss(animated: true) {
+            //自分の画面を閉じる際に行うべき機能追加
+        }
+    }
 }

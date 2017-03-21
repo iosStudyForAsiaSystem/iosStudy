@@ -29,6 +29,9 @@
 		0345A2D71E7A936100F4B8C2 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0345A2D11E7A936100F4B8C2 /* Group.storyboard */; };
 		03C2370D1E76B78A005A7DDA /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2370C1E76B78A005A7DDA /* CustomSegue.swift */; };
 		03C237111E77BC12005A7DDA /* EasyDataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C237101E77BC12005A7DDA /* EasyDataInputViewController.swift */; };
+		03E5E2DB1E815EC7008DCCF0 /* ImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5E2DA1E815EC7008DCCF0 /* ImageSelectionViewController.swift */; };
+		03E5E2DD1E817079008DCCF0 /* ImageInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5E2DC1E817079008DCCF0 /* ImageInputViewController.swift */; };
+		03E5E2DF1E8176FE008DCCF0 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5E2DE1E8176FE008DCCF0 /* CustomPickerViewController.swift */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
 		03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB511E6927CC009B29FA /* DetailViewController.swift */; };
@@ -101,6 +104,9 @@
 		0345A2D21E7A936100F4B8C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
 		03C2370C1E76B78A005A7DDA /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		03C237101E77BC12005A7DDA /* EasyDataInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyDataInputViewController.swift; sourceTree = "<group>"; };
+		03E5E2DA1E815EC7008DCCF0 /* ImageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelectionViewController.swift; sourceTree = "<group>"; };
+		03E5E2DC1E817079008DCCF0 /* ImageInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInputViewController.swift; sourceTree = "<group>"; };
+		03E5E2DE1E8176FE008DCCF0 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 				0345A2B71E790FB000F4B8C2 /* ImageCollectionViewController.swift */,
 				0345A2C81E7A759000F4B8C2 /* SettingViewController.swift */,
 				0345A2CC1E7A8D4300F4B8C2 /* BaseNaviViewController.swift */,
+				03E5E2DA1E815EC7008DCCF0 /* ImageSelectionViewController.swift */,
+				03E5E2DE1E8176FE008DCCF0 /* CustomPickerViewController.swift */,
 			);
 			name = source;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				0335DC441E6F888400763FDA /* DataConfirmViewController.swift */,
 				0335DC421E6EB0C100763FDA /* InputCompleteViewController.swift */,
 				03C237101E77BC12005A7DDA /* EasyDataInputViewController.swift */,
+				03E5E2DC1E817079008DCCF0 /* ImageInputViewController.swift */,
 			);
 			name = DataInput;
 			sourceTree = "<group>";
@@ -437,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E5E2DB1E815EC7008DCCF0 /* ImageSelectionViewController.swift in Sources */,
 				03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */,
 				033E700D1E76725E00C661D0 /* MenuCollectionViewCell.swift in Sources */,
 				033E700B1E765D4000C661D0 /* MenuCollectionViewController.swift in Sources */,
@@ -447,8 +457,10 @@
 				0345A2CD1E7A8D4300F4B8C2 /* BaseNaviViewController.swift in Sources */,
 				0335DC3F1E6E9D1E00763FDA /* DataInputViewController.swift in Sources */,
 				0335DC411E6EA48100763FDA /* SubDataInputViewController.swift in Sources */,
+				03E5E2DD1E817079008DCCF0 /* ImageInputViewController.swift in Sources */,
 				0345A2CB1E7A77D000F4B8C2 /* SettingTableViewCell.swift in Sources */,
 				0335DC451E6F888400763FDA /* DataConfirmViewController.swift in Sources */,
+				03E5E2DF1E8176FE008DCCF0 /* CustomPickerViewController.swift in Sources */,
 				03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */,
 				0335DC151E6D541B00763FDA /* RealmManger.swift in Sources */,
 				03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */,

@@ -55,6 +55,7 @@
                         <segue destination="Whv-6y-dcD" kind="relationship" relationship="viewControllers" id="WWZ-Tb-1h4"/>
                         <segue destination="6mq-at-hKd" kind="relationship" relationship="viewControllers" id="BWW-vd-Ue3"/>
                         <segue destination="m8T-Mq-5FY" kind="relationship" relationship="viewControllers" id="FQX-Uf-irz"/>
+                        <segue destination="JiR-o4-U66" kind="relationship" relationship="viewControllers" id="FSG-nM-nNh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3C-nn-PQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,6 +99,159 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbY-OU-Lp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="851.25" y="227.5"/>
+        </scene>
+        <!--イメージ選択画面-->
+        <scene sceneID="IbD-jz-6wf">
+            <objects>
+                <viewController storyboardIdentifier="ImageSelectVC" id="rRf-uS-rEa" customClass="ImageSelectionViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nxv-t5-baS"/>
+                        <viewControllerLayoutGuide type="bottom" id="2NX-Ua-KBb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jVl-xX-Tjc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_menu" translatesAutoresizingMaskIntoConstraints="NO" id="6DJ-4M-u0v">
+                                <rect key="frame" x="9" y="93" width="300" height="253"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Que-ZQ-FVG">
+                                <rect key="frame" x="16" y="64" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="0gy-Ob-VIl"/>
+                                </constraints>
+                                <state key="normal" title="Show Camera "/>
+                                <connections>
+                                    <action selector="launchCameraWithSender:" destination="rRf-uS-rEa" eventType="touchUpInside" id="SqZ-yZ-5nL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxU-5L-dlj">
+                                <rect key="frame" x="204" y="64" width="100" height="30"/>
+                                <state key="normal" title="Show Album"/>
+                                <connections>
+                                    <action selector="launchAlbumWithSender:" destination="rRf-uS-rEa" eventType="touchUpInside" id="bwM-oB-f24"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2Y-vx-UlB">
+                                <rect key="frame" x="87" y="393" width="145" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="h1M-rI-LLv"/>
+                                </constraints>
+                                <state key="normal" title="イメージ設定"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ws-Yq-cIl">
+                                <rect key="frame" x="9" y="355" width="124" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="Gxt-eu-WWZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="イメージ情報選択"/>
+                                <connections>
+                                    <segue destination="OcK-V5-yAb" kind="presentation" identifier="showCustomPicker" id="u7Z-ge-Ogm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwc-lI-7oJ">
+                                <rect key="frame" x="141" y="359" width="168" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4ws-Yq-cIl" firstAttribute="centerY" secondItem="Nwc-lI-7oJ" secondAttribute="centerY" id="3CO-io-LAg"/>
+                            <constraint firstItem="2NX-Ua-KBb" firstAttribute="top" secondItem="N2Y-vx-UlB" secondAttribute="bottom" constant="8" symbolic="YES" id="3do-wx-z2C"/>
+                            <constraint firstItem="6DJ-4M-u0v" firstAttribute="trailing" secondItem="Nwc-lI-7oJ" secondAttribute="trailing" id="9v3-7C-8IA"/>
+                            <constraint firstItem="N2Y-vx-UlB" firstAttribute="centerX" secondItem="jVl-xX-Tjc" secondAttribute="centerX" id="9xA-cC-Xn1"/>
+                            <constraint firstItem="Que-ZQ-FVG" firstAttribute="baseline" secondItem="GxU-5L-dlj" secondAttribute="baseline" id="DzP-9H-3ME"/>
+                            <constraint firstItem="6DJ-4M-u0v" firstAttribute="leading" secondItem="4ws-Yq-cIl" secondAttribute="leading" id="ENh-HF-3Xg"/>
+                            <constraint firstItem="N2Y-vx-UlB" firstAttribute="top" secondItem="4ws-Yq-cIl" secondAttribute="bottom" constant="8" symbolic="YES" id="F5K-OS-7l1"/>
+                            <constraint firstItem="N2Y-vx-UlB" firstAttribute="top" secondItem="Nwc-lI-7oJ" secondAttribute="bottom" constant="13" id="Lmj-Zw-Umq"/>
+                            <constraint firstItem="6DJ-4M-u0v" firstAttribute="leading" secondItem="jVl-xX-Tjc" secondAttribute="leadingMargin" constant="-7" id="NEh-Za-TI2"/>
+                            <constraint firstItem="GxU-5L-dlj" firstAttribute="trailing" secondItem="jVl-xX-Tjc" secondAttribute="trailingMargin" id="OlQ-LW-Qb9"/>
+                            <constraint firstItem="Que-ZQ-FVG" firstAttribute="top" secondItem="Nxv-t5-baS" secondAttribute="bottom" id="SKW-vD-JRv"/>
+                            <constraint firstItem="Nwc-lI-7oJ" firstAttribute="leading" secondItem="4ws-Yq-cIl" secondAttribute="trailing" constant="8" symbolic="YES" id="VNb-tG-PJm"/>
+                            <constraint firstItem="4ws-Yq-cIl" firstAttribute="top" secondItem="6DJ-4M-u0v" secondAttribute="bottom" constant="9" id="hHJ-gB-lzj"/>
+                            <constraint firstItem="6DJ-4M-u0v" firstAttribute="centerX" secondItem="N2Y-vx-UlB" secondAttribute="centerX" id="lhN-Du-kwk"/>
+                            <constraint firstItem="Que-ZQ-FVG" firstAttribute="leading" secondItem="jVl-xX-Tjc" secondAttribute="leadingMargin" id="qcU-pp-VGd"/>
+                            <constraint firstItem="GxU-5L-dlj" firstAttribute="leading" secondItem="Que-ZQ-FVG" secondAttribute="trailing" constant="88" id="u3B-Hv-do0"/>
+                            <constraint firstItem="N2Y-vx-UlB" firstAttribute="leading" secondItem="jVl-xX-Tjc" secondAttribute="leadingMargin" constant="71" id="vzK-lw-4Qh"/>
+                            <constraint firstItem="6DJ-4M-u0v" firstAttribute="top" secondItem="Nxv-t5-baS" secondAttribute="bottom" constant="29" id="z7E-sS-R48"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="イメージ選択画面" id="Fh3-f6-6MR"/>
+                    <connections>
+                        <outlet property="imageView" destination="6DJ-4M-u0v" id="RpZ-St-Xwk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgF-qE-TVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996.875" y="-555"/>
+        </scene>
+        <!--情報の選択-->
+        <scene sceneID="OyI-c6-1iY">
+            <objects>
+                <viewController storyboardIdentifier="CustomPickerVC" id="Us3-yX-i4C" customClass="CustomPickerViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ynK-dW-bjc"/>
+                        <viewControllerLayoutGuide type="bottom" id="dpO-xz-TMk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WRL-15-kAa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDC-z9-3fD">
+                                <rect key="frame" x="0.0" y="132" width="320" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU8-1a-9B5">
+                                <rect key="frame" x="100" y="442" width="145" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="閉じる"/>
+                                <connections>
+                                    <action selector="onClickCloseBtn:" destination="Us3-yX-i4C" eventType="touchUpInside" id="pBd-XM-dZl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmc-Mx-btq">
+                                <rect key="frame" x="100" y="404" width="145" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="選択"/>
+                                <connections>
+                                    <action selector="onClickSelectionBtn:" destination="Us3-yX-i4C" eventType="touchUpInside" id="ARS-0P-rIn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dpO-xz-TMk" firstAttribute="top" secondItem="dU8-1a-9B5" secondAttribute="bottom" constant="8" symbolic="YES" id="7gV-7G-8kj"/>
+                            <constraint firstItem="dU8-1a-9B5" firstAttribute="top" secondItem="Rmc-Mx-btq" secondAttribute="bottom" constant="8" symbolic="YES" id="GTr-8c-rQr"/>
+                            <constraint firstItem="Rmc-Mx-btq" firstAttribute="trailing" secondItem="dU8-1a-9B5" secondAttribute="trailing" id="Gfh-Qy-1fh"/>
+                            <constraint firstItem="dDC-z9-3fD" firstAttribute="leading" secondItem="WRL-15-kAa" secondAttribute="leading" id="LpD-Ae-NX9"/>
+                            <constraint firstItem="Rmc-Mx-btq" firstAttribute="leading" secondItem="dU8-1a-9B5" secondAttribute="leading" id="bnR-ks-Ksc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rmc-Mx-btq" secondAttribute="trailing" constant="59" id="ePA-yH-oH9"/>
+                            <constraint firstItem="dDC-z9-3fD" firstAttribute="centerY" secondItem="WRL-15-kAa" secondAttribute="centerY" id="i05-vU-sAU"/>
+                            <constraint firstItem="Rmc-Mx-btq" firstAttribute="leading" secondItem="WRL-15-kAa" secondAttribute="leadingMargin" constant="84" id="ogX-lL-leN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="情報の選択" id="390-xr-t4x"/>
+                    <connections>
+                        <outlet property="customPickerView" destination="dDC-z9-3fD" id="gjG-As-09u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4d-2p-Cys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3641.25" y="-545"/>
         </scene>
         <!--settingNaviVc-->
         <scene sceneID="CKd-f5-5NP">
@@ -228,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fb4-eT-NO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="39"/>
+            <point key="canvasLocation" x="1772" y="200"/>
         </scene>
         <!--スケージュラ-->
         <scene sceneID="QA7-Ph-hEl">
@@ -270,11 +424,50 @@
             </objects>
             <point key="canvasLocation" x="-146.25" y="227.5"/>
         </scene>
+        <!--カメラ-->
+        <scene sceneID="gK7-9C-DAf">
+            <objects>
+                <navigationController storyboardIdentifier="ImageSelectNav" automaticallyAdjustsScrollViewInsets="NO" id="JiR-o4-U66" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="カメラ" image="camera_menu" id="N4B-AD-Jho"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1a0-m3-FMy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rRf-uS-rEa" kind="relationship" relationship="rootViewController" id="sSl-8h-SGT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMO-Xs-IVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="-555"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TLJ-Ti-PJK">
+            <objects>
+                <navigationController storyboardIdentifier="CustomPickerNav" automaticallyAdjustsScrollViewInsets="NO" id="OcK-V5-yAb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OcB-KN-Wmq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Us3-yX-i4C" kind="relationship" relationship="rootViewController" id="qUb-d9-nkC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0c-Hj-VR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2895" y="-545"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar_menu" width="24" height="24"/>
+        <image name="camera_menu" width="24" height="24"/>
         <image name="flower" width="25" height="23"/>
         <image name="grp_menu2" width="24" height="24"/>
+        <image name="image_menu" width="30" height="30"/>
         <image name="setting_menu" width="24" height="24"/>
         <image name="timer_menu" width="24" height="24"/>
         <image name="word_menu2" width="24" height="24"/>
