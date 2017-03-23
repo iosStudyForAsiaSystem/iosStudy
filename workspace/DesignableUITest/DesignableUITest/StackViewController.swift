@@ -20,6 +20,8 @@ class StackViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //閉じるボタンのアクション
     @IBAction func actionCloseButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
