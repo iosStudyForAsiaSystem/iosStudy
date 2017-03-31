@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030AF5F81E8EB24A00B22DB6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7D1E692992009B29FA /* Realm.framework */; };
+		030AF5F91E8EB24A00B22DB6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7E1E692992009B29FA /* RealmSwift.framework */; };
 		0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */; };
 		0335DC151E6D541B00763FDA /* RealmManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC141E6D541B00763FDA /* RealmManger.swift */; };
 		0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC191E6D5BFC00763FDA /* CustomConst.swift */; };
@@ -114,6 +116,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				030AF5F81E8EB24A00B22DB6 /* Realm.framework in Frameworks */,
+				030AF5F91E8EB24A00B22DB6 /* RealmSwift.framework in Frameworks */,
 				0345A2C51E791C9300F4B8C2 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
