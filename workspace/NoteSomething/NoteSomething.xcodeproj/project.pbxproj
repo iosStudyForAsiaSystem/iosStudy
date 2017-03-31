@@ -40,10 +40,6 @@
 		03F5CB5A1E6927CC009B29FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F5CB581E6927CC009B29FA /* LaunchScreen.storyboard */; };
 		03F5CB651E6927CD009B29FA /* NoteSomethingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB641E6927CD009B29FA /* NoteSomethingTests.swift */; };
 		03F5CB701E6927CD009B29FA /* NoteSomethingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB6F1E6927CD009B29FA /* NoteSomethingUITests.swift */; };
-		03F5CB7F1E692992009B29FA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7D1E692992009B29FA /* Realm.framework */; };
-		03F5CB801E692992009B29FA /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7D1E692992009B29FA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		03F5CB811E692992009B29FA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7E1E692992009B29FA /* RealmSwift.framework */; };
-		03F5CB821E692992009B29FA /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7E1E692992009B29FA /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03F5CB861E693411009B29FA /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB851E693411009B29FA /* DataTableViewCell.swift */; };
 		03F5CB881E6935F6009B29FA /* CustomDataDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB871E6935F6009B29FA /* CustomDataDef.swift */; };
 		A9EEE5951E7A6BB900AE32B2 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9EEE5931E7A6BB900AE32B2 /* Setting.storyboard */; };
@@ -65,21 +61,6 @@
 			remoteInfo = NoteSomething;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		03F5CB831E692992009B29FA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				03F5CB821E692992009B29FA /* RealmSwift.framework in Embed Frameworks */,
-				03F5CB801E692992009B29FA /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
@@ -134,8 +115,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0345A2C51E791C9300F4B8C2 /* AVFoundation.framework in Frameworks */,
-				03F5CB811E692992009B29FA /* RealmSwift.framework in Frameworks */,
-				03F5CB7F1E692992009B29FA /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +275,6 @@
 				03F5CB461E6927CC009B29FA /* Sources */,
 				03F5CB471E6927CC009B29FA /* Frameworks */,
 				03F5CB481E6927CC009B29FA /* Resources */,
-				03F5CB831E692992009B29FA /* Embed Frameworks */,
 				03F5CB841E6929D4009B29FA /* ShellScript */,
 			);
 			buildRules = (
