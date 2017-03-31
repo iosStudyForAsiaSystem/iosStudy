@@ -15,7 +15,7 @@ class WordTableViewController: UITableViewController {
     
     var parentId :String? {
         didSet {
-            self.wordIdList = RealmManager.sharedInstance.findWordsCountWithSameGroup(parentId: parentId!)
+            self.wordIdList = RealmManager.sharedInstance.findWordsCountWithSameGroup(parentId!)
         }
     }
     
@@ -79,10 +79,10 @@ class WordTableViewController: UITableViewController {
 
         if self.hasParentId() {
             let targetWordId = wordIdList[(wordIdList.count-1) - indexPath.row]
-            cell.dispCell(wordData:RealmManager.sharedInstance.findWordDataWithWordId(targetWordId)!)
+            cell.dispCell(RealmManager.sharedInstance.findWordDataWithWordId(targetWordId)!)
         } else {
             let maxCount = RealmManager.sharedInstance.findAllWordsCount()-1
-            cell.dispCell(wordData: self.findWordData(row: maxCount - indexPath.row))
+            cell.dispCell(self.findWordData(maxCount - indexPath.row))
         }
         
         return cell
@@ -160,7 +160,7 @@ class WordTableViewController: UITableViewController {
     // ビュー更新
     func configureView() {
         
-        print ("configureView groupdata.id = \(self.paramData?.id)")
+        print ("configureView groupdata.id = \(self.paramData?.id ?? "")")
         print ("configureView wordList.count = \(String(RealmManager.sharedInstance.findAllWordsCount()))")
         
         let grpName:String = (self.paramData?.nmJp) ?? "Default"
@@ -171,7 +171,7 @@ class WordTableViewController: UITableViewController {
     }
     
     
-    func findWordData(row: Int) -> WordDbData {
+    func findWordData(_ row: Int) -> WordDbData {
         let wordData = RealmManager.sharedInstance.findWordDataFromIndex(row)
         return wordData!
     }

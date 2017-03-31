@@ -10,11 +10,11 @@ import Foundation
 
 
 enum DataType:Int {
-    case GroupType = 0
-    case WordType
-    case ImageType
-    case AllType
-    case NoneType
+    case groupType = 0
+    case wordType
+    case imageType
+    case allType
+    case noneType
 }
 
 enum MenuSegment:Int

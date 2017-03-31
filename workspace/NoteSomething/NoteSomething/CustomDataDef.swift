@@ -104,7 +104,7 @@ class CommonInfo: NSObject  {
     var etc1:String = ""
     var etc2:String = ""
     
-    var type:DataType = DataType.NoneType
+    var type:DataType = DataType.noneType
     
     override init() {
         // ID 自動生成
@@ -141,7 +141,7 @@ class GroupData : CommonInfo {
         let currentGrpCount = 0 //CustomUtil.sharedInstance.groupList.count
         self.nmJp = "group" +  String(currentGrpCount)
         self.id = String( currentGrpCount + 1 )
-        self.type = DataType.GroupType
+        self.type = DataType.groupType
         
     }
     convenience init(name:String) {
@@ -197,7 +197,7 @@ class WordData : CommonInfo {
         let currentWordCount = 0 //CustomUtil.sharedInstance.wordList.count
         self.nmJp = "word" +  String(currentWordCount)
         self.id = String(1000 + currentWordCount + 1)
-        self.type = DataType.WordType
+        self.type = DataType.wordType
     }
     
     convenience init(parentId:String )  {
@@ -248,7 +248,7 @@ class ImageData : CommonInfo {
     init(imageNm:String )  {
         super.init()
         self.imageNm = imageNm
-        self.type = DataType.ImageType
+        self.type = DataType.imageType
         //TODO イメージファイルが存在しない場合、設定しないこと。
     }
     

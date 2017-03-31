@@ -22,16 +22,16 @@ class MenuCollectionViewCell: UICollectionViewCell {
         self.button.tag = data.type.rawValue
         
         switch data.type {
-        case .GroupType:
+        case .groupType:
                 self.imageView.image = UIImage(named: "groupImg")
                 break
-        case .WordType:
+        case .wordType:
                 self.imageView.image = UIImage(named: "wordImg")
                 break
-        case .ImageType:
+        case .imageType:
             self.imageView.image = UIImage(named: "flower")
             break
-        case .AllType:
+        case .allType:
                 self.imageView.image = UIImage(named: "easy_input")
             break
         default:

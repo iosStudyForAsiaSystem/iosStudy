@@ -15,10 +15,10 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
     
     var parentId:String?
     
-    let menuList:[(name:String,type:DataType)] = [("グループデータ登録", DataType.GroupType),
-                                                  ("単語データ登録",DataType.WordType ),
-                                                  ("イメージデータ登録", DataType.ImageType),
-                                                   ("簡易(全て)データ登録", DataType.AllType)]
+    let menuList:[(name:String,type:DataType)] = [("グループデータ登録", DataType.groupType),
+                                                  ("単語データ登録",DataType.wordType ),
+                                                  ("イメージデータ登録", DataType.imageType),
+                                                   ("簡易(全て)データ登録", DataType.allType)]
     @IBOutlet weak var collectionView:UICollectionView!
     
 
@@ -125,11 +125,11 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
         let type:DataType = DataType(rawValue: sender.tag)!
 
         switch type {
-        case .AllType:
+        case .allType:
             //簡易で全て（グループ、単語、イメージ）のデータ生成画面に遷移
             self.presentEasyDataInputVC()
             break
-        case .ImageType:
+        case .imageType:
             self.presentImageDataInputVC()
             break
         default:
@@ -142,7 +142,7 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
     //基本データ生成画面に遷移
     func presentKihonDataInputVC (_ parentId: String? = "", dataType: DataType) {
         
-        print ("presentKihonDataInputVC param:\(parentId)")
+        print ("presentKihonDataInputVC param:\(parentId ?? "")")
         
         let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
         
@@ -171,7 +171,7 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
     //Imageデータ生成画面に遷移
     func presentImageDataInputVC (_ parentId: String? = "") {
         
-        print ("presentImageDataInputVC param:\(parentId)")
+        print ("presentImageDataInputVC param:\(parentId ?? "")")
         
         let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
         
@@ -200,7 +200,7 @@ class MenuCollectionViewController: UIViewController,UICollectionViewDataSource,
     //簡易で全て（グループ、単語、イメージ）のデータ生成画面に遷移
     func presentEasyDataInputVC () {
         
-        print ("presentKihonDataInputVC param:\(parentId)")
+        print ("presentKihonDataInputVC param:\(parentId ?? "")")
         
         let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
         

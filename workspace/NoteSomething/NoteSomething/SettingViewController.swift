@@ -40,11 +40,11 @@ class SettingViewController: UIViewController , UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:SettingTableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier , for: indexPath) as! SettingTableViewCell
-        configureCell(cell: cell, forRowAt: indexPath)
+        configureCell(cell, forRowAt: indexPath)
         return cell
     }
     
-    func configureCell(cell: SettingTableViewCell, forRowAt indexPath: IndexPath) {
+    func configureCell(_ cell: SettingTableViewCell, forRowAt indexPath: IndexPath) {
         var titleString = ""
         switch indexPath.row
         {

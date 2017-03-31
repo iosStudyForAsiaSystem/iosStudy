@@ -51,7 +51,7 @@ class RealmManager: NSObject {
         }
         let currentGrpCount = self.findAllGroupsCount()
         let groupId:String = String( currentGrpCount + 1 )
-        let type:String = String(describing: DataType.GroupType)
+        let type:String = String(describing: DataType.groupType)
         
         let groupData = GroupDbData(value: ["id":groupId,"nmJp":nmJp, "comment": "", "type":type])
         groupData.thumnailNm = "grp_list_full_menu"
@@ -70,7 +70,7 @@ class RealmManager: NSObject {
     }
     
     //グループ情報取得（インデックス検索）
-    func findGroupDataFromIndex(index:Int ) -> GroupDbData? {
+    func findGroupDataFromIndex(_ index:Int ) -> GroupDbData? {
         
         
         let currentGrpCount = self.findAllGroupsCount()
@@ -130,7 +130,7 @@ class RealmManager: NSObject {
     
     
     //単語のデータ「親グループID所属」のリスト取得
-    func findWordsCountWithSameGroup (parentId:String) -> [String] {
+    func findWordsCountWithSameGroup (_ parentId:String) -> [String] {
         
         let predicate = NSPredicate(format: "parentId = %@ ", parentId)
         let currentWordCount:Int = dataRealm.objects(WordDbData.self).filter(predicate).count
@@ -177,7 +177,7 @@ class RealmManager: NSObject {
         }
         let currentWordCount = self.findAllWordsCount()
         let wordId:String = String( currentWordCount + 1 )
-        let type:String = String(describing: DataType.WordType)
+        let type:String = String(describing: DataType.wordType)
 
         
         let wordData = WordDbData(value: ["id":wordId,"nmJp":nmJp, "comment": "", "type":type])
@@ -277,7 +277,7 @@ class RealmManager: NSObject {
         
         let currentCount = self.findAllWordsCount()
         let tmpId:String = String( currentCount + 1 )
-        let type:String = String(describing: DataType.ImageType)
+        let type:String = String(describing: DataType.imageType)
         
         
         let tmpData = ImageDbData(value: ["id":tmpId,"nmJp":nmJp, "comment": "", "type":type])
@@ -356,7 +356,7 @@ class RealmManager: NSObject {
     // MARK: - sort
     //====================
     
-    func sortGroupDataBy(item:String) {
+    func sortGroupDataBy(_ item:String) {
 //        let keyString:String = String(format: "GroupDbData.%@", item)
 //        let result = dataRealm.objects(GroupDbData.self).sorted(byKeyPath:keyString )
         //TODO
@@ -367,7 +367,7 @@ class RealmManager: NSObject {
     // MARK: - save user default data
     //====================
     
-    func setDefaultRealmForUser(username: String) {
+    func setDefaultRealmForUser(_ username: String) {
         var config = Realm.Configuration()
         
         // Use the default directory, but replace the filename with the username
@@ -415,7 +415,7 @@ class CommonDbInfo: Object  {
 class SubDataId :Object {
     //サブID
     dynamic var subDataId : String = ""
-    dynamic var type : Int = DataType.NoneType.rawValue
+    dynamic var type : Int = DataType.noneType.rawValue
 }
 
 //グループ情報定義

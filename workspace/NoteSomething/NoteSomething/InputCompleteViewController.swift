@@ -21,7 +21,7 @@ class InputCompleteViewController: UIViewController {
 
         self.navigationItem.hidesBackButton = true
         
-        self.itemNm.text = "項目名： \(dataNm)"
+        self.itemNm.text = "項目名： \(dataNm ?? "")"
         // Do any additional setup after loading the view.
     }
 

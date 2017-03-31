@@ -34,7 +34,7 @@ class GroupDataTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func dispCell (grpData:GroupDbData)  {
+    func dispCell (_ grpData:GroupDbData)  {
         if grpData.hasImage() {
             groupImgView.image = UIImage(named: grpData.thumnailNm)
         }
@@ -42,7 +42,7 @@ class GroupDataTableViewCell: UITableViewCell {
         groupNameL.text = grpData.nmJp
         self.showWordListBtn.tag = Int(grpData.id)!
         
-        let wordListCount = RealmManager.sharedInstance.findWordsCountWithSameGroup(parentId: self.groupId).count
+        let wordListCount = RealmManager.sharedInstance.findWordsCountWithSameGroup(self.groupId).count
         self.showWordListBtn.setTitle(String(wordListCount), for: UIControlState.normal)
         self.showWordListBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
         self.showWordListBtn.setTitleColor(UIColor.purple, for: UIControlState.selected)
@@ -74,7 +74,7 @@ class WordDataTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func dispCell (wordData:WordDbData)  {
+    func dispCell (_ wordData:WordDbData)  {
         if wordData.hasImage() {
             wordImgView.image = UIImage(named: wordData.thumnailNm)
         }

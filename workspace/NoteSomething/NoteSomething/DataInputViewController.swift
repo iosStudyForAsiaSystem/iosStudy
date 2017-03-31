@@ -16,7 +16,7 @@ class DataInputViewController: UIViewController {
     
     //let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
 
-    var selectedType:DataType = .NoneType
+    var selectedType:DataType = .noneType
     
     var results:CheckedInputDic?
     
@@ -108,7 +108,7 @@ class DataInputViewController: UIViewController {
     //親情報を表示
     func showParentName (_ parentId:(grp:String, word:String)? ) {
         
-        print("showParentName param: \(parentId)" )
+        //print("showParentName param: \(parentId " )
         
         let checkNullParam = (parentId?.grp == "" &&  parentId?.word == "")
         //let hasParam = (parentId?.grp != "" || parentId?.word == "")
@@ -144,7 +144,7 @@ class DataInputViewController: UIViewController {
    
         }
         
-        print("displayParentName parentNm: \(parentNm)" )
+        print("displayParentName parentNm: \(parentNm ?? "")" )
         
     }
     

@@ -90,7 +90,7 @@ class MasterViewController: UITableViewController {
 //        cell.textLabel!.text = object.description
         
         let maxCount:Int = RealmManager.sharedInstance.findAllGroupsCount()-1
-        cell.dispCell(grpData: self.findGroupData(row: maxCount - indexPath.row))
+        cell.dispCell(self.findGroupData(maxCount - indexPath.row))
         
         return cell
     }
@@ -126,12 +126,12 @@ class MasterViewController: UITableViewController {
 
     // MARK: - Custom method
     
-    func findGroupData(row:Int) -> GroupDbData {
+    func findGroupData(_ row:Int) -> GroupDbData {
         
-       return RealmManager.sharedInstance.findGroupDataFromIndex(index: row)!
+       return RealmManager.sharedInstance.findGroupDataFromIndex(row)!
     }
     
-    func showWordListVc(groupId:String)  {
+    func showWordListVc(_ groupId:String)  {
         
         let groupData :GroupDbData = RealmManager.sharedInstance.findGroupDataFromGroupId(groupId)!
         

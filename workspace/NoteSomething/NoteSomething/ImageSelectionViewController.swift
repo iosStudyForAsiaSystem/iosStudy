@@ -47,7 +47,7 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
     }
     
     //カメラー起動
-    @IBAction func onClickLaunchCameraBtn (sender:UIButton) {
+    @IBAction func onClickLaunchCameraBtn (_ sender:UIButton) {
         
         let cameraType = UIImagePickerControllerSourceType.camera
         if UIImagePickerController.isSourceTypeAvailable(cameraType) {
@@ -62,7 +62,7 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
     }
     
     //Photo Libary 起動
-    @IBAction func onClickLaunchAlbumBtn (sender:UIButton) {
+    @IBAction func onClickLaunchAlbumBtn (_ sender:UIButton) {
         
         let photoLibType = UIImagePickerControllerSourceType.photoLibrary
         if UIImagePickerController.isSourceTypeAvailable(photoLibType) {

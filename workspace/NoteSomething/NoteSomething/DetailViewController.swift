@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     var detailItem: GroupDbData?
     var detailWordItem: WordDbData?
     var detailImageItem: ImageData?
-    var curDataType:DataType = .NoneType
+    var curDataType:DataType = .noneType
 
     //グループデータ生成ボタン
     @IBOutlet weak var addGroupBtn: UIButton!
@@ -43,7 +43,7 @@ class DetailViewController: UIViewController {
             label?.text = detail.description
             print(detail.description)
             
-            curDataType = .GroupType
+            curDataType = .groupType
             titleString = "グループ情報詳細"
             titleSubItemBtnString = "単語データ生成"
             titleAnotherItemBtnString = "グループデータ生成"
@@ -54,7 +54,7 @@ class DetailViewController: UIViewController {
 
             label?.text = detail2.description
             print(detail2.description)
-            curDataType = .WordType
+            curDataType = .wordType
             
             titleString = "単語情報詳細"
             titleSubItemBtnString = "イメージデータ生成"
@@ -65,7 +65,7 @@ class DetailViewController: UIViewController {
             label?.text = detailImg.description
             print(detailImg.description)
             
-            curDataType = .ImageType
+            curDataType = .imageType
             titleString = "イメージ情報詳細"
             
             isSubItemBtnEnabled = false
@@ -108,7 +108,7 @@ class DetailViewController: UIViewController {
     @IBAction func onClickCreateGroupData(_ sender: Any) {
         
         switch  self.curDataType  {
-        case .AllType:
+        case .allType:
             return
         default:
             break
@@ -118,11 +118,11 @@ class DetailViewController: UIViewController {
     
     @IBAction func onClickCreateWordData(_ sender: Any) {
         switch  self.curDataType  {
-        case .GroupType:
-            self.presentDataInputVC(self.detailItem?.id,  dataType: DataType.WordType)
+        case .groupType:
+            self.presentDataInputVC(self.detailItem?.id,  dataType: DataType.wordType)
             break
-        case .WordType:
-            self.presentDataInputVC(self.detailWordItem?.id,  dataType: DataType.ImageType)
+        case .wordType:
+            self.presentDataInputVC(self.detailWordItem?.id,  dataType: DataType.imageType)
             break
         default:
             return
@@ -132,7 +132,7 @@ class DetailViewController: UIViewController {
     
     func presentDataInputVC (_ parentId: String? = "", dataType: DataType) {
         
-        print ("presentDataInputVC param:\(parentId)")
+        print ("presentDataInputVC param:\(parentId ?? "")")
         
         let inputDataStoryboard: UIStoryboard = UIStoryboard(name: "InputData", bundle: nil)
         

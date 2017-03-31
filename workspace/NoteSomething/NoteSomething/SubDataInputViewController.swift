@@ -46,7 +46,7 @@ class SubDataInputViewController: UIViewController {
     
     let dummyKeyString = "tmp"
     
-    var selectedType:DataType = .NoneType {
+    var selectedType:DataType = .noneType {
         didSet {
             self.adjustSegmentControl()
         }
@@ -263,11 +263,11 @@ class SubDataInputViewController: UIViewController {
     func adjustSegmentControl () {
         
         switch self.selectedType {
-        case .GroupType:
+        case .groupType:
             //選択
             menuSegCtrl.selectedSegmentIndex = 0
             break
-        case .WordType:
+        case .wordType:
             //選択
             menuSegCtrl.selectedSegmentIndex = 1
             

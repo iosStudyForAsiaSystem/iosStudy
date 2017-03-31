@@ -50,7 +50,7 @@ class ImageInputViewController: UIViewController , UIImagePickerControllerDelega
     }
     
     //カメラー起動
-    @IBAction func onClickLaunchCameraBtn (sender:UIButton) {
+    @IBAction func onClickLaunchCameraBtn (_ sender:UIButton) {
         
         let cameraType = UIImagePickerControllerSourceType.camera
         if UIImagePickerController.isSourceTypeAvailable(cameraType) {
@@ -65,7 +65,7 @@ class ImageInputViewController: UIViewController , UIImagePickerControllerDelega
     }
     
     //Photo Libary 起動
-    @IBAction func onClickLaunchAlbumBtn (sender:UIButton) {
+    @IBAction func onClickLaunchAlbumBtn (_ sender:UIButton) {
         
         let photoLibType = UIImagePickerControllerSourceType.photoLibrary
         if UIImagePickerController.isSourceTypeAvailable(photoLibType) {
@@ -81,12 +81,12 @@ class ImageInputViewController: UIViewController , UIImagePickerControllerDelega
     }
     
     //イメージ情報登録ボタン
-    @IBAction func onClickSaveImageInfoBtn (sender:UIButton) {
+    @IBAction func onClickSaveImageInfoBtn (_ sender:UIButton) {
         //TODO
     }
     
     //閉じるボタン
-    @IBAction func onClickCloseBtn (sender:UIButton) {
+    @IBAction func onClickCloseBtn (_ sender:UIButton) {
         
         self.navigationController?.dismiss(animated: true) {
             //自分の画面を閉じる際に行うべき機能追加
