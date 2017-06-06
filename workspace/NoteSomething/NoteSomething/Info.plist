@@ -53,9 +53,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>for Saving images </string>
-    <key>NSCameraUsageDescription</key>
-    <string>for Saving images </string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>for Saving images </string>
+	<key>NSCameraUsageDescription</key>
+	<string>for Saving images </string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

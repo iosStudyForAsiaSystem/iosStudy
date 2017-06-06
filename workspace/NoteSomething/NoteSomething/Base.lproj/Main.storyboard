@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Iaf-nc-0Mz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Iaf-nc-0Mz">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,13 +49,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="mWe-Y8-CSB" kind="relationship" relationship="viewControllers" id="Mup-yz-5rx"/>
                         <segue destination="haO-tW-T59" kind="relationship" relationship="viewControllers" id="67U-Hq-EUA"/>
-                        <segue destination="kO2-Rp-cha" kind="relationship" relationship="viewControllers" id="9Me-dL-Isp"/>
-                        <segue destination="xGB-s3-ZJM" kind="relationship" relationship="viewControllers" id="z0p-Fz-Mgj"/>
+                        <segue destination="xGB-s3-ZJM" kind="relationship" relationship="viewControllers" id="KKb-0o-ciX"/>
                         <segue destination="Whv-6y-dcD" kind="relationship" relationship="viewControllers" id="WWZ-Tb-1h4"/>
-                        <segue destination="6mq-at-hKd" kind="relationship" relationship="viewControllers" id="BWW-vd-Ue3"/>
-                        <segue destination="m8T-Mq-5FY" kind="relationship" relationship="viewControllers" id="FQX-Uf-irz"/>
-                        <segue destination="JiR-o4-U66" kind="relationship" relationship="viewControllers" id="FSG-nM-nNh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3C-nn-PQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -384,6 +381,46 @@
             </objects>
             <point key="canvasLocation" x="1772" y="200"/>
         </scene>
+        <!--mcpc-->
+        <scene sceneID="zoQ-LF-pGl">
+            <objects>
+                <viewController id="mWe-Y8-CSB" customClass="WebViewController" customModule="NoteSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Beh-PH-KT0"/>
+                        <viewControllerLayoutGuide type="bottom" id="bVe-3a-m3L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k8Y-pG-eWV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwR-cK-hO5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ZFj-bj-W6d">
+                                <rect key="frame" x="142" y="222" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hwR-cK-hO5" secondAttribute="trailing" id="3eJ-7A-0eH"/>
+                            <constraint firstItem="ZFj-bj-W6d" firstAttribute="centerX" secondItem="k8Y-pG-eWV" secondAttribute="centerX" id="5TQ-fE-TaT"/>
+                            <constraint firstItem="ZFj-bj-W6d" firstAttribute="centerY" secondItem="k8Y-pG-eWV" secondAttribute="centerY" id="EMg-No-En3"/>
+                            <constraint firstItem="bVe-3a-m3L" firstAttribute="top" secondItem="hwR-cK-hO5" secondAttribute="bottom" id="GCP-TU-2Am"/>
+                            <constraint firstItem="hwR-cK-hO5" firstAttribute="top" secondItem="k8Y-pG-eWV" secondAttribute="top" id="l3c-OP-vuo"/>
+                            <constraint firstItem="hwR-cK-hO5" firstAttribute="leading" secondItem="k8Y-pG-eWV" secondAttribute="leading" id="wDJ-d6-qUC"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="mcpc" image="folder-subtract" id="abs-EH-Cia"/>
+                    <connections>
+                        <outlet property="indicatorView" destination="ZFj-bj-W6d" id="wpW-nz-AAp"/>
+                        <outlet property="webview" destination="hwR-cK-hO5" id="i1B-KN-dWN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pt9-Gb-uYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-763" y="830"/>
+        </scene>
         <!--スケージュラ-->
         <scene sceneID="QA7-Ph-hEl">
             <objects>
@@ -466,6 +503,7 @@
         <image name="calendar_menu" width="24" height="24"/>
         <image name="camera_menu" width="24" height="24"/>
         <image name="flower" width="25" height="23"/>
+        <image name="folder-subtract" width="24" height="24"/>
         <image name="grp_menu2" width="24" height="24"/>
         <image name="image_menu" width="30" height="30"/>
         <image name="setting_menu" width="24" height="24"/>

@@ -36,6 +36,7 @@
 		03F109E51EE6EFBF0034A2B5 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F109E31EE6EFBF0034A2B5 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03F109E81EE6EFCB0034A2B5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F109E71EE6EFCB0034A2B5 /* RealmSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		03F109E91EE6EFCB0034A2B5 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F109E71EE6EFCB0034A2B5 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03F109EC1EE6FE2B0034A2B5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F109EB1EE6FE2B0034A2B5 /* WebViewController.swift */; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
 		03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB511E6927CC009B29FA /* DetailViewController.swift */; };
@@ -109,6 +110,7 @@
 		03E5E2DE1E8176FE008DCCF0 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		03F109E31EE6EFBF0034A2B5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		03F109E71EE6EFCB0034A2B5 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		03F109EB1EE6FE2B0034A2B5 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				0345A2CC1E7A8D4300F4B8C2 /* BaseNaviViewController.swift */,
 				03E5E2DA1E815EC7008DCCF0 /* ImageSelectionViewController.swift */,
 				03E5E2DE1E8176FE008DCCF0 /* CustomPickerViewController.swift */,
+				03F109EB1EE6FE2B0034A2B5 /* WebViewController.swift */,
 			);
 			name = source;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				0345A2CD1E7A8D4300F4B8C2 /* BaseNaviViewController.swift in Sources */,
 				0335DC3F1E6E9D1E00763FDA /* DataInputViewController.swift in Sources */,
 				0335DC411E6EA48100763FDA /* SubDataInputViewController.swift in Sources */,
+				03F109EC1EE6FE2B0034A2B5 /* WebViewController.swift in Sources */,
 				03E5E2DD1E817079008DCCF0 /* ImageInputViewController.swift in Sources */,
 				0345A2CB1E7A77D000F4B8C2 /* SettingTableViewCell.swift in Sources */,
 				0335DC451E6F888400763FDA /* DataConfirmViewController.swift in Sources */,
