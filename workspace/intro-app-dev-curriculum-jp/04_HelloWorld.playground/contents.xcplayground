@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='色を変更する'/>
+        <page name='結果サイドバーを非表示にする'/>
+        <page name='コンソール'/>
+        <page name='Hello'/>
+        <page name='プログラマからのメッセージ'/>
+        <page name='出力できるもの'/>
+        <page name='ログへの記録'/>
+        <page name='まとめ'/>
+        <page name='演習問題：デバッグ'/>
+        <page name='演習問題：コンソールアプリケーション'/>
+    </pages>
+</playground>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='カスタム型'/>
+        <page name='構造体のプロパティ'/>
+        <page name='可変性'/>
+        <page name='計算プロパティ'/>
+        <page name='関数'/>
+        <page name='インスタンスメソッド'/>
+        <page name='まとめ'/>
+        <page name='演習問題：独自の構造体'/>
+    </pages>
+</playground>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='文字'/>
+        <page name='文字列の定義'/>
+        <page name='Unicode'/>
+        <page name='文字列の結合'/>
+        <page name='空欄を埋める'/>
+        <page name='文字列補間'/>
+        <page name='Playgroundの結果の表示'/>
+        <page name='文字列の追加機能'/>
+        <page name='エスケープの便利な使い方'/>
+        <page name='エスケープシーケンス'/>
+        <page name='まとめ'/>
+        <page name='演習問題：リストの作成'/>
+        <page name='演習問題：レストラン'/>
+        <page name='演習問題：応援歌'/>
+        <page name='演習問題：値の表示'/>
+    </pages>
+</playground>

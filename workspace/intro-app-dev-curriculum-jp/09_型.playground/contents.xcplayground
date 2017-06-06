@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='型'/>
+        <page name='お気に入りのシャツ'/>
+        <page name='型と変数'/>
+        <page name='型安全'/>
+        <page name='型とリテラル'/>
+        <page name='代入による型推論'/>
+        <page name='型アノテーション'/>
+        <page name='型はどこから？'/>
+        <page name='標準ライブラリだけではない'/>
+        <page name='フレームワークのインポート'/>
+        <page name='まとめ'/>
+        <page name='演習問題：円'/>
+    </pages>
+</playground>

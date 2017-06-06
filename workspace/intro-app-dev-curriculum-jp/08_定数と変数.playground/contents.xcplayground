@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='定数と変数'/>
+        <page name='変数の宣言'/>
+        <page name='変数を使う'/>
+        <page name='ショートカット'/>
+        <page name='まぎらわしい変更'/>
+        <page name='定数を変更してみる'/>
+        <page name='選択を行う'/>
+        <page name='変動する世界でより安全なコード'/>
+        <page name='予期できない世界でより安全なコード'/>
+        <page name='まとめ'/>
+        <page name='演習問題：買い物リストの作成'/>
+        <page name='演習問題：501'/>
+    </pages>
+</playground>

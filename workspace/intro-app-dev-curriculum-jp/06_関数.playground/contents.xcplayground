@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='関数を呼び出す'/>
+        <page name='同じことを繰り返す'/>
+        <page name='1つの仕事'/>
+        <page name='分解する'/>
+        <page name='関数の中の関数'/>
+        <page name='無限ループ'/>
+        <page name='複雑さを隠す'/>
+        <page name='1回変更すればよい'/>
+        <page name='まとめ'/>
+        <page name='関数ミーム'/>
+        <page name='オリジナルミーム'/>
+    </pages>
+</playground>

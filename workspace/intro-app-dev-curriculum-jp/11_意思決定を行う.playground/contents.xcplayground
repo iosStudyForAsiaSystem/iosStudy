@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='真か偽か'/>
+        <page name='等式'/>
+        <page name='さらに比較する'/>
+        <page name='条件文'/>
+        <page name='Else'/>
+        <page name='Else If'/>
+        <page name='関数と判断'/>
+        <page name='剰余演算子'/>
+        <page name='まとめ'/>
+        <page name='演習問題：if文の練習'/>
+        <page name='演習問題：elseの練習'/>
+        <page name='演習問題：うるう年'/>
+    </pages>
+</playground>

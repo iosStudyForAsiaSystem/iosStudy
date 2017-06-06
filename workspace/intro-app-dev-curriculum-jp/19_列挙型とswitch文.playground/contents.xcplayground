@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='判断する、ふたたび'/>
+        <page name='列挙型'/>
+        <page name='列挙型と型推論'/>
+        <page name='列挙型を使う状況'/>
+        <page name='列挙型を比較する'/>
+        <page name='列挙型と関数'/>
+        <page name='ifの問題点'/>
+        <page name='Switch'/>
+        <page name='可能性を網羅する'/>
+        <page name='デフォルトケース（default case）'/>
+        <page name='複数のcase'/>
+        <page name='列挙型以外にも'/>
+        <page name='カフェテリアに戻って'/>
+        <page name='列挙型のメソッドとプロパティ'/>
+        <page name='まとめ'/>
+        <page name='演習問題：列挙型（enum）を定義する'/>
+        <page name='演習問題：ニワトリを数える'/>
+        <page name='演習問題：Boolを置換する'/>
+        <page name='演習問題：票を数える'/>
+        <page name='演習：switch'/>
+    </pages>
+</playground>

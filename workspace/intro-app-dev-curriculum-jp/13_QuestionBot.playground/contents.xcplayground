@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='最初の単語'/>
+        <page name='大文字／小文字の扱い'/>
+        <page name='具体的な質問'/>
+        <page name='デフォルトの答え'/>
+        <page name='すべてを組み合わせる'/>
+        <page name='まとめ'/>
+    </pages>
+</playground>

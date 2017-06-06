@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='Playgroundとは？'/>
+        <page name='計算'/>
+        <page name='コメント'/>
+        <page name='うまくいかない時'/>
+        <page name='エラー'/>
+        <page name='まとめ'/>
+    </pages>
+</playground>
