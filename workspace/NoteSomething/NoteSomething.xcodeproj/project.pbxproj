@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		030AF5F81E8EB24A00B22DB6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7D1E692992009B29FA /* Realm.framework */; };
-		030AF5F91E8EB24A00B22DB6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5CB7E1E692992009B29FA /* RealmSwift.framework */; };
 		0335DBD71E6AE3A200763FDA /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */; };
 		0335DC151E6D541B00763FDA /* RealmManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC141E6D541B00763FDA /* RealmManger.swift */; };
 		0335DC1A1E6D5BFC00763FDA /* CustomConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DC191E6D5BFC00763FDA /* CustomConst.swift */; };
@@ -34,6 +32,10 @@
 		03E5E2DB1E815EC7008DCCF0 /* ImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5E2DA1E815EC7008DCCF0 /* ImageSelectionViewController.swift */; };
 		03E5E2DD1E817079008DCCF0 /* ImageInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5E2DC1E817079008DCCF0 /* ImageInputViewController.swift */; };
 		03E5E2DF1E8176FE008DCCF0 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5E2DE1E8176FE008DCCF0 /* CustomPickerViewController.swift */; };
+		03F109E41EE6EFBF0034A2B5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F109E31EE6EFBF0034A2B5 /* Realm.framework */; };
+		03F109E51EE6EFBF0034A2B5 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F109E31EE6EFBF0034A2B5 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03F109E81EE6EFCB0034A2B5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F109E71EE6EFCB0034A2B5 /* RealmSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		03F109E91EE6EFCB0034A2B5 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F109E71EE6EFCB0034A2B5 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03F5CB4E1E6927CC009B29FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */; };
 		03F5CB501E6927CC009B29FA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */; };
 		03F5CB521E6927CC009B29FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5CB511E6927CC009B29FA /* DetailViewController.swift */; };
@@ -64,6 +66,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		03F109E61EE6EFBF0034A2B5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03F109E91EE6EFCB0034A2B5 /* RealmSwift.framework in Embed Frameworks */,
+				03F109E51EE6EFBF0034A2B5 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0335DBD61E6AE3A200763FDA /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
 		0335DC141E6D541B00763FDA /* RealmManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManger.swift; sourceTree = "<group>"; };
@@ -90,6 +107,8 @@
 		03E5E2DA1E815EC7008DCCF0 /* ImageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelectionViewController.swift; sourceTree = "<group>"; };
 		03E5E2DC1E817079008DCCF0 /* ImageInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInputViewController.swift; sourceTree = "<group>"; };
 		03E5E2DE1E8176FE008DCCF0 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
+		03F109E31EE6EFBF0034A2B5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		03F109E71EE6EFCB0034A2B5 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		03F5CB4A1E6927CC009B29FA /* NoteSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB4D1E6927CC009B29FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F5CB4F1E6927CC009B29FA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -116,9 +135,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				030AF5F81E8EB24A00B22DB6 /* Realm.framework in Frameworks */,
-				030AF5F91E8EB24A00B22DB6 /* RealmSwift.framework in Frameworks */,
+				03F109E41EE6EFBF0034A2B5 /* Realm.framework in Frameworks */,
 				0345A2C51E791C9300F4B8C2 /* AVFoundation.framework in Frameworks */,
+				03F109E81EE6EFCB0034A2B5 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +239,8 @@
 		03F5CB411E6927CC009B29FA = {
 			isa = PBXGroup;
 			children = (
+				03F109E71EE6EFCB0034A2B5 /* RealmSwift.framework */,
+				03F109E31EE6EFBF0034A2B5 /* Realm.framework */,
 				03F5CB7D1E692992009B29FA /* Realm.framework */,
 				03F5CB7E1E692992009B29FA /* RealmSwift.framework */,
 				03F5CB4C1E6927CC009B29FA /* NoteSomething */,
@@ -279,7 +300,8 @@
 				03F5CB461E6927CC009B29FA /* Sources */,
 				03F5CB471E6927CC009B29FA /* Frameworks */,
 				03F5CB481E6927CC009B29FA /* Resources */,
-				03F5CB841E6929D4009B29FA /* ShellScript */,
+				03F109E61EE6EFBF0034A2B5 /* Embed Frameworks */,
+				03F109EA1EE6EFEC0034A2B5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -408,7 +430,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03F5CB841E6929D4009B29FA /* ShellScript */ = {
+		03F109EA1EE6EFEC0034A2B5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
