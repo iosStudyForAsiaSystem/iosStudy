@@ -1,13 +1,20 @@
 {"info":
 [
-{"isActive": "1", "file": "道路標識カード1-1", "id": "douro-card1-1", "group": "1", "image": "douro-hyouji-card1-1.png", "index": "1"},
-{"isActive": "1", "file": "道路標識カード1-2", "id": "douro-card1-2", "group": "1", "image": "douro-hyouji-card1-2.png", "index": "2"},
-{"isActive": "1", "file": "道路標識カード1-3", "id": "douro-card1-3", "group": "1", "image": "douro-hyouji-card1-3.png", "index": "3"},
-{"isActive": "1", "file": "道路標識カード1-4", "id": "douro-card1-4", "group": "1", "image": "douro-hyouji-card1-4.png", "index": "4"},
-{"isActive": "1", "file": "道路標識カード1-5", "id": "douro-card1-5", "group": "1", "image": "douro-hyouji-card1-5.png", "index": "5"},
-{"isActive": "1", "file": "道路標識カード1-6", "id": "douro-card1-6", "group": "1", "image": "douro-hyouji-card1-6.png", "index": "6"},
-{"isActive": "1", "file": "道路標識カード1-7", "id": "douro-card1-7", "group": "1", "image": "douro-hyouji-card1-7.png", "index": "7"},
-{"isActive": "1", "file": "道路標識カード1-8", "id": "douro-card1-8", "group": "1", "image": "douro-hyouji-card1-8.png", "index": "8"},
-{"isActive": "1", "file": "道路標識カード1-9", "id": "douro-card1-9", "group": "1", "image": "douro-hyouji-card1-9.png", "index": "9"},
-{"isActive": "1", "file": "道路標識カード1-10", "id": "douro-card1-10", "group": "1", "image": "douro-hyouji-card1-10.png", "index": "10"}
+ {
+ "activeflag": "1",
+ "file": "道路標識カード1-1",
+ "id": "douro-card1-1",
+ "goupIndex": "1",
+ "image": "douro-hyouji-card1-1",
+ "subIndex": "1"
+ },
+{"activeflag": "1", "file": "道路標識カード1-2", "id": "douro-card1-2", "goupIndex": "1", "image": "douro-hyouji-card1-2", "subIndex": "2"},
+{"activeflag": "1", "file": "道路標識カード1-3", "id": "douro-card1-3", "goupIndex": "1", "image": "douro-hyouji-card1-3", "subIndex": "3"},
+{"activeflag": "1", "file": "道路標識カード1-4", "id": "douro-card1-4", "goupIndex": "1", "image": "douro-hyouji-card1-4", "subIndex": "4"},
+{"activeflag": "1", "file": "道路標識カード1-5", "id": "douro-card1-5", "goupIndex": "1", "image": "douro-hyouji-card1-5", "subIndex": "5"},
+{"activeflag": "1", "file": "道路標識カード1-6", "id": "douro-card1-6", "goupIndex": "1", "image": "douro-hyouji-card1-6", "subIndex": "6"},
+{"activeflag": "1", "file": "道路標識カード1-7", "id": "douro-card1-7", "goupIndex": "1", "image": "douro-hyouji-card1-7", "subIndex": "7"},
+{"activeflag": "1", "file": "道路標識カード1-8", "id": "douro-card1-8", "goupIndex": "1", "image": "douro-hyouji-card1-8", "subIndex": "8"},
+{"activeflag": "1", "file": "道路標識カード1-9", "id": "douro-card1-9", "goupIndex": "1", "image": "douro-hyouji-card1-9", "subIndex": "9"},
+{"activeflag": "1", "file": "道路標識カード1-10", "id": "douro-card1-10", "goupIndex": "1", "image": "douro-hyouji-card1-10", "subIndex": "10"}
 ]}
