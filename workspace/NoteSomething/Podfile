@@ -4,5 +4,6 @@ use_frameworks!
 
 target 'NoteSomething' do
 	pod 'SwiftyJSON',:git => "https://github.com/SwiftyJSON/SwiftyJSON.git" 
-        pod 'Alamofire', :git => "https://github.com/Alamofire/Alamofire.git" 
+        pod 'Alamofire', :git => "https://github.com/Alamofire/Alamofire.git"
+	pod 'SwiftCSVExport’, :git => “https://github.com/vigneshuvi/SwiftCSVExport”
 end

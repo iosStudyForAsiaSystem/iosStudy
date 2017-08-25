@@ -1,14 +1,18 @@
 PODS:
   - Alamofire (4.4.0)
+  - SwiftCSVExport (1.0.3)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`)
+  - SwiftCSVExport (from `https://github.com/vigneshuvi/SwiftCSVExport`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
   Alamofire:
     :git: https://github.com/Alamofire/Alamofire.git
+  SwiftCSVExport:
+    :git: https://github.com/vigneshuvi/SwiftCSVExport
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
@@ -16,14 +20,18 @@ CHECKOUT OPTIONS:
   Alamofire:
     :commit: 22d4d74a419917ea122c23006cbc183aea5d84f8
     :git: https://github.com/Alamofire/Alamofire.git
+  SwiftCSVExport:
+    :commit: 5c05635c6f3c45f5653a89acb1c83d72464f5b98
+    :git: https://github.com/vigneshuvi/SwiftCSVExport
   SwiftyJSON:
     :commit: d932f6498b9acdd286e65ff6691c3dd3518b086e
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   Alamofire: 4c2bf7fa03c4a626163606de0a417568c270575e
+  SwiftCSVExport: a1494efb60ad1b2dc4dab9efbeb424e94aee98bc
   SwiftyJSON: 05cf0e98a950e2ba343735264f5a96b81e755d00
 
-PODFILE CHECKSUM: e9d5b7a5b1d7eed451974d5dc508571e500caaad
+PODFILE CHECKSUM: ed0a1708a80555745adb5a865f2e4e4f94dd8131
 
 COCOAPODS: 1.2.1

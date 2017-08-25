@@ -27,6 +27,8 @@
 		0345A2CD1E7A8D4300F4B8C2 /* BaseNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345A2CC1E7A8D4300F4B8C2 /* BaseNaviViewController.swift */; };
 		0345A2D01E7A92E600F4B8C2 /* InputData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0345A2CE1E7A92E600F4B8C2 /* InputData.storyboard */; };
 		0345A2D71E7A936100F4B8C2 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0345A2D11E7A936100F4B8C2 /* Group.storyboard */; };
+		0351F3501F50765C00B65002 /* douro-hyouji-card1 in Resources */ = {isa = PBXBuildFile; fileRef = 0351F34E1F50765C00B65002 /* douro-hyouji-card1 */; };
+		0351F3511F50765C00B65002 /* json in Resources */ = {isa = PBXBuildFile; fileRef = 0351F34F1F50765C00B65002 /* json */; };
 		03C2370D1E76B78A005A7DDA /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2370C1E76B78A005A7DDA /* CustomSegue.swift */; };
 		03C237111E77BC12005A7DDA /* EasyDataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C237101E77BC12005A7DDA /* EasyDataInputViewController.swift */; };
 		03E5E2DB1E815EC7008DCCF0 /* ImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5E2DA1E815EC7008DCCF0 /* ImageSelectionViewController.swift */; };
@@ -104,6 +106,8 @@
 		0345A2CC1E7A8D4300F4B8C2 /* BaseNaviViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNaviViewController.swift; sourceTree = "<group>"; };
 		0345A2CF1E7A92E600F4B8C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/InputData.storyboard; sourceTree = "<group>"; };
 		0345A2D21E7A936100F4B8C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
+		0351F34E1F50765C00B65002 /* douro-hyouji-card1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "douro-hyouji-card1"; sourceTree = "<group>"; };
+		0351F34F1F50765C00B65002 /* json */ = {isa = PBXFileReference; lastKnownFileType = folder; path = json; sourceTree = "<group>"; };
 		03C2370C1E76B78A005A7DDA /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		03C237101E77BC12005A7DDA /* EasyDataInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyDataInputViewController.swift; sourceTree = "<group>"; };
 		03E5E2DA1E815EC7008DCCF0 /* ImageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelectionViewController.swift; sourceTree = "<group>"; };
@@ -126,8 +130,6 @@
 		03F5CB6B1E6927CD009B29FA /* NoteSomethingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteSomethingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5CB6F1E6927CD009B29FA /* NoteSomethingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSomethingUITests.swift; sourceTree = "<group>"; };
 		03F5CB711E6927CD009B29FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03F5CB7D1E692992009B29FA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		03F5CB7E1E692992009B29FA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		03F5CB851E693411009B29FA /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		03F5CB871E6935F6009B29FA /* CustomDataDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDataDef.swift; sourceTree = "<group>"; };
 		4B7418B56356EFC265104642 /* Pods-NoteSomething.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteSomething.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoteSomething/Pods-NoteSomething.release.xcconfig"; sourceTree = "<group>"; };
@@ -250,8 +252,6 @@
 			children = (
 				03F109E71EE6EFCB0034A2B5 /* RealmSwift.framework */,
 				03F109E31EE6EFBF0034A2B5 /* Realm.framework */,
-				03F5CB7D1E692992009B29FA /* Realm.framework */,
-				03F5CB7E1E692992009B29FA /* RealmSwift.framework */,
 				03F5CB4C1E6927CC009B29FA /* NoteSomething */,
 				03F5CB631E6927CD009B29FA /* NoteSomethingTests */,
 				03F5CB6E1E6927CD009B29FA /* NoteSomethingUITests */,
@@ -274,6 +274,8 @@
 		03F5CB4C1E6927CC009B29FA /* NoteSomething */ = {
 			isa = PBXGroup;
 			children = (
+				0351F34E1F50765C00B65002 /* douro-hyouji-card1 */,
+				0351F34F1F50765C00B65002 /* json */,
 				033EF2791E6FA03300973595 /* Util */,
 				0335DC181E6D545400763FDA /* source */,
 				0335DC171E6D543E00763FDA /* resource */,
@@ -424,6 +426,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0351F3511F50765C00B65002 /* json in Resources */,
+				0351F3501F50765C00B65002 /* douro-hyouji-card1 in Resources */,
 				03F5CB5A1E6927CC009B29FA /* LaunchScreen.storyboard in Resources */,
 				A9EEE5951E7A6BB900AE32B2 /* Setting.storyboard in Resources */,
 				03F5CB571E6927CC009B29FA /* Assets.xcassets in Resources */,
