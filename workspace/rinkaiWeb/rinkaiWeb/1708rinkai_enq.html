@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)1708rinkai/test/enq.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        
+        <meta content="width=device-width, user-scalable=no" name="viewport">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link href="./1708rinkai_enq_files/i_style.css" rel="stylesheet" media="all" type="text/css">
+        <link href="./1708rinkai_enq_files/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" media="screen" type="text/css">
+        <link href="./1708rinkai_enq_files/octicons.css" rel="stylesheet" media="all" type="text/css">
+
+        <script src="./1708rinkai_enq_files/jquery-2.0.3.min.js"></script>
+        <script src="./1708rinkai_enq_files/jquery.hammer.min.js"></script>
+        <script src="./1708rinkai_enq_files/func.js"></script>
+        <script src="./1708rinkai_enq_files/cache.js"></script>
+        <script src="./1708rinkai_enq_files/lang_json.js"></script>
+        <script src="./1708rinkai_enq_files/lang_change.js"></script>
+        <script src="./1708rinkai_enq_files/conf.js"></script>
+        <script src="./1708rinkai_enq_files/jquery.ui.core.min.js"></script>
+        <script src="./1708rinkai_enq_files/jquery.ui.widget.min.js"></script>
+        <script src="./1708rinkai_enq_files/jquery.ui.datepicker.min.js"></script>
+
+        <title id="tit_str">japanese(日本語)</title>
+
+        <script type="text/JavaScript">
+
+            var form_name = "dq1";
+
+            $(function(){
+
+            navi_online();
+            appcache_init();
+
+            $("a").not("#re_top").click(function(){
+            select_lang_change( $(this) );
+            //alert( $(this).attr("id") );
+            return false;
+            });
+
+            var docs = document.forms[form_name];
+
+            //サーバ送信
+            $("#sr").click(function(){
+            location.href = "./submit.html";
+            });
+
+            });
+
+            //*******************************************************
+            //無回答チェック
+            //*******************************************************
+
+            var err_msg="";//エラーメッセージを溜め込むグローバル変数
+
+            function ERR_CHECK(){
+
+            var err_flag = 0;
+            var err_cnt = 0;
+            var strQ;
+            //var gil = localStorage.getItem("language");
+            var gil = "ja";
+            var err_cnt1 = 0;
+
+
+            if( $("#p0").css("display") == "block" ){
+
+            //開きっぱなしでの日付ずれ対策
+            var fs1oa_val = $("#fs1oa").val();
+
+            if( fs1oa_val != se_time(1) ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "調査日がずれているので更新します　\n";
+            }else{
+            err_msg += "\n";
+            }
+            $("#fs1oa").css("background-color","#ff8c00");
+            $("#fs1oa").val( se_time(1) );
+            }
+
+            }
+
+            if( $("#p1").css("display") == "block" ){
+
+            if( $("#q1c").val() == "" ){
+            //**********************
+            //   q1aセレクト
+            //**********************
+            err_flag = 0;
+            strQ = "q1a";
+
+            $("#q1a").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt1 += 1;
+            /*
+            if( gil == "ja" ){
+            err_msg += "『 Q1 都道府県名または国名 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q1  』required field　\n";
+            }
+            */
+            $("#q1a").css("background","#ff8c00");
+            }
+            }
+
+
+            if( $("#q1a").val() == 13 ){
+
+            //**********************
+            //   q1bテキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q1b";
+
+            $("#q1b").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q1 区市町村名 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q1  』required field　\n";
+            }
+            $("#q1b").css("background","#ff8c00");
+            }
+            }
+
+
+            if( $("#q1a").val() == "" ){
+            //**********************
+            //   q1cテキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q1c";
+
+            $("#q1c").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt1 += 1;
+            /*
+            if( gil == "ja" ){
+            err_msg += "『 Q1 国名 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q1  』required field　\n";
+            }
+            */
+            $("#q1c").css("background","#ff8c00");
+            }
+            }
+
+            if(err_cnt1 > 0){
+            if( gil == "ja" ){
+            err_msg += "『 Q1 都道府県名または国名 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q1  』required field　\n";
+            }
+            }
+
+            //**********************
+            //   Q2aラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q2a";
+            end_cnt = 2;
+            $("#q2_2tt").css("background-color","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q2 性別 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q2 gender 』required field　\n";
+            }
+            $("#q2_2tt").css("background-color","#ff8c00");
+            }
+
+            //**********************
+            //   Q2bラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q2b";
+            end_cnt = 9;
+            $("#q2_5tt").css("background-color","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q2 年齢 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q2 age 』required field　\n";
+            }
+            $("#q2_5tt").css("background-color","#ff8c00");
+            }
+
+            //**********************
+            //   Q3_1ラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q3_1";
+            end_cnt = 2;
+            $("#q3").css("background-color","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q3 』required field　\n";
+            }
+            $("#q3").css("background-color","#ff8c00");
+            }
+
+            if( $("#lq3_1v2").prop("checked") == true ){
+            //**********************
+            //   q3_1aoaテキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q3_1aoa";
+            ick = $("#q3_1aoa").val();
+
+            $("#q3_1aoa").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 総宿泊数 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q3  』required field　\n";
+            }
+            $("#q3_1aoa").css("background","#ff8c00");
+            }else if( ick.match(/[^0-9]+/) ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 総宿泊数 』は半角数字で回答してください　\n";
+            }else{
+            err_msg += "『 Q3 』number only　\n";
+            }
+            $("#q3_1aoa").css("background-color","#ff8c00");
+            }
+
+            //**********************
+            //   q3_1boaテキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q3_1boa";
+            ick = $("#q3_1boa").val();
+
+            $("#q3_1boa").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 その内臨海副都心内 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q3  』required field　\n";
+            }
+            $("#q3_1boa").css("background","#ff8c00");
+            }else if( ick.match(/[^0-9]+/) ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 その内臨海副都心内 』は半角数字で回答してください　\n";
+            }else{
+            err_msg += "『 Q3 』number only　\n";
+            }
+            $("#q3_1boa").css("background-color","#ff8c00");
+            }
+
+            //**********************
+            //   q3_1coaテキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q3_1coa";
+            ick = $("#q3_1coa").val();
+
+            $("#q3_1coa").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 施設 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q3  』required field　\n";
+            }
+            $("#q3_1coa").css("background","#ff8c00");
+            }else if( ick.match(/[^0-9]+/) ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 施設 』は半角数字で回答してください　\n";
+            }else{
+            err_msg += "『 Q3 』number only　\n";
+            }
+            $("#q3_1coa").css("background-color","#ff8c00");
+            }
+
+            if( Number( $("#q3_1aoa").val() ) < Number( $("#q3_1boa").val() ) ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 』その内臨海副都心内は、総宿泊数以下で回答してください　\n";
+            }else{
+            err_msg += "『 Q3 』総宿泊数 or less　\n";
+            }
+            }
+
+            //**********************
+            //   Q3_2チェックボックス
+            //**********************
+            err_flag = 0;
+            strQ = "q3_2_";
+            end_cnt = 6;
+            $("#q3_11tt").css("background","#ffffff");
+            if( Chk_ptn03(err_flag,strQ,end_cnt) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q3 エリア内宿泊施設 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q3 』required field　\n";
+            }
+            $("#q3_11tt").css("background","#ff8c00");
+            }
+            }else{
+            $("#q3_11tt").css("background","#ffffff");
+            }
+
+            //**********************
+            //   Q4ラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q4";
+            end_cnt = 8;
+            $("#q4").css("background-color","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q4 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q4 』required field　\n";
+            }
+            $("#q4").css("background-color","#ff8c00");
+            }
+
+            if( $("#lq4v8").prop("checked") == true ){
+            //**********************
+            //   q4テキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q4oa";
+
+            $("#q4oa").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q4 その他 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q4 other 』required field　\n";
+            }
+            $("#q4oa").css("background","#ff8c00");
+            }
+            }
+
+            //**********************
+            //   q5oaテキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q5oa";
+            ick = $("#q5oa").val();
+
+            $("#q5oa").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 || ick == 0 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q5 人数 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q5 Number of people 』required field　\n";
+            }
+            $("#q5oa").css("background","#ff8c00");
+            }else if( ick.match(/[^0-9]+/) ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q5 人数 』は半角数字で回答してください　\n";
+            }else{
+            err_msg += "『 Q5 Number of people 』number only　\n";
+            }
+            $("#q5oa").css("background","#ff8c00");
+            }
+
+            if( Number( $("#q5oa").val() ) >= 2 ){
+
+            //**********************
+            //   Q5チェックボックス
+            //**********************
+            err_flag = 0;
+            strQ = "q5_";
+            end_cnt = 4;
+            $("#q5").css("background","#ffffff");
+            if( Chk_ptn03(err_flag,strQ,end_cnt) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q5 2人以上の場合 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q5 』required field　\n";
+            }
+            $("#q5").css("background","#ff8c00");
+            }
+
+            }else{
+            $("#q5").css("background","#ffffff");
+            }
+
+            //**********************
+            //   Q6ラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q6";
+            end_cnt = 2;
+            $("#q6").css("background","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q6 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q6 』required field　\n";
+            }
+            $("#q6").css("background","#ff8c00");
+            }
+
+            if( $("#lq6v1").prop("checked") == true ){
+
+            var alp_ary = ["","a","b","c","d"];
+            var ick = "";
+            var ns_cnt = 0;
+            var q6_goukei = 0;
+
+            for(i=1;i<=4;i++){
+            ick = $("#q6"+ alp_ary[i] +"oa").val();
+            if( ick.match(/[^0-9]+/) ){
+            ns_cnt++;
+            $("#q6"+ alp_ary[i] +"oa").css("background","#ff8c00");
+            }else{
+            q6_goukei += Number(ick);
+            $("#q6"+ alp_ary[i] +"oa").css("background","");
+            }
+            }
+
+            if( ns_cnt > 0 ){
+            err_cnt += 1;
+            err_msg += "『 Q6 人数 』は半角数字で回答してください　\n";
+            }else{
+            if( q6_goukei != $("#q5oa").val() ){
+            err_cnt += 1;
+            err_msg += "『 Q6 人数 』はQ5と一致するように回答してください　\n";
+            $("#q6_2tt").css("background","#ff8c00");
+            }else{
+            $("#q6_2tt").css("background","");
+            }
+            }
+
+            }else{
+            $("#q6_2tt").css("background","");
+            }
+
+            }
+
+            if( $("#p2").css("display") == "block" ){
+
+            //**********************
+            //   Q7-1ラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q7_1";
+            end_cnt = 15;
+            $("#q7_1").css("background","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q7-1 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q7-1 』required field　\n";
+            }
+            $("#q7_1").css("background","#ff8c00");
+            }
+
+            if( $("#lq7_1v15").prop("checked") == true ){
+            //**********************
+            //   q7-1テキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q7_1oa";
+
+            $("#q7_1oa").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q7-1 その他 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q7-1 other 』required field　\n";
+            }
+            $("#q7_1oa").css("background","#ff8c00");
+            }
+            }
+
+            //**********************
+            //   q7-2交通1
+            //**********************
+            err_flag = 0;
+            strQ = "q7_2ko1";
+
+            $("#q7_2ko1").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q7-2 』1つ目の交通機関を回答してください　\n";
+            }else{
+            err_msg += "『 Q7-2 』required field　\n";
+            }
+            $("#q7_2ko1").css("background","#ff8c00");
+            }
+
+            //**********************
+            //   q7-2交通5
+            //**********************
+            err_flag = 0;
+            strQ = "q7_2ko5";
+
+            $("#q7_2ko5").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q7-2 』5つ目の交通機関を回答してください　\n";
+            }else{
+            err_msg += "『 Q7-2 』required field　\n";
+            }
+            $("#q7_2ko5").css("background","#ff8c00");
+            }
+
+            var ii = 0;
+            for(i=1;i<=3;i++){
+            ii = i + 1;
+            if( $("#q7_2ka"+ i).val() != "" ){
+
+            //**********************
+            //   q7-2交通234
+            //**********************
+            err_flag = 0;
+            strQ = "q7_2ko"+ ii;
+
+            $("#q7_2ko"+ ii).css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q7-2 』"+ ii +"つ目の交通機関を回答してください　\n";
+            }else{
+            err_msg += "『 Q7-2 』required field　\n";
+            }
+            $("#q7_2ko"+ ii).css("background","#ff8c00");
+            }
+
+            }else{
+            $("#q7_2ko"+ ii).css("background","");
+            }
+            }
+
+            for(i=4;i<=6;i++){
+            ii = i + 2;
+            if( $("#q7_2ka"+ i).val() != "" ){
+
+            //**********************
+            //   q7-2交通678
+            //**********************
+            err_flag = 0;
+            strQ = "q7_2ko"+ ii;
+
+            $("#q7_2ko"+ ii).css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q7-2 』"+ ii +"つ目の交通機関を回答してください　\n";
+            }else{
+            err_msg += "『 Q7-2 』required field　\n";
+            }
+            $("#q7_2ko"+ ii).css("background","#ff8c00");
+            }
+
+            }else{
+            $("#q7_2ko"+ ii).css("background","");
+            }
+            }
+
+            }
+
+            if( $("#p3").css("display") == "block" ){
+
+            //**********************
+            //   Q8ラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q8";
+            end_cnt = 2;
+            $("#q8").css("background","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q8 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q8 』required field　\n";
+            }
+            $("#q8").css("background","#ff8c00");
+            }
+
+            /*
+            //**********************
+            //   Q9チェックボックス
+            //**********************
+            err_flag = 0;
+            strQ = "q9_";
+            end_cnt = 12;
+            $("#q9").css("background","#ffffff");
+            if( Chk_ptn03(err_flag,strQ,end_cnt) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q9 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q9 』required field　\n";
+            }
+            $("#q9").css("background","#ff8c00");
+            }
+            */
+
+            if( $("#lq9_12").prop("checked") == true ){
+            //**********************
+            //   q9テキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q9oa";
+
+            $("#q9oa").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q9 その他 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q9 other 』required field　\n";
+            }
+            $("#q9oa").css("background","#ff8c00");
+            }
+            }
+
+            /*
+            //**********************
+            //   Q10aチェックボックス
+            //**********************
+            err_flag = 0;
+            strQ = "q10a_";
+            end_cnt = 3;
+            $("#q10_2tt").css("background","#ffffff");
+            if( Chk_ptn03(err_flag,strQ,end_cnt) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q10 』街並みが選択されていません　\n";
+            }else{
+            err_msg += "『 Q10 』required field　\n";
+            }
+            $("#q10_2tt").css("background","#ff8c00");
+            }
+
+            //**********************
+            //   Q10bチェックボックス
+            //**********************
+            err_flag = 0;
+            strQ = "q10b_";
+            end_cnt = 12;
+            $("#q10_6tt").css("background","#ffffff");
+            if( Chk_ptn03(err_flag,strQ,end_cnt) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q10 』施設等が選択されていません　\n";
+            }else{
+            err_msg += "『 Q10 』required field　\n";
+            }
+            $("#q10_6tt").css("background","#ff8c00");
+            }
+
+            //**********************
+            //   Q11ラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q11";
+            end_cnt = 7;
+            $("#q11").css("background","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q11 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q11 』required field　\n";
+            }
+            $("#q11").css("background","#ff8c00");
+            }
+
+            //**********************
+            //   Q12ラジオボタン
+            //**********************
+            err_flag = 0;
+            strQ = "q12";
+            end_cnt = 7;
+            $("#q12").css("background","#ffffff");
+            if( Chk_ptn01(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q12 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q12 』required field　\n";
+            }
+            $("#q12").css("background","#ff8c00");
+            }
+            */
+
+            //**********************
+            //   Q13チェックボックス
+            //**********************
+            err_flag = 0;
+            strQ = "q13_";
+            end_cnt = 14;
+            $("#q13").css("background","#ffffff");
+            if( Chk_ptn03(err_flag,strQ,end_cnt) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q13 』が選択されていません　\n";
+            }else{
+            err_msg += "『 Q13 』required field　\n";
+            }
+            $("#q13").css("background","#ff8c00");
+            }
+
+            if( $("#lq13_14").prop("checked") == true ){
+            //**********************
+            //   q13テキスト
+            //**********************
+            err_flag = 0;
+            strQ = "q13oa";
+
+            $("#q13oa").css("background","#ffffff");
+            if( Chk_ptn02(err_flag,strQ) == 1 ){
+            err_cnt += 1;
+            if( gil == "ja" ){
+            err_msg += "『 Q13 その他 』を回答してください　\n";
+            }else{
+            err_msg += "『 Q13 other 』required field　\n";
+            }
+            $("#q13oa").css("background","#ff8c00");
+            }
+            }
+
+            }
+
+
+            ans_err = Number(err_cnt);
+
+            //**********************
+            //   次ページ
+            //**********************
+            if(err_cnt > 0){
+            alert(err_msg);
+            err_msg = "";
+
+            return ans_err;
+            }else{
+            return ans_err;
+            }
+
+            }
+
+
+            //************************************************************************
+            //-->
+        </script>
+
+    <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+
+    <body style="">
+
+        <form name="dq1" action="1708rinkai/test/enq.html" method="post">
+
+            <div id="ary"></div>
+            <input type="hidden" id="recode_f" value="">
+            <input type="hidden" name="read_ts_f_val" id="read_ts_f_val">
+            <input type="hidden" name="ans_chk_flg" value="" id="ans_chk_flg">
+            <input type="hidden" id="revision_f" value="">
+
+
+            <div class="header" style="-webkit-user-select:none;">
+                －<span id="title_tt">臨海副都心における観光動向調査</span>－
+                <div id="syuuetu_disp" style="font-size:16px; color:#ff0000; margin-top:10px; display:none;"></div>
+            </div>
+
+            <div id="slp" class="page">
+                <br>
+                <div style="width:100%; display:-webkit-box;">
+                    <div style="width:10%;"></div>
+                    <div style="width:80%; background-color:#FFFFFF; padding:5px; line-height:120%; text-align:center; border:1px solid #000000;">
+                        言語選択してください<br>
+                        <div style="display:-webkit-box;">
+                            <div style="width:50%;">
+                                <a href="1708rinkai/test/enq.html" id="ja">1.Japanese(日本語)</a><br><br>
+                                <a href="1708rinkai/test/enq.html" id="ch_t">3.中文繁體(中国語：繁体字)</a><br><br>
+                                <a href="1708rinkai/test/enq.html" id="ko">5.한국어(韓国語)</a><br><br>
+                            </div>
+                            <div style="width:50%;">
+                                <a href="1708rinkai/test/enq.html" id="en">2.English(英語)</a><br><br>
+                                <a href="1708rinkai/test/enq.html" id="ch_s">4.中文简体(中国語：簡体字)</a><br><br>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:10%;"></div>
+                </div>
+
+                <br>
+                <div style="width:100%; display:-webkit-box;">
+                    <div style="width:30%;"></div>
+                    <div style="width:40%; text-align:center;">
+                        <div id="tas_div" style="width: 100%; background-color: rgb(255, 255, 255); padding: 5px; line-height: 120%; text-align: center; border: 1px solid rgb(0, 0, 0);">
+                            <span>ローカルキャッシュ</span><br>状態：<span id="tas"></span>
+                            <br><div id="gif" style="display: none;"><img src="./1708rinkai_enq_files/load.gif" alt="ロード"></div>
+                        </div>
+                    </div>
+                    <div style="width:30%;"></div>
+                </div>
+                <br>
+            </div>
+
+
+            <div id="pkanri" class="page" style="display:none;">
+
+                <div style="text-align:center; font-size:20px; font-weight:bold;">管理画面</div>
+                <br>
+                <div style="width: 80%; margin: auto;">端末番号・調査地点を設定してください。</div>
+                <table class="def_set_tbl">
+                    <tbody><tr>
+                        <td class="def_set_td" style="width: 31%; background: #EEEEEE;">
+                            <div style="display: flex; display: -webkit-flex; justify-content: center;">
+                                <div style="margin-top: 2px;"><img src="./1708rinkai_enq_files/ipad-32px.png" style="width: 16px;" alt="ipad"></div>
+                                <div>端末番号：TAB</div>
+                            </div>
+                        </td>
+                        <td class="def_set_td" style="width: 42%; background: #EEEEEE;">調査地点</td>
+                        <td class="def_set_td" style="width: 27%; background: #EEEEEE;">調査年月日</td>
+                    </tr>
+                    <tr>
+                        <td class="def_set_td"><input type="text" name="tml" value="" id="tml" pattern="\d*" class="text2" disabled=""></td>
+                        <td class="def_set_td">
+                            <select name="survey_spot" id="survey_spot" disabled="">
+                                <option value="">-select-</option>
+                                <option value="1">お台場海浜公園駅</option>
+                                <option value="2">青海駅</option>
+                                <option value="3">国際展示場駅</option>
+                                <option value="4">東京テレポート駅</option>
+                                <option value="5">東京ファッションタウン</option>
+                                <option value="6">日本科学未来館</option>
+                            </select>
+                        </td>
+                        <td class="def_set_td"><span id="qday">2017/08/29</span></td>
+                    </tr>
+                </tbody></table>
+                <div style="width: 9%; margin: auto; padding-top: 10px;"><input type="button" value="変更する" id="config_save" style="font-size: 16px;"></div>
+                <br>
+
+                <div style="text-align:center;">データ絞込み　入力形式（例　2017/01/01）:<input type="text" name="sibo" value="2017/" id="sibo" class="text1">
+                    <input type="button" value="絞込み" id="k_data_chg">
+                </div>
+                <table class="tbl3" style="width: 80%; font-size:14px;" id="load_input_tbl">
+                    <tbody><tr id="load_kanri">
+                        <td class="td3" style="width:7%; background:#ccff99;"><span style="font-size:12px;">サンプル</span><br>No</td>
+                        <td class="td3" style="width:14%; background:#ccff99;">日本人／外国人</td>
+                        <td class="td3" style="width:10%; background:#ccff99;">回答終了<br>時刻</td>
+                        <td class="td3" style="width:11%; background:#ccff99;">有効票・<br>無効票　</td>
+                        <td class="td3" style="width:8%; background:#3399ff;">調査時間</td>
+                        <td class="td3" style="width:7%; background:#ccff99;">ID</td>
+                    </tr>
+                </tbody></table>
+
+                <br>
+                <hr>
+                <div style="text-align:center;">
+                    <span class="spn_b">獲得票数</span><br><br>
+                    <input type="text" name="bt_date" value="2017/" id="bt_date" class="text1"><input type="button" value="の票数表示" id="bt_chg">
+                    <table class="tbl3" style="width: 50%; background:#c5ccd4;">
+                        <tbody><tr>
+                            <td class="kakutoku_td1">日本人</td>
+                            <td class="kakutoku_td1">外国人</td>
+                            <td class="kakutoku_td1">合計</td>
+                        </tr>
+                        <tr>
+                            <td class="kakutoku_td2" id="jp"></td>
+                            <td class="kakutoku_td2" id="foreigner"></td>
+                            <td class="kakutoku_td2" id="ak"></td>
+                        </tr>
+                    </tbody></table>
+                    <br>
+                    <button type="button" id="enq_go" class="nextb2" style="display: inline-block;"><img src="./1708rinkai_enq_files/uturn_arrow.png" alt="矢印" style="width: 16px;"> アンケートへ</button>
+                    <br>
+                    <br>
+                    <input type="button" value="server save" id="sr" style="margin-top: 80px;">
+                    <br>
+                    <br>
+                </div>
+
+            </div>
+
+            <div id="p0" class="page" style="display: none;">
+
+                <div style="width: 96%; text-align: right;"><progress value="0" max="100">Progress 0%</progress>0%</div>
+
+                <div class="radius">
+
+                    <br>
+                    <input type="button" name="kanri_op" value="管理画面を表示" id="kanri_op" style="font-size:16px;">
+                    <br>
+                    <br>
+                    ■表示されているこの調査を<br>
+                    <div id="swh1" class="switch switch-font-size1">
+                        <input type="radio" name="test_f" id="test_fv0" value="0" style="display: none;">
+                        <input type="radio" name="test_f" id="test_fv1" value="1" style="display: none;">
+                        <div class="switch-on" style="background: rgb(129, 199, 132); user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;">サンプルに含める</div><div class="switch-off" style="user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;">サンプルに含めない</div>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="dai"><span id="fs_tt">［事前入力欄］</span></div>
+
+                <div class="radius" id="fs1"><div class="qs">FS1．<span id="fs1_tt">調査日</span></div></div>
+
+                <div class="radius"><input type="text" name="fs1oa" id="fs1oa" value="" class="text1" maxlength="12" disabled=""></div>
+
+                <div class="radius"><div class="qs">FS2．<span id="fs2_tt">調査地点</span></div></div>
+
+                <div class="radius">
+                    <select name="fs2" id="fs2" style="font-size: 16px;" disabled="">
+                        <option value="">-select-</option>
+                        <option value="1">お台場海浜公園駅</option>
+                        <option value="2">青海駅</option>
+                        <option value="3">国際展示場駅</option>
+                        <option value="4">東京テレポート駅</option>
+                        <option value="5">東京ファッションタウン</option>
+                        <option value="6">日本科学未来館</option>
+                    </select>
+                </div>
+                <br>
+
+                <div style="text-align:center;">
+                    <button type="button" id="nextpg1" class="nextb">next <span class="octicon octicon-chevron-right" style="font-size:18px;"></span></button>
+                    <div style="margin-top:50px;"><a href="1708rinkai/test/enq.html">新規アンケート・言語選択へ</a></div>
+                    <br>
+                    <br>
+                </div>
+
+            </div>
+
+            <div id="p1" class="page" style="display: none;">
+
+                <div style="width: 96%; text-align: right;"><progress value="30" max="100">Progress 30%</progress>30%</div>
+
+                <div class="radius" id="q1"><div class="qs">Q1．<span id="q1_1tt">あなたのお住まいはどこですか。国内にお住まいであれば都道府県名、海外であれば国名をご記入下さい。また、東京都内にお住まいの場合は区市町村名をご記入下さい。 </span></div></div>
+
+                <div class="radius" style="font-size: 14px; display: flex; display: -webkit-flex;">
+                    <div style="width: 50%;">
+                        <div style="width: 80%; border-bottom: 1px solid #000000;">
+                            （<span id="q1_2tt">都道府県名</span>：
+                            <select name="q1a" id="q1a">
+                                <option value="">- select -</option>
+                                <option value="1">北海道 / Hokkaido</option>
+                                <option value="2">青森県 / Aomori</option>
+                                <option value="3">岩手県 / Iwate</option>
+                                <option value="4">宮城県 / Miyagi</option>
+                                <option value="5">秋田県 / Akita</option>
+                                <option value="6">山形県 / Yamagata</option>
+                                <option value="7">福島県 / Fukushima</option>
+                                <option value="8">茨城県 / Ibaraki</option>
+                                <option value="9">栃木県 / Tochigi</option>
+                                <option value="10">群馬県 / Gunma</option>
+                                <option value="11">埼玉県 / Saitama</option>
+                                <option value="12">千葉県 / Chiba</option>
+                                <option value="13">東京都 / Tokyo</option>
+                                <option value="14">神奈川県 / Kanagawa</option>
+                                <option value="15">新潟県 / Niigata</option>
+                                <option value="16">富山県 / Toyama</option>
+                                <option value="17">石川県 / Ishikawa</option>
+                                <option value="18">福井県 / Fukui</option>
+                                <option value="19">山梨県 / Yamanashi</option>
+                                <option value="20">長野県 / Nagano</option>
+                                <option value="21">岐阜県 / Gifu</option>
+                                <option value="22">静岡県 / Shizuoka</option>
+                                <option value="23">愛知県 / Aichi</option>
+                                <option value="24">三重県 / Mie</option>
+                                <option value="25">滋賀県 / Shiga</option>
+                                <option value="26">京都府 / Kyoto</option>
+                                <option value="27">大阪府 / Osaka</option>
+                                <option value="28">兵庫県 / Hyogo</option>
+                                <option value="29">奈良県 / Nara</option>
+                                <option value="30">和歌山県 / Wakayama</option>
+                                <option value="31">鳥取県 / Tottori</option>
+                                <option value="32">島根県 / Shimane</option>
+                                <option value="33">岡山県 / Okayama</option>
+                                <option value="34">広島県 / Hiroshima</option>
+                                <option value="35">山口県 / Yamaguchi</option>
+                                <option value="36">徳島県 / Tokushima</option>
+                                <option value="37">香川県 / Kagawa</option>
+                                <option value="38">愛媛県 / Ehime</option>
+                                <option value="39">高知県 / Kochi</option>
+                                <option value="40">福岡県 / Fukuoka</option>
+                                <option value="41">佐賀県 / Saga</option>
+                                <option value="42">長崎県 / Nagasaki</option>
+                                <option value="43">熊本県 / Kumamoto</option>
+                                <option value="44">大分県 / Oita</option>
+                                <option value="45">宮崎県 / Miyazaki</option>
+                                <option value="46">鹿児島県 / Kagoshima</option>
+                                <option value="47">沖縄県 / Okinawa</option>
+                                <option value="48">わからない / Not know</option>
+                            </select>）
+                        </div>
+                        <div style="margin-left: 40px; margin-top: 5px;"><span class="octicon octicon-arrow-down"></span> <span id="q1_3tt">東京都内の場合</span></div>
+                        <div style="margin-left: 40px;"><span class="octicon octicon-arrow-right"></span> <span class="octicon octicon-arrow-right"></span>（<span id="q1_4tt">区市町村名</span>　<input type="text" name="q1b" id="q1b" value="" class="text3" disabled="" style="background: rgb(153, 153, 153);">）</div>
+                    </div>
+                    <div style="width: 50%;"><span id="q1_5tt">海外の場合</span>（<span id="q1_6tt">国名</span>：<input type="text" name="q1c" id="q1c" value="" class="text3">）</div>
+                </div>
+
+                <div class="radius" id="q2"><div class="qs">Q2．<span id="q2_1tt">あなたの性別、年齢を選んで下さい。<span class="spn_u">※それぞれ１つだけ </span></span></div></div>
+
+                <div class="radius">
+                    <div class="flex_cr" style="width: 50%; align-items: center;">
+                        <div style="width: 20%;" id="q2a"><span id="q2_2tt">性別</span>　：</div>
+                        <div class="new_radius sele-b" style="width: 40%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2a" id="lq2av1" value="1" style="display: none;">1. <span id="q2_3tt">男性</span></div>
+                        <div class="new_radius sele-b" style="width: 40%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2a" id="lq2av2" value="2" style="display: none;">2. <span id="q2_4tt">女性</span></div>
+                    </div>
+                    <div class="flex_cr" style="width: 100%; margin-top: 20px;">
+                        <div style="width: 9%;" id="q2b"><span id="q2_5tt">年齢</span>　：</div>
+                        <div style="width: 91%; display: flex; display: -webkit-flex; -webkit-flex-wrap: wrap;">
+                            <div class="new_radius sele-b" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv1" value="1" style="display: none;">1. <span id="q2_6tt">10歳未満</span></div>
+                            <div class="new_radius sele-b" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv2" value="2" style="display: none;">2. <span id="q2_7tt">10歳代</span></div>
+                            <div class="new_radius sele-b" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv3" value="3" style="display: none;">3. <span id="q2_8tt">20歳代</span></div>
+                            <div class="new_radius sele-b" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv4" value="4" style="display: none;">4. <span id="q2_9tt">30歳代</span></div>
+                            <div class="new_radius sele-b flex_mt" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv5" value="5" style="display: none;">5. <span id="q2_10tt">40歳代</span></div>
+                            <div class="new_radius sele-b flex_mt" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv6" value="6" style="display: none;">6. <span id="q2_11tt">50歳代</span></div>
+                            <div class="new_radius sele-b flex_mt" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv7" value="7" style="display: none;">7. <span id="q2_12tt">60歳代</span></div>
+                            <div class="new_radius sele-b flex_mt" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv8" value="8" style="display: none;">8. <span id="q2_13tt">70歳代</span></div>
+                            <div class="new_radius sele-b flex_mt" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q2b" id="lq2bv9" value="9" style="display: none;">9. <span id="q2_14tt">80歳以上</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q3"><div class="qs">Q3．
+                        <span id="q3_1tt">今回の臨海副都心への旅行では臨海副都心内に宿泊されますか。<span class="spn_u">※１つだけ</span></span><br>
+                        <span id="q3_2tt">宿泊される際は、今回の旅行の<span class="spn_u">総宿泊数</span>をご記入頂き、その内<span class="spn_ub">臨海副都心エリア内に何泊</span>するか、<span class="spn_ub">いくつの施設に宿泊</span>するかをご記入下さい。
+                            また、<span class="spn_ub">どのような施設に宿泊するか</span>をご記入下さい。<br><span class="spn_u">※いくつでも</span></span>
+                    </div></div>
+
+                <div class="radius">
+
+                    <table style="width: 100%; font-size: 14px;">
+                        <tbody><tr>
+                            <td style="width: 29%;"><div class="new_radius sele-b" style="user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q3_1" id="lq3_1v1" value="1" style="display: none;">1. <span id="q3_3tt">しない</span></div></td>
+                            <td colspan="6">
+                                <div style="margin-left: 220px; text-align: center;">
+                                    <span id="q3_4tt">エリア内で宿泊した施設の数</span><br>
+                                    <img src="./1708rinkai_enq_files/q3_arrow3.png" alt="矢印">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 29%; padding-top: 5px;"><div class="new_radius sele-b" style="user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q3_1" id="lq3_1v2" value="2" style="display: none;"><span class="spn_u">2. <span id="q3_5tt">宿泊する（宿泊した）</span></span></div></td>
+                            <td style="width: 3.5%; text-align: center;"><span class="octicon octicon-arrow-right"></span></td>
+                            <td style="width: 18.5%;">
+                                <div style="display: flex; display: -webkit-flex;">
+                                    <div><span id="q3_6tt">総宿泊数</span></div>
+                                    <div style="border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_1aoa" pattern="\d*" id="q3_1aoa" value="" class="text6" maxlength="3" disabled="" style="background: rgb(153, 153, 153);"> <span id="q3_7tt">泊</span></div>
+                                </div>
+                            </td>
+                            <td style="width: 2.5%;"><span class="octicon octicon-arrow-right"></span></td>
+                            <td style="width: 28%;">
+                                <div style="display: flex; display: -webkit-flex;">
+                                    <div><span id="q3_8tt">その内臨海副都心内</span></div>
+                                    <div style="border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_1boa" pattern="\d*" id="q3_1boa" value="" class="text6" maxlength="3" disabled="" style="background: rgb(153, 153, 153);"> <span id="q3_9tt">泊</span></div>
+                                </div>
+                            </td>
+                            <td style="width: 2.5%;"><span class="octicon octicon-arrow-right"></span></td>
+                            <td style="width: 16%;">
+                                <div style="width: 75%; border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_1coa" pattern="\d*" id="q3_1coa" value="" class="text6" maxlength="3" disabled="" style="background: rgb(153, 153, 153);"><span id="q3_10tt">施設</span></div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+
+                </div>
+                <span class="octicon octicon-arrow-down" style="font-size: 48px; position: relative; top: -17px; left: 640px; z-index: 1;"></span>
+
+                <div class="radius" style="margin-top: -36px; font-size: 14px;">
+                    <span id="q3_11tt">＜エリア内宿泊施設＞</span><br>
+                    <div style="width: 100%; margin-top: 9px; display: flex; display: -webkit-flex; -webkit-flex-wrap: wrap;">
+                        <div class="new_radius sele-b" style="width: 28%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q3_2_1" id="lq3_2_1" value="1" disabled="" style="display: none;">1. <span id="q3_12tt">実家や知人・親戚宅</span></div>
+                        <div class="new_radius sele-b" style="width: 12%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q3_2_2" id="lq3_2_2" value="2" disabled="" style="display: none;">2. <span id="q3_13tt">ホテル</span></div>
+                        <div class="new_radius sele-b" style="width: 50%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q3_2_3" id="lq3_2_3" value="3" disabled="" style="display: none;">3. <span id="q3_14tt">（キャンプ場以外の）車中泊・交通機関内での宿泊</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 31%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q3_2_4" id="lq3_2_4" value="4" disabled="" style="display: none;">4. <span id="q3_15tt">別荘・リゾートマンション</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 33%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q3_2_5" id="lq3_2_5" value="5" disabled="" style="display: none;">5. <span id="q3_16tt">会員制の宿泊施設</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 11%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q3_2_6" id="lq3_2_6" value="6" disabled="" style="display: none;">6. <span id="q3_17tt">その他</span></div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q3_sub" style="display: none;">
+                    <span id="q3_18tt">＜Name of lodging facility＞</span><br>
+                    <div style="width: 100%; margin-top: 9px; display: flex; display: -webkit-flex;">
+                        <div>1. <span class="q3_19tt">Name of lodging facility</span>　:</div>
+                        <div style="border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_3_1aoa" id="q3_3_1aoa" value="" class="text4"></div>
+                        <div style="margin-left: 20px;"><span class="q3_20tt"></span></div>
+                        <div style="border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_3_1boa" pattern="\d*" id="q3_3_1boa" value="" class="text6" maxlength="3"><span class="q3_21tt">nights</span></div>
+                    </div>
+                    <div style="width: 100%; margin-top: 16px; display: flex; display: -webkit-flex;">
+                        <div>2. <span class="q3_19tt">Name of lodging facility</span>　:</div>
+                        <div style="border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_3_2aoa" id="q3_3_2aoa" value="" class="text4"></div>
+                        <div style="margin-left: 20px;"><span class="q3_20tt"></span></div>
+                        <div style="border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_3_2boa" pattern="\d*" id="q3_3_2boa" value="" class="text6" maxlength="3"><span class="q3_21tt">nights</span></div>
+                    </div>
+                    <div style="width: 100%; margin-top: 16px; display: flex; display: -webkit-flex;">
+                        <div>3. <span class="q3_19tt">Name of lodging facility</span>　:</div>
+                        <div style="border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_3_3aoa" id="q3_3_3aoa" value="" class="text4"></div>
+                        <div style="margin-left: 20px;"><span class="q3_20tt"></span></div>
+                        <div style="border-bottom: 1px solid #000000; padding-bottom: 1px;"><input type="text" name="q3_3_3boa" pattern="\d*" id="q3_3_3boa" value="" class="text6" maxlength="3"><span class="q3_21tt">nights</span></div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q4"><div class="qs">Q4．<span id="q4_1tt">今回の旅行の主要な目的は何ですか。<span class="spn_u">※１つだけ</span></span></div></div>
+
+                <div class="radius">
+                    <div style="width: 100%; display: flex; display: -webkit-flex;">
+                        <div class="new_radius sele-b" style="width: 14%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q4" id="lq4v1" value="1" style="display: none;">1. <span id="q4_2tt">ビジネス</span></div>
+                        <div class="new_radius sele-b" style="width: 12%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q4" id="lq4v2" value="2" style="display: none;">2. <span id="q4_3tt">観光</span></div>
+                        <div class="new_radius sele-b" style="width: 51%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q4" id="lq4v3" value="3" style="display: none;">3. <span id="q4_4tt">帰省・知人訪問</span></div>
+                        <div class="new_radius sele-b" style="width: 14%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q4" id="lq4v4" value="4" style="display: none;">4. <span id="q4_5tt">買い物</span></div>
+                    </div>
+                    <div style="width: 100%; display: flex; display: -webkit-flex; -webkit-flex-wrap: wrap;">
+                        <div class="new_radius sele-b flex_mt" style="width: 25%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q4" id="lq4v5" value="5" style="display: none;">5. <span id="q4_6tt">イベントへの参加</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 55%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q4" id="lq4v6" value="6" style="display: none;">6. <span id="q4_7tt">演劇・公演等の鑑賞</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 10%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q4" id="lq4v7" value="7" style="display: none;">7. <span id="q4_8tt">飲食</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 85%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;">
+                            <input type="radio" name="q4" id="lq4v8" value="8" style="display: none;">8. <span id="q4_9tt">その他</span>
+                            （<input type="text" name="q4oa" id="q4oa" value="" class="text4" disabled="" style="background: rgb(153, 153, 153);">）
+                        </div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q5"><div class="qs">Q5．<span id="q5_1tt">どなたと何人での旅行ですか。<span class="spn_u">※子供や乳幼児も含む</span></span></div></div>
+
+                <div class="radius">
+                    <div style="width: 33%; border-bottom: 1px solid #000000;">（<input type="text" name="q5oa" id="q5oa" pattern="\d*" value="" class="text2">）<span id="q5_2tt">人（回答者を含む）</span></div>
+                    <div style="margin-left: 20px;"><span class="octicon octicon-arrow-down"></span><span id="q5_3tt">２人以上の場合</span></div>
+                    <div style="width: 95%; display: flex; display: -webkit-flex; margin-left: 20px;">
+                        <div style="width: 4%;"><span class="octicon octicon-arrow-right"></span> <span class="octicon octicon-arrow-right"></span></div>
+                        <div class="new_radius sele-b" style="width: 11%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q5_1" id="lq5_1" value="1" disabled="" style="display: none;">1. <span id="q5_4tt">家族</span></div>
+                        <div class="new_radius sele-b" style="width: 12%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q5_2" id="lq5_2" value="2" disabled="" style="display: none;">2. <span id="q5_5tt">友人</span></div>
+                        <div class="new_radius sele-b" style="width: 46%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q5_3" id="lq5_3" value="3" disabled="" style="display: none;">3. <span id="q5_6tt">職場・学校等の団体旅行</span></div>
+                        <div class="new_radius sele-b" style="width: 11%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none; background: rgb(153, 153, 153);"><input type="checkbox" name="q5_4" id="lq5_4" value="4" disabled="" style="display: none;">4. <span id="q5_7tt">その他</span></div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q6"><div class="qs">Q6．<span id="q6_1tt">臨海副都心の訪問は何回目ですか。</span><br>
+                        <span id="q6_2tt">※回答の合計はQ5と一致</span>
+                    </div></div>
+
+                <div class="radius">
+                    <div class="new_radius sele-b" style="width: 22%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q6" id="lq6v1" value="1" style="display: none;">1. <span id="q6_3tt">何回目か分かる</span></div>
+                    <div style="width: 90%; margin-left: 55px; padding: 9px 0px; display: flex; display: -webkit-flex;">
+                        <div style="width:40%;">
+                            <span id="q6_4tt">初めての人</span>（<input type="text" name="q6aoa" id="q6aoa" pattern="\d*" value="" class="text2" disabled="" style="background: rgb(153, 153, 153);">）<span id="q6_5tt">人、</span><br>
+                            <span id="q6_8tt">３回目の人</span>（<input type="text" name="q6coa" id="q6coa" pattern="\d*" value="" class="text2" disabled="" style="background: rgb(153, 153, 153);">）<span id="q6_9tt">人、</span>
+                        </div>
+                        <div style="width:40%;">
+                            <span id="q6_6tt">２回目の人　　</span>（<input type="text" name="q6boa" id="q6boa" pattern="\d*" value="" class="text2" disabled="" style="background: rgb(153, 153, 153);">）<span id="q6_7tt">人</span><br>
+                            <span id="q6_10tt">４回目以上の人</span>（<input type="text" name="q6doa" id="q6doa" pattern="\d*" value="" class="text2" disabled="" style="background: rgb(153, 153, 153);">）<span id="q6_11tt">人</span>
+                        </div>
+                    </div>
+                    <div class="new_radius sele-b" style="width: 18%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q6" id="lq6v2" value="2" style="display: none;">2. <span id="q6_12tt">不明</span></div>
+                </div>
+
+                <br>
+                <div style="text-align:center;">
+                    <button type="button" id="backpg0" class="nextb"><span class="octicon octicon-chevron-left" style="font-size:18px;"></span> back</button>
+                    <button type="button" id="nextpg2" class="nextb" style="margin-left: 60px;">next <span class="octicon octicon-chevron-right" style="font-size:18px;"></span></button>
+                    <br>
+                    <button type="button" id="time_up1" class="end_btn"><span class="octicon octicon-x"></span> 終 了</button>
+                </div>
+
+            </div>
+
+            <div id="p2" class="page" style="display: none;">
+
+                <div style="width: 96%; text-align: right;"><progress value="60" max="100">Progress 60%</progress>60%</div>
+
+                <div class="radius" id="q7_1"><div class="qs">Q7-1．<span id="q7_1_1tt">今回、臨海副都心内へはどの交通機関で入りましたか。</span></div></div>
+
+                <div class="radius" style="font-size: 15px;">
+                    <div style="width: 100%; display: flex; display: -webkit-flex;">
+                        <div class="new_radius sele-b" style="width: 17%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v1" value="1" style="display: none;">① <span id="q7_1_2tt">りんかい線</span></div>
+                        <div class="new_radius sele-b" style="width: 28%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v2" value="2" style="display: none;">② <span id="q7_1_3tt">ゆりかもめ</span></div>
+                        <div class="new_radius sele-b" style="width: 25%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v3" value="3" style="display: none;">③ <span id="q7_1_4tt">貸切バス・観光バス</span></div>
+                        <div class="new_radius sele-b" style="width: 17%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v4" value="4" style="display: none;">④ <span id="q7_1_5tt">高速バス</span></div>
+                    </div>
+                    <div style="width: 100%; display: flex; display: -webkit-flex; margin-top: 9px;">
+                        <div class="new_radius sele-b" style="width: 16%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v5" value="5" style="display: none;">⑤ <span id="q7_1_6tt">乗合バス</span></div>
+                        <div class="new_radius sele-b" style="width: 33%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v6" value="6" style="display: none;">⑥ <span id="q7_1_7tt">無料巡回バス BAY SHUTTLE</span></div>
+                        <div class="new_radius sele-b" style="width: 22%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v7" value="7" style="display: none;">⑦ <span id="q7_1_8tt">施設の送迎バス</span></div>
+                        <div class="new_radius sele-b" style="width: 15%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v8" value="8" style="display: none;">⑧ <span id="q7_1_9tt">水上バス</span></div>
+                    </div>
+                    <div style="width: 100%; display: flex; display: -webkit-flex; margin-top: 9px;">
+                        <div class="new_radius sele-b" style="width: 24%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v9" value="9" style="display: none;">⑨ <span id="q7_1_10tt">タクシー・ハイヤー</span></div>
+                        <div class="new_radius sele-b" style="width: 10%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v10" value="10" style="display: none;">⑩ <span id="q7_1_11tt">車</span></div>
+                        <div class="new_radius sele-b" style="width: 13%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v11" value="11" style="display: none;">⑪ <span id="q7_1_12tt">自転車</span></div>
+                        <div class="new_radius sele-b" style="width: 23%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v12" value="12" style="display: none;">⑫ <span id="q7_1_13tt">レンタルサイクル</span></div>
+                    </div>
+                    <div style="width: 100%; display: flex; display: -webkit-flex; margin-top: 9px;">
+                        <div class="new_radius sele-b" style="width: 16%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v13" value="13" style="display: none;">⑬ <span id="q7_1_14tt">バイク</span></div>
+                        <div class="new_radius sele-b" style="width: 16%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v14" value="14" style="display: none;">⑭ <span id="q7_1_15tt">徒歩のみ</span></div>
+                        <div class="new_radius sele-b" style="width: 50%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q7_1" id="lq7_1v15" value="15" style="display: none;">⑮ <span id="q7_1_16tt">その他</span>（<input type="text" name="q7_1oa" id="q7_1oa" value="" class="text5" disabled="" style="background: rgb(153, 153, 153);">）</div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q7_2"><div class="qs">Q7-2．<span id="q7_2_1tt">今回の臨海副都心への旅行でどこを観光しましたか。これからの予定も含め、観光地の番号を訪問した（訪問する）順番にご記入下さい。また、移動に用いた交通機関もご記入下さい。</span></div></div>
+
+                <div style="width: 98%; margin:10px auto 0px;">
+                    <table style="width: 100%; font-size: 11px; border-collapse: collapse;">
+                        <tbody><tr>
+                            <td class="q7k_td3" rowspan="3">
+                                <p class="new_tate1"><span id="q7_2_2tt">臨海副都心内到着地点<br>（駅、バス停など）</span></p>
+                            </td>
+                            <td class="q7k_td4" rowspan="2"><span class="octicon octicon-arrow-right q7_icon_size"></span></td>
+                            <td class="q7k_td1" style="height: 40px;"><span class="q7_2_3tt">観光地<br>番号</span></td>
+                            <td class="q7k_td2" rowspan="2"><span class="octicon octicon-arrow-right q7_icon_size"></span></td>
+                            <td class="q7k_td1"><span class="q7_2_3tt">観光地<br>番号</span></td>
+                            <td class="q7k_td2" rowspan="2"><span class="octicon octicon-arrow-right q7_icon_size"></span></td>
+                            <td class="q7k_td1"><span class="q7_2_3tt">観光地<br>番号</span></td>
+                            <td class="q7k_td2" rowspan="2"><span class="octicon octicon-arrow-right q7_icon_size"></span></td>
+                            <td class="q7k_td1" rowspan="2"><p class="new_tate2"><span id="q7_2_4tt">調査地点</span></p></td>
+                            <td class="q7k_td2" rowspan="2"><span class="octicon octicon-arrow-right q7_icon_size"></span></td>
+                            <td class="q7k_td1"><span class="q7_2_3tt">観光地<br>番号</span></td>
+                            <td class="q7k_td2" rowspan="2"><span class="octicon octicon-arrow-right q7_icon_size"></span></td>
+                            <td class="q7k_td1"><span class="q7_2_3tt">観光地<br>番号</span></td>
+                            <td class="q7k_td2" rowspan="2"><span class="octicon octicon-arrow-right q7_icon_size"></span></td>
+                            <td class="q7k_td1"><span class="q7_2_3tt">観光地<br>番号</span></td>
+                            <td class="q7k_td4" rowspan="2"><span class="octicon octicon-arrow-right q7_icon_size"></span></td>
+                            <td class="q7k_td3" rowspan="3">
+                                <p class="new_tate1"><span id="q7_2_5tt">臨海副都心外への出発地点<br>（駅、バス停など）</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="q7k_td1" style="height: 35px;">
+                                <select name="q7_2ka1" id="q7_2ka1" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_7tt">1 パナソニックセンター東京</option>
+                                    <option value="2" class="q7_2_8tt">2 東京都水の科学館</option>
+                                    <option value="3" class="q7_2_9tt">3 有明コロシアム</option>
+                                    <option value="4" class="q7_2_10tt">4 東京ファッションタウン　ワンザ有明ベイモール</option>
+                                    <option value="5" class="q7_2_11tt">5 東京ビッグサイト</option>
+                                    <option value="6" class="q7_2_12tt">6 東京都虹の下水道館</option>
+                                    <option value="7" class="q7_2_13tt">7 ＴＯＣ有明</option>
+                                    <option value="8" class="q7_2_14tt">8 ディファ有明</option>
+                                    <option value="9" class="q7_2_15tt">9 東京臨海広域防災公園・そなエリア東京</option>
+                                    <option value="10" class="q7_2_16tt">10 ダイバーシティ東京プラザ</option>
+                                    <option value="11" class="q7_2_17tt">11 東京みなと館</option>
+                                    <option value="12" class="q7_2_18tt">12 テレコムセンター展望台</option>
+                                    <option value="13" class="q7_2_19tt">13 パレットタウン</option>
+                                    <option value="14" class="q7_2_20tt">14 大江戸温泉物語</option>
+                                    <option value="15" class="q7_2_21tt">15 メガウェブ</option>
+                                    <option value="16" class="q7_2_22tt">16 Zepp　Tokyo（ゼップトーキョー）</option>
+                                    <option value="17" class="q7_2_23tt">17 日本科学未来館</option>
+                                    <option value="18" class="q7_2_24tt">18 THE GUNDAM BASE TOKYO (ガンダムベース東京)</option>
+                                    <option value="19" class="q7_2_25tt">19 Zepp　ダイバーシティ</option>
+                                    <option value="20" class="q7_2_26tt">20 フジテレビ本社ビル</option>
+                                    <option value="21" class="q7_2_27tt">21 都立お台場海浜公園</option>
+                                    <option value="22" class="q7_2_28tt">22 東京ジョイポリス</option>
+                                    <option value="23" class="q7_2_29tt">23 アクアシティお台場</option>
+                                    <option value="24" class="q7_2_30tt">24 その他（具体的なスポット名を書いて下さい。）</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </td>
+                            <td class="q7k_td1">
+                                <select name="q7_2ka2" id="q7_2ka2" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_7tt">1 パナソニックセンター東京</option>
+                                    <option value="2" class="q7_2_8tt">2 東京都水の科学館</option>
+                                    <option value="3" class="q7_2_9tt">3 有明コロシアム</option>
+                                    <option value="4" class="q7_2_10tt">4 東京ファッションタウン　ワンザ有明ベイモール</option>
+                                    <option value="5" class="q7_2_11tt">5 東京ビッグサイト</option>
+                                    <option value="6" class="q7_2_12tt">6 東京都虹の下水道館</option>
+                                    <option value="7" class="q7_2_13tt">7 ＴＯＣ有明</option>
+                                    <option value="8" class="q7_2_14tt">8 ディファ有明</option>
+                                    <option value="9" class="q7_2_15tt">9 東京臨海広域防災公園・そなエリア東京</option>
+                                    <option value="10" class="q7_2_16tt">10 ダイバーシティ東京プラザ</option>
+                                    <option value="11" class="q7_2_17tt">11 東京みなと館</option>
+                                    <option value="12" class="q7_2_18tt">12 テレコムセンター展望台</option>
+                                    <option value="13" class="q7_2_19tt">13 パレットタウン</option>
+                                    <option value="14" class="q7_2_20tt">14 大江戸温泉物語</option>
+                                    <option value="15" class="q7_2_21tt">15 メガウェブ</option>
+                                    <option value="16" class="q7_2_22tt">16 Zepp　Tokyo（ゼップトーキョー）</option>
+                                    <option value="17" class="q7_2_23tt">17 日本科学未来館</option>
+                                    <option value="18" class="q7_2_24tt">18 THE GUNDAM BASE TOKYO (ガンダムベース東京)</option>
+                                    <option value="19" class="q7_2_25tt">19 Zepp　ダイバーシティ</option>
+                                    <option value="20" class="q7_2_26tt">20 フジテレビ本社ビル</option>
+                                    <option value="21" class="q7_2_27tt">21 都立お台場海浜公園</option>
+                                    <option value="22" class="q7_2_28tt">22 東京ジョイポリス</option>
+                                    <option value="23" class="q7_2_29tt">23 アクアシティお台場</option>
+                                    <option value="24" class="q7_2_30tt">24 その他（具体的なスポット名を書いて下さい。）</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </td>
+                            <td class="q7k_td1">
+                                <select name="q7_2ka3" id="q7_2ka3" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_7tt">1 パナソニックセンター東京</option>
+                                    <option value="2" class="q7_2_8tt">2 東京都水の科学館</option>
+                                    <option value="3" class="q7_2_9tt">3 有明コロシアム</option>
+                                    <option value="4" class="q7_2_10tt">4 東京ファッションタウン　ワンザ有明ベイモール</option>
+                                    <option value="5" class="q7_2_11tt">5 東京ビッグサイト</option>
+                                    <option value="6" class="q7_2_12tt">6 東京都虹の下水道館</option>
+                                    <option value="7" class="q7_2_13tt">7 ＴＯＣ有明</option>
+                                    <option value="8" class="q7_2_14tt">8 ディファ有明</option>
+                                    <option value="9" class="q7_2_15tt">9 東京臨海広域防災公園・そなエリア東京</option>
+                                    <option value="10" class="q7_2_16tt">10 ダイバーシティ東京プラザ</option>
+                                    <option value="11" class="q7_2_17tt">11 東京みなと館</option>
+                                    <option value="12" class="q7_2_18tt">12 テレコムセンター展望台</option>
+                                    <option value="13" class="q7_2_19tt">13 パレットタウン</option>
+                                    <option value="14" class="q7_2_20tt">14 大江戸温泉物語</option>
+                                    <option value="15" class="q7_2_21tt">15 メガウェブ</option>
+                                    <option value="16" class="q7_2_22tt">16 Zepp　Tokyo（ゼップトーキョー）</option>
+                                    <option value="17" class="q7_2_23tt">17 日本科学未来館</option>
+                                    <option value="18" class="q7_2_24tt">18 THE GUNDAM BASE TOKYO (ガンダムベース東京)</option>
+                                    <option value="19" class="q7_2_25tt">19 Zepp　ダイバーシティ</option>
+                                    <option value="20" class="q7_2_26tt">20 フジテレビ本社ビル</option>
+                                    <option value="21" class="q7_2_27tt">21 都立お台場海浜公園</option>
+                                    <option value="22" class="q7_2_28tt">22 東京ジョイポリス</option>
+                                    <option value="23" class="q7_2_29tt">23 アクアシティお台場</option>
+                                    <option value="24" class="q7_2_30tt">24 その他（具体的なスポット名を書いて下さい。）</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </td>
+                            <td class="q7k_td1">
+                                <select name="q7_2ka4" id="q7_2ka4" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_7tt">1 パナソニックセンター東京</option>
+                                    <option value="2" class="q7_2_8tt">2 東京都水の科学館</option>
+                                    <option value="3" class="q7_2_9tt">3 有明コロシアム</option>
+                                    <option value="4" class="q7_2_10tt">4 東京ファッションタウン　ワンザ有明ベイモール</option>
+                                    <option value="5" class="q7_2_11tt">5 東京ビッグサイト</option>
+                                    <option value="6" class="q7_2_12tt">6 東京都虹の下水道館</option>
+                                    <option value="7" class="q7_2_13tt">7 ＴＯＣ有明</option>
+                                    <option value="8" class="q7_2_14tt">8 ディファ有明</option>
+                                    <option value="9" class="q7_2_15tt">9 東京臨海広域防災公園・そなエリア東京</option>
+                                    <option value="10" class="q7_2_16tt">10 ダイバーシティ東京プラザ</option>
+                                    <option value="11" class="q7_2_17tt">11 東京みなと館</option>
+                                    <option value="12" class="q7_2_18tt">12 テレコムセンター展望台</option>
+                                    <option value="13" class="q7_2_19tt">13 パレットタウン</option>
+                                    <option value="14" class="q7_2_20tt">14 大江戸温泉物語</option>
+                                    <option value="15" class="q7_2_21tt">15 メガウェブ</option>
+                                    <option value="16" class="q7_2_22tt">16 Zepp　Tokyo（ゼップトーキョー）</option>
+                                    <option value="17" class="q7_2_23tt">17 日本科学未来館</option>
+                                    <option value="18" class="q7_2_24tt">18 THE GUNDAM BASE TOKYO (ガンダムベース東京)</option>
+                                    <option value="19" class="q7_2_25tt">19 Zepp　ダイバーシティ</option>
+                                    <option value="20" class="q7_2_26tt">20 フジテレビ本社ビル</option>
+                                    <option value="21" class="q7_2_27tt">21 都立お台場海浜公園</option>
+                                    <option value="22" class="q7_2_28tt">22 東京ジョイポリス</option>
+                                    <option value="23" class="q7_2_29tt">23 アクアシティお台場</option>
+                                    <option value="24" class="q7_2_30tt">24 その他（具体的なスポット名を書いて下さい。）</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </td>
+                            <td class="q7k_td1">
+                                <select name="q7_2ka5" id="q7_2ka5" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_7tt">1 パナソニックセンター東京</option>
+                                    <option value="2" class="q7_2_8tt">2 東京都水の科学館</option>
+                                    <option value="3" class="q7_2_9tt">3 有明コロシアム</option>
+                                    <option value="4" class="q7_2_10tt">4 東京ファッションタウン　ワンザ有明ベイモール</option>
+                                    <option value="5" class="q7_2_11tt">5 東京ビッグサイト</option>
+                                    <option value="6" class="q7_2_12tt">6 東京都虹の下水道館</option>
+                                    <option value="7" class="q7_2_13tt">7 ＴＯＣ有明</option>
+                                    <option value="8" class="q7_2_14tt">8 ディファ有明</option>
+                                    <option value="9" class="q7_2_15tt">9 東京臨海広域防災公園・そなエリア東京</option>
+                                    <option value="10" class="q7_2_16tt">10 ダイバーシティ東京プラザ</option>
+                                    <option value="11" class="q7_2_17tt">11 東京みなと館</option>
+                                    <option value="12" class="q7_2_18tt">12 テレコムセンター展望台</option>
+                                    <option value="13" class="q7_2_19tt">13 パレットタウン</option>
+                                    <option value="14" class="q7_2_20tt">14 大江戸温泉物語</option>
+                                    <option value="15" class="q7_2_21tt">15 メガウェブ</option>
+                                    <option value="16" class="q7_2_22tt">16 Zepp　Tokyo（ゼップトーキョー）</option>
+                                    <option value="17" class="q7_2_23tt">17 日本科学未来館</option>
+                                    <option value="18" class="q7_2_24tt">18 THE GUNDAM BASE TOKYO (ガンダムベース東京)</option>
+                                    <option value="19" class="q7_2_25tt">19 Zepp　ダイバーシティ</option>
+                                    <option value="20" class="q7_2_26tt">20 フジテレビ本社ビル</option>
+                                    <option value="21" class="q7_2_27tt">21 都立お台場海浜公園</option>
+                                    <option value="22" class="q7_2_28tt">22 東京ジョイポリス</option>
+                                    <option value="23" class="q7_2_29tt">23 アクアシティお台場</option>
+                                    <option value="24" class="q7_2_30tt">24 その他（具体的なスポット名を書いて下さい。）</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </td>
+                            <td class="q7k_td1">
+                                <select name="q7_2ka6" id="q7_2ka6" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_7tt">1 パナソニックセンター東京</option>
+                                    <option value="2" class="q7_2_8tt">2 東京都水の科学館</option>
+                                    <option value="3" class="q7_2_9tt">3 有明コロシアム</option>
+                                    <option value="4" class="q7_2_10tt">4 東京ファッションタウン　ワンザ有明ベイモール</option>
+                                    <option value="5" class="q7_2_11tt">5 東京ビッグサイト</option>
+                                    <option value="6" class="q7_2_12tt">6 東京都虹の下水道館</option>
+                                    <option value="7" class="q7_2_13tt">7 ＴＯＣ有明</option>
+                                    <option value="8" class="q7_2_14tt">8 ディファ有明</option>
+                                    <option value="9" class="q7_2_15tt">9 東京臨海広域防災公園・そなエリア東京</option>
+                                    <option value="10" class="q7_2_16tt">10 ダイバーシティ東京プラザ</option>
+                                    <option value="11" class="q7_2_17tt">11 東京みなと館</option>
+                                    <option value="12" class="q7_2_18tt">12 テレコムセンター展望台</option>
+                                    <option value="13" class="q7_2_19tt">13 パレットタウン</option>
+                                    <option value="14" class="q7_2_20tt">14 大江戸温泉物語</option>
+                                    <option value="15" class="q7_2_21tt">15 メガウェブ</option>
+                                    <option value="16" class="q7_2_22tt">16 Zepp　Tokyo（ゼップトーキョー）</option>
+                                    <option value="17" class="q7_2_23tt">17 日本科学未来館</option>
+                                    <option value="18" class="q7_2_24tt">18 THE GUNDAM BASE TOKYO (ガンダムベース東京)</option>
+                                    <option value="19" class="q7_2_25tt">19 Zepp　ダイバーシティ</option>
+                                    <option value="20" class="q7_2_26tt">20 フジテレビ本社ビル</option>
+                                    <option value="21" class="q7_2_27tt">21 都立お台場海浜公園</option>
+                                    <option value="22" class="q7_2_28tt">22 東京ジョイポリス</option>
+                                    <option value="23" class="q7_2_29tt">23 アクアシティお台場</option>
+                                    <option value="24" class="q7_2_30tt">24 その他（具体的なスポット名を書いて下さい。）</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="15">　</td>
+                        </tr>
+                    </tbody></table>
+
+                    <div class="flex_box">
+                        <div class="flex_sub">
+                            <img src="./1708rinkai_enq_files/up-arrow.png" alt="矢印"><br>
+                            <div class="dbr">
+                                <span class="q7_2_6tt">交通<br>機関</span><br>
+                                <select name="q7_2ko1" id="q7_2ko1" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_61tt">① りんかい線</option>
+                                    <option value="2" class="q7_2_62tt">② ゆりかもめ</option>
+                                    <option value="3" class="q7_2_63tt">③ 貸切バス・観光バス</option>
+                                    <option value="4" class="q7_2_64tt">④ 高速バス</option>
+                                    <option value="5" class="q7_2_65tt">⑤ 乗合バス</option>
+                                    <option value="6" class="q7_2_66tt">⑥ 無料巡回バス BAY SHUTTLE</option>
+                                    <option value="7" class="q7_2_67tt">⑦ 施設の送迎バス</option>
+                                    <option value="8" class="q7_2_68tt">⑧ 水上バス</option>
+                                    <option value="9" class="q7_2_69tt">⑨ タクシー・ハイヤー</option>
+                                    <option value="10" class="q7_2_70tt">⑩ 車</option>
+                                    <option value="11" class="q7_2_71tt">⑪ 自転車</option>
+                                    <option value="12" class="q7_2_72tt">⑫ レンタルサイクル</option>
+                                    <option value="13" class="q7_2_73tt">⑬ バイク</option>
+                                    <option value="14" class="q7_2_74tt">⑭ 徒歩のみ</option>
+                                    <option value="15" class="q7_2_75tt">⑮ その他</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex_sub">
+                            <img src="./1708rinkai_enq_files/up-arrow.png" alt="矢印"><br>
+                            <div class="dbr">
+                                <span class="q7_2_6tt">交通<br>機関</span><br>
+                                <select name="q7_2ko2" id="q7_2ko2" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_61tt">① りんかい線</option>
+                                    <option value="2" class="q7_2_62tt">② ゆりかもめ</option>
+                                    <option value="3" class="q7_2_63tt">③ 貸切バス・観光バス</option>
+                                    <option value="4" class="q7_2_64tt">④ 高速バス</option>
+                                    <option value="5" class="q7_2_65tt">⑤ 乗合バス</option>
+                                    <option value="6" class="q7_2_66tt">⑥ 無料巡回バス BAY SHUTTLE</option>
+                                    <option value="7" class="q7_2_67tt">⑦ 施設の送迎バス</option>
+                                    <option value="8" class="q7_2_68tt">⑧ 水上バス</option>
+                                    <option value="9" class="q7_2_69tt">⑨ タクシー・ハイヤー</option>
+                                    <option value="10" class="q7_2_70tt">⑩ 車</option>
+                                    <option value="11" class="q7_2_71tt">⑪ 自転車</option>
+                                    <option value="12" class="q7_2_72tt">⑫ レンタルサイクル</option>
+                                    <option value="13" class="q7_2_73tt">⑬ バイク</option>
+                                    <option value="14" class="q7_2_74tt">⑭ 徒歩のみ</option>
+                                    <option value="15" class="q7_2_75tt">⑮ その他</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex_sub">
+                            <img src="./1708rinkai_enq_files/up-arrow.png" alt="矢印"><br>
+                            <div class="dbr">
+                                <span class="q7_2_6tt">交通<br>機関</span><br>
+                                <select name="q7_2ko3" id="q7_2ko3" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_61tt">① りんかい線</option>
+                                    <option value="2" class="q7_2_62tt">② ゆりかもめ</option>
+                                    <option value="3" class="q7_2_63tt">③ 貸切バス・観光バス</option>
+                                    <option value="4" class="q7_2_64tt">④ 高速バス</option>
+                                    <option value="5" class="q7_2_65tt">⑤ 乗合バス</option>
+                                    <option value="6" class="q7_2_66tt">⑥ 無料巡回バス BAY SHUTTLE</option>
+                                    <option value="7" class="q7_2_67tt">⑦ 施設の送迎バス</option>
+                                    <option value="8" class="q7_2_68tt">⑧ 水上バス</option>
+                                    <option value="9" class="q7_2_69tt">⑨ タクシー・ハイヤー</option>
+                                    <option value="10" class="q7_2_70tt">⑩ 車</option>
+                                    <option value="11" class="q7_2_71tt">⑪ 自転車</option>
+                                    <option value="12" class="q7_2_72tt">⑫ レンタルサイクル</option>
+                                    <option value="13" class="q7_2_73tt">⑬ バイク</option>
+                                    <option value="14" class="q7_2_74tt">⑭ 徒歩のみ</option>
+                                    <option value="15" class="q7_2_75tt">⑮ その他</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex_sub">
+                            <img src="./1708rinkai_enq_files/up-arrow.png" alt="矢印"><br>
+                            <div class="dbr">
+                                <span class="q7_2_6tt">交通<br>機関</span><br>
+                                <select name="q7_2ko4" id="q7_2ko4" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_61tt">① りんかい線</option>
+                                    <option value="2" class="q7_2_62tt">② ゆりかもめ</option>
+                                    <option value="3" class="q7_2_63tt">③ 貸切バス・観光バス</option>
+                                    <option value="4" class="q7_2_64tt">④ 高速バス</option>
+                                    <option value="5" class="q7_2_65tt">⑤ 乗合バス</option>
+                                    <option value="6" class="q7_2_66tt">⑥ 無料巡回バス BAY SHUTTLE</option>
+                                    <option value="7" class="q7_2_67tt">⑦ 施設の送迎バス</option>
+                                    <option value="8" class="q7_2_68tt">⑧ 水上バス</option>
+                                    <option value="9" class="q7_2_69tt">⑨ タクシー・ハイヤー</option>
+                                    <option value="10" class="q7_2_70tt">⑩ 車</option>
+                                    <option value="11" class="q7_2_71tt">⑪ 自転車</option>
+                                    <option value="12" class="q7_2_72tt">⑫ レンタルサイクル</option>
+                                    <option value="13" class="q7_2_73tt">⑬ バイク</option>
+                                    <option value="14" class="q7_2_74tt">⑭ 徒歩のみ</option>
+                                    <option value="15" class="q7_2_75tt">⑮ その他</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex_sub">
+                            <img src="./1708rinkai_enq_files/up-arrow.png" alt="矢印"><br>
+                            <div class="dbr">
+                                <span class="q7_2_6tt">交通<br>機関</span><br>
+                                <select name="q7_2ko5" id="q7_2ko5" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_61tt">① りんかい線</option>
+                                    <option value="2" class="q7_2_62tt">② ゆりかもめ</option>
+                                    <option value="3" class="q7_2_63tt">③ 貸切バス・観光バス</option>
+                                    <option value="4" class="q7_2_64tt">④ 高速バス</option>
+                                    <option value="5" class="q7_2_65tt">⑤ 乗合バス</option>
+                                    <option value="6" class="q7_2_66tt">⑥ 無料巡回バス BAY SHUTTLE</option>
+                                    <option value="7" class="q7_2_67tt">⑦ 施設の送迎バス</option>
+                                    <option value="8" class="q7_2_68tt">⑧ 水上バス</option>
+                                    <option value="9" class="q7_2_69tt">⑨ タクシー・ハイヤー</option>
+                                    <option value="10" class="q7_2_70tt">⑩ 車</option>
+                                    <option value="11" class="q7_2_71tt">⑪ 自転車</option>
+                                    <option value="12" class="q7_2_72tt">⑫ レンタルサイクル</option>
+                                    <option value="13" class="q7_2_73tt">⑬ バイク</option>
+                                    <option value="14" class="q7_2_74tt">⑭ 徒歩のみ</option>
+                                    <option value="15" class="q7_2_75tt">⑮ その他</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex_sub">
+                            <img src="./1708rinkai_enq_files/up-arrow.png" alt="矢印"><br>
+                            <div class="dbr">
+                                <span class="q7_2_6tt">交通<br>機関</span><br>
+                                <select name="q7_2ko6" id="q7_2ko6" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_61tt">① りんかい線</option>
+                                    <option value="2" class="q7_2_62tt">② ゆりかもめ</option>
+                                    <option value="3" class="q7_2_63tt">③ 貸切バス・観光バス</option>
+                                    <option value="4" class="q7_2_64tt">④ 高速バス</option>
+                                    <option value="5" class="q7_2_65tt">⑤ 乗合バス</option>
+                                    <option value="6" class="q7_2_66tt">⑥ 無料巡回バス BAY SHUTTLE</option>
+                                    <option value="7" class="q7_2_67tt">⑦ 施設の送迎バス</option>
+                                    <option value="8" class="q7_2_68tt">⑧ 水上バス</option>
+                                    <option value="9" class="q7_2_69tt">⑨ タクシー・ハイヤー</option>
+                                    <option value="10" class="q7_2_70tt">⑩ 車</option>
+                                    <option value="11" class="q7_2_71tt">⑪ 自転車</option>
+                                    <option value="12" class="q7_2_72tt">⑫ レンタルサイクル</option>
+                                    <option value="13" class="q7_2_73tt">⑬ バイク</option>
+                                    <option value="14" class="q7_2_74tt">⑭ 徒歩のみ</option>
+                                    <option value="15" class="q7_2_75tt">⑮ その他</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex_sub">
+                            <img src="./1708rinkai_enq_files/up-arrow.png" alt="矢印"><br>
+                            <div class="dbr">
+                                <span class="q7_2_6tt">交通<br>機関</span><br>
+                                <select name="q7_2ko7" id="q7_2ko7" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_61tt">① りんかい線</option>
+                                    <option value="2" class="q7_2_62tt">② ゆりかもめ</option>
+                                    <option value="3" class="q7_2_63tt">③ 貸切バス・観光バス</option>
+                                    <option value="4" class="q7_2_64tt">④ 高速バス</option>
+                                    <option value="5" class="q7_2_65tt">⑤ 乗合バス</option>
+                                    <option value="6" class="q7_2_66tt">⑥ 無料巡回バス BAY SHUTTLE</option>
+                                    <option value="7" class="q7_2_67tt">⑦ 施設の送迎バス</option>
+                                    <option value="8" class="q7_2_68tt">⑧ 水上バス</option>
+                                    <option value="9" class="q7_2_69tt">⑨ タクシー・ハイヤー</option>
+                                    <option value="10" class="q7_2_70tt">⑩ 車</option>
+                                    <option value="11" class="q7_2_71tt">⑪ 自転車</option>
+                                    <option value="12" class="q7_2_72tt">⑫ レンタルサイクル</option>
+                                    <option value="13" class="q7_2_73tt">⑬ バイク</option>
+                                    <option value="14" class="q7_2_74tt">⑭ 徒歩のみ</option>
+                                    <option value="15" class="q7_2_75tt">⑮ その他</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex_sub">
+                            <img src="./1708rinkai_enq_files/up-arrow.png" alt="矢印"><br>
+                            <div class="dbr">
+                                <span class="q7_2_6tt">交通<br>機関</span><br>
+                                <select name="q7_2ko8" id="q7_2ko8" class="q7_select_width">
+                                    <option value="">-</option>
+                                    <option value="1" class="q7_2_61tt">① りんかい線</option>
+                                    <option value="2" class="q7_2_62tt">② ゆりかもめ</option>
+                                    <option value="3" class="q7_2_63tt">③ 貸切バス・観光バス</option>
+                                    <option value="4" class="q7_2_64tt">④ 高速バス</option>
+                                    <option value="5" class="q7_2_65tt">⑤ 乗合バス</option>
+                                    <option value="6" class="q7_2_66tt">⑥ 無料巡回バス BAY SHUTTLE</option>
+                                    <option value="7" class="q7_2_67tt">⑦ 施設の送迎バス</option>
+                                    <option value="8" class="q7_2_68tt">⑧ 水上バス</option>
+                                    <option value="9" class="q7_2_69tt">⑨ タクシー・ハイヤー</option>
+                                    <option value="10" class="q7_2_70tt">⑩ 車</option>
+                                    <option value="11" class="q7_2_71tt">⑪ 自転車</option>
+                                    <option value="12" class="q7_2_72tt">⑫ レンタルサイクル</option>
+                                    <option value="13" class="q7_2_73tt">⑬ バイク</option>
+                                    <option value="14" class="q7_2_74tt">⑭ 徒歩のみ</option>
+                                    <option value="15" class="q7_2_75tt">⑮ その他</option>
+                                    <optgroup label=""></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: -70px;"><span id="q7_2_31tt">【表】スポット</span></div>
+                    <div style="display: flex; display: -webkit-flex; justify-content: space-between; font-size: 13px;">
+                        <table class="spot_tbl">
+                            <tbody><tr>
+                                <td class="spot_td1" style="width: 10%;"><span id="q7_2_32tt">番号</span></td>
+                                <td class="spot_td2" style="width: 90%;"><span id="q7_2_33tt">調査地点</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">1</td>
+                                <td class="spot_td4"><span id="q7_2_34tt">パナソニックセンター東京</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">2</td>
+                                <td class="spot_td4"><span id="q7_2_35tt">東京都水の科学館</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">3</td>
+                                <td class="spot_td4"><span id="q7_2_36tt">有明コロシアム</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">4</td>
+                                <td class="spot_td4"><span id="q7_2_37tt">東京ファッションタウン　ワンザ有明ベイモール</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">5</td>
+                                <td class="spot_td4"><span id="q7_2_38tt">東京ビッグサイト</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">6</td>
+                                <td class="spot_td4"><span id="q7_2_39tt">東京都虹の下水道館</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">7</td>
+                                <td class="spot_td4"><span id="q7_2_40tt">TOC有明</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">8</td>
+                                <td class="spot_td4"><span id="q7_2_41tt">ディファ有明</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">9</td>
+                                <td class="spot_td4"><span id="q7_2_42tt">東京臨海広域防災公園・そなエリア東京</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">10</td>
+                                <td class="spot_td4"><span id="q7_2_43tt">ダイバーシティ東京プラザ</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">11</td>
+                                <td class="spot_td4"><span id="q7_2_44tt">東京みなと館</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">12</td>
+                                <td class="spot_td4"><span id="q7_2_45tt">テレコムセンター展望台</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">13</td>
+                                <td class="spot_td4"><span id="q7_2_46tt">パレットタウン</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">14</td>
+                                <td class="spot_td4"><span id="q7_2_47tt">大江戸温泉物語</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">15</td>
+                                <td class="spot_td4"><span id="q7_2_48tt">メガウェブ</span></td>
+                            </tr>
+                        </tbody></table>
+
+                        <table class="spot_tbl">
+                            <tbody><tr>
+                                <td class="spot_td1" style="width: 10%;"><span id="q7_2_49tt">番号</span></td>
+                                <td class="spot_td2" style="width: 90%;"><span id="q7_2_50tt">調査地点</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">16</td>
+                                <td class="spot_td4"><span id="q7_2_51tt">Zepp Tokyo（ゼップトーキョー）</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">17</td>
+                                <td class="spot_td4"><span id="q7_2_52tt">日本科学未来館</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">18</td>
+                                <td class="spot_td4"><span id="q7_2_53tt">THE GUNDAM BASE TOKYO (ガンダムベース東京)</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">19</td>
+                                <td class="spot_td4"><span id="q7_2_54tt">Zepp ダイバーシティ</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">20</td>
+                                <td class="spot_td4"><span id="q7_2_55tt">フジテレビ本社ビル</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">21</td>
+                                <td class="spot_td4"><span id="q7_2_56tt">都立お台場海浜公園</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">22</td>
+                                <td class="spot_td4"><span id="q7_2_57tt">東京ジョイポリス</span></td>
+                            </tr>
+                            <tr>
+                                <td class="spot_td3">23</td>
+                                <td class="spot_td4"><span id="q7_2_58tt">アクアシティお台場</span></td>
+                            </tr>
+                            <tr class="spot_tr_cb">
+                                <td class="spot_td3">24</td>
+                                <td class="spot_td4">
+                                    <span id="q7_2_59tt">その他（具体的なスポット名を書いて下さい。）</span><br>
+                                    <textarea name="q7_2aoa" id="q7_2aoa" class="q7_2area"></textarea>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+
+                    <div style="margin-top: 10px;"><span id="q7_2_60tt">【表】交通機関</span></div>
+                    <div style="border: 1px dashed #000000; padding: 5px;">
+                        <div style="display: flex; display: -webkit-flex;">
+                            <div><span class="q7_2_61tt">①りんかい線</span></div><div class="koutuu_div"><span class="q7_2_62tt">②ゆりかもめ</span></div><div class="koutuu_div"><span class="q7_2_63tt">③貸切バス・観光バス</span></div>
+                            <div class="koutuu_div"><span class="q7_2_64tt">④高速バス</span></div><div class="koutuu_div"><span class="q7_2_65tt">⑤乗合バス</span></div>
+                        </div>
+                        <div style="display: flex; display: -webkit-flex;">
+                            <div><span class="q7_2_66tt">⑥無料巡回バス BAY SHUTTLE</span></div><div class="koutuu_div"><span class="q7_2_67tt">⑦施設の送迎バス</span></div><div class="koutuu_div"><span class="q7_2_68tt">⑧水上バス</span></div><div class="koutuu_div"><span class="q7_2_69tt">⑨タクシー・ハイヤー</span></div>
+                        </div>
+                        <div style="display: flex; display: -webkit-flex;">
+                            <div><span class="q7_2_70tt">⑩車</span></div><div class="koutuu_div"><span class="q7_2_71tt">⑪自転車</span></div><div class="koutuu_div"><span class="q7_2_72tt">⑫レンタルサイクル</span></div><div class="koutuu_div"><span class="q7_2_73tt">⑬バイク</span></div><div class="koutuu_div"><span class="q7_2_74tt">⑭徒歩のみ</span></div>
+                        </div>
+                        <div><span class="q7_2_75tt">⑮その他</span>（<input type="text" name="q7_2boa" id="q7_2boa" class="text3" value="">）</div>
+                    </div>
+
+                </div>
+
+                <br>
+                <div style="text-align:center;">
+                    <button type="button" id="backpg1" class="nextb"><span class="octicon octicon-chevron-left" style="font-size:18px;"></span> back</button>
+                    <button type="button" id="nextpg3" class="nextb" style="margin-left: 60px;">next <span class="octicon octicon-chevron-right" style="font-size:18px;"></span></button>
+                    <br>
+                    <button type="button" id="time_up2" class="end_btn"><span class="octicon octicon-x"></span> 終 了</button>
+                </div>
+
+            </div>
+
+            <div id="p3" class="page" style="display: none;">
+
+                <div style="width: 96%; text-align: right;"><progress value="90" max="100">Progress 90%</progress>90%</div>
+
+                <div class="radius" id="q8">
+                    <div class="qs">Q8．<span id="q8_1tt">今回の臨海副都心への旅行はパッケージ商品による旅行ですか。</span></div>
+                </div>
+
+                <div class="radius">
+                    <div style="width: 100%; display: flex; display: -webkit-flex;">
+                        <div class="new_radius sele-b" style="width: 15%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q8" id="lq8v1" value="1" style="display: none;">1. <span id="q8_2tt">はい</span></div>
+                        <div class="new_radius sele-b" style="width: 16%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q8" id="lq8v2" value="2" style="display: none;">2. <span id="q8_3tt">いいえ</span></div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q9">
+                    <div class="qs">Q9．<span id="q9_1tt">あなたは今回の旅行において、臨海副都心の情報をどこから入手されましたか。<span class="spn_u">※いくつでも</span></span></div>
+                </div>
+
+                <div class="radius" style="font-size: 14px;">
+                    <div style="width: 100%; margin-top: 9px; display: flex; display: -webkit-flex; -webkit-flex-wrap: wrap;">
+                        <div class="new_radius sele-b" style="width: 16%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_1" id="lq9_1" value="1" style="display: none;">1. <span id="q9_2tt">ガイドブック</span></div>
+                        <div class="new_radius sele-b" style="width: 21%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_2" id="lq9_2" value="2" style="display: none;">2. <span id="q9_3tt">旅行専門雑誌</span></div>
+                        <div class="new_radius sele-b" style="width: 16%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_3" id="lq9_3" value="3" style="display: none;">3. <span id="q9_4tt">パンフレット</span></div>
+                        <div class="new_radius sele-b" style="width: 34%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_4" id="lq9_4" value="4" style="display: none;">4. <span id="q9_5tt">新聞・雑誌</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 20%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_5" id="lq9_5" value="5" style="display: none;">5. <span id="q9_6tt">テレビ・ラジオ</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 27%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_6" id="lq9_6" value="6" style="display: none;">6. <span id="q9_7tt">家族・友人の話</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 18%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_7" id="lq9_7" value="7" style="display: none;">7. <span id="q9_8tt">旅行会社</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 22%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_8" id="lq9_8" value="8" style="display: none;">8. <span id="q9_9tt">観光案内所</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 36%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_9" id="lq9_9" value="9" style="display: none;">9. <span id="q9_10tt">インターネット（パソコンを経由）</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 49%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_10" id="lq9_10" value="10" style="display: none;">10. <span id="q9_11tt">インターネット（スマートフォン・携帯電話から）</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 59%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_11" id="lq9_11" value="11" style="display: none;">11. <span id="q9_12tt">SNS（Facebook / Twitter / Instagram / 人人網　など）</span></div>
+                        <div class="new_radius sele-b flex_mt" style="width: 93%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q9_12" id="lq9_12" value="12" style="display: none;">12. <span id="q9_13tt">その他</span>（<input type="text" name="q9oa" id="q9oa" value="" class="text7" disabled="" style="background: rgb(153, 153, 153);">）</div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q10">
+                    <div class="qs">Q10．<span id="q10_1tt">あなたは臨海副都心になにがあればより魅力的なまちになるとおもいますか。<br><span class="spn_u">※いくつでも</span></span></div>
+                </div>
+
+                <div class="radius" style="font-size: 15px;">
+                    <div style="padding-bottom: 10px;"><span id="q10_2tt">【街並み】</span></div>
+                    <div style="width: 95%; display: flex; display: -webkit-flex;">
+                        <div class="new_radius sele-b" style="width: 31%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10a_1" id="lq10a_1" value="1" style="display: none;">1. <span id="q10_3tt">自然の風景を楽しむ</span></div>
+                        <div class="new_radius sele-b" style="width: 34%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10a_2" id="lq10a_2" value="2" style="display: none;">2. <span id="q10_4tt">近代的な街並みを楽しむ</span></div>
+                        <div class="new_radius sele-b" style="width: 34%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10a_3" id="lq10a_3" value="3" style="display: none;">3. <span id="q10_5tt">お洒落な街並みを楽しむ</span></div>
+                    </div>
+                    <div style="margin-top: 20px;"><span id="q10_6tt">【施設等】</span></div>
+                    <div style="width: 90%; display: flex; display: -webkit-flex; margin-top: 9px;">
+                        <div class="new_radius sele-b" style="width: 26%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_1" id="lq10b_1" value="1" style="display: none;">1. <span id="q10_7tt">商業施設</span></div>
+                        <div class="new_radius sele-b" style="width: 32%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_2" id="lq10b_2" value="2" style="display: none;">2. <span id="q10_8tt">娯楽施設（遊園地等）</span></div>
+                        <div class="new_radius sele-b" style="width: 32%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_3" id="lq10b_3" value="3" style="display: none;">3. <span id="q10_9tt">学習施設（科学館等）</span></div>
+                    </div>
+                    <div style="width: 100%; display: flex; display: -webkit-flex; margin-top: 9px;">
+                        <div class="new_radius sele-b" style="width: 34%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_4" id="lq10b_4" value="4" style="display: none;">4. <span id="q10_10tt">芸術施設（美術館等）</span></div>
+                        <div class="new_radius sele-b" style="width: 36%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_5" id="lq10b_5" value="5" style="display: none;">5. <span id="q10_11tt">宿泊施設（高級ホテル等）</span></div>
+                        <div class="new_radius sele-b" style="width: 17%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_6" id="lq10b_6" value="6" style="display: none;">6. <span id="q10_12tt">飲食施設</span></div>
+                    </div>
+                    <div style="width: 100%; display: flex; display: -webkit-flex; margin-top: 9px;">
+                        <div class="new_radius sele-b" style="width: 46%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_7" id="lq10b_7" value="7" style="display: none;">7. <span id="q10_13tt">体験型観光施設（着物体験等）</span></div>
+                        <div class="new_radius sele-b" style="width: 18%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_8" id="lq10b_8" value="8" style="display: none;">8. <span id="q10_14tt">スポーツ施設</span></div>
+                        <div class="new_radius sele-b" style="width: 24%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_9" id="lq10b_9" value="9" style="display: none;">9. <span id="q10_15tt">イルミネーション</span></div>
+                    </div>
+                    <div style="width: 90%; display: flex; display: -webkit-flex; margin-top: 9px;">
+                        <div class="new_radius sele-b" style="width: 25%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_10" id="lq10b_10" value="10" style="display: none;">10. <span id="q10_16tt">水辺スポット</span></div>
+                        <div class="new_radius sele-b" style="width: 25%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_11" id="lq10b_11" value="11" style="display: none;">11. <span id="q10_17tt">イベント</span></div>
+                        <div class="new_radius sele-b" style="width: 25%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q10b_12" id="lq10b_12" value="12" style="display: none;">12. <span id="q10_18tt">展望台</span></div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q10_2">
+                    <div class="qs">Q10-2．<span id="q10_2_1tt">施設等でお選びいただいた項目について、具体的にどのようなものがあれば、臨海副都心がより魅力的なまちになると思いますか。具体的にご記入下さい。</span></div>
+                </div>
+
+                <div class="radius" style="padding-top: 15px; padding-bottom: 15px;">
+                    <div><span id="q10_2_2tt"></span></div>
+                    <textarea name="q10_2oa" id="q10_2oa" style="margin-left: 20px; width:690px; height: 100px;"></textarea>
+                </div>
+
+                <div class="radius" id="q11">
+                    <div class="qs">Q11．<span id="q11_1tt">あなたは今回の臨海副都心への旅行に、どのくらい満足していますか。<span class="spn_u">※１つだけ</span></span></div>
+                </div>
+
+                <div class="radius">
+                    <div style="width: 100%; display: flex; display: -webkit-flex;">
+                        <div class="new_radius sele-b" style="width: 21%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q11" id="lq11v1" value="1" style="display: none;">1. <span id="q11_2tt">大変満足</span></div>
+                        <div class="new_radius sele-b" style="width: 19%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q11" id="lq11v2" value="2" style="display: none;">2. <span id="q11_3tt">満足</span></div>
+                        <div class="new_radius sele-b" style="width: 22%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q11" id="lq11v3" value="3" style="display: none;">3. <span id="q11_4tt">やや満足</span></div>
+                        <div class="new_radius sele-b" style="width: 19%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q11" id="lq11v4" value="4" style="display: none;">4. <span id="q11_5tt">普通</span></div>
+                    </div>
+                    <div style="width: 100%; margin-top: 9px; display: flex; display: -webkit-flex;">
+                        <div class="new_radius sele-b" style="width: 24%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q11" id="lq11v5" value="5" style="display: none;">5. <span id="q11_6tt">やや不満</span></div>
+                        <div class="new_radius sele-b" style="width: 18%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q11" id="lq11v6" value="6" style="display: none;">6. <span id="q11_7tt">不満</span></div>
+                        <div class="new_radius sele-b" style="width: 21%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q11" id="lq11v7" value="7" style="display: none;">7. <span id="q11_8tt">大変不満</span></div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q12">
+                    <div class="qs">Q12．<span id="q12_1tt">臨海副都心へはまた来たいと思いますか。<span class="spn_u">※１つだけ</span></span></div>
+                </div>
+
+                <div class="radius">
+                    <div style="width: 100%; display: flex; display: -webkit-flex;">
+                        <div class="new_radius sele-b" style="width: 19%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q12" id="lq12v1" value="1" style="display: none;">1. <span id="q12_2tt">必ず来たい</span></div>
+                        <div class="new_radius sele-b" style="width: 18%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q12" id="lq12v2" value="2" style="display: none;">2. <span id="q12_3tt">来たい</span></div>
+                        <div class="new_radius sele-b" style="width: 19%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q12" id="lq12v3" value="3" style="display: none;">3. <span id="q12_4tt">やや来たい</span></div>
+                        <div class="new_radius sele-b" style="width: 22%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q12" id="lq12v4" value="4" style="display: none;">4. <span id="q12_5tt">何ともいえない</span></div>
+                    </div>
+                    <div style="width: 100%; margin-top: 9px; display: flex; display: -webkit-flex;">
+                        <div class="new_radius sele-b" style="width: 25%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q12" id="lq12v5" value="5" style="display: none;">5. <span id="q12_6tt">あまり来たくない</span></div>
+                        <div class="new_radius sele-b" style="width: 19%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q12" id="lq12v6" value="6" style="display: none;">6. <span id="q12_7tt">来たくない</span></div>
+                        <div class="new_radius sele-b" style="width: 25%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="radio" name="q12" id="lq12v7" value="7" style="display: none;">7. <span id="q12_8tt">絶対来たくない</span></div>
+                    </div>
+                </div>
+
+                <div class="radius" id="q13">
+                    <div class="qs">Q13．<span id="q13_1tt">今回臨海副都心に訪れ、何か不満に感じたことや改善してほしいと感じたことはありますか。<br>
+                            <span class="spn_u">※いくつでも</span></span></div>
+                </div>
+
+                <div class="radius" style="font-size: 14px;">
+                    <div class="new_radius sele-b" style="width: 56%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_1" id="lq13_1" value="1" class="haita" style="display: none;">1. <span id="q13_2tt">混雑していて、落ち着いて買い物等が楽しめない</span></div>
+                    <div class="new_radius2 sele-b" style="width: 56%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_2" id="lq13_2" value="2" class="haita" style="display: none;">2. <span id="q13_3tt">各スポットへの交通の便が悪い</span></div>
+                    <div class="new_radius2 sele-b" style="width: 76%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_3" id="lq13_3" value="3" class="haita" style="display: none;">3. <span id="q13_4tt">案内標識が充分ではなく、各スポットを探すのが難しい</span></div>
+                    <div class="new_radius2 sele-b" style="width: 69%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_4" id="lq13_4" value="4" class="haita" style="display: none;">4. <span id="q13_5tt">外国語（多言語）による案内や看板が不十分</span></div>
+                    <div class="new_radius2 sele-b" style="width: 63%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_5" id="lq13_5" value="5" class="haita" style="display: none;">5. <span id="q13_6tt">外国語（多言語）によるコミュニケーションが取りにくい</span></div>
+                    <div class="new_radius2 sele-b" style="width: 42%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_6" id="lq13_6" value="6" class="haita" style="display: none;">6. <span id="q13_7tt">施設利用料や入館料が高い</span></div>
+                    <div class="new_radius2 sele-b" style="width: 30%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_7" id="lq13_7" value="7" class="haita" style="display: none;">7. <span id="q13_8tt">全般的に物価が高い</span></div>
+                    <div class="new_radius2 sele-b" style="width: 91%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_8" id="lq13_8" value="8" class="haita" style="display: none;">8. <span id="q13_9tt">レストラン等の飲食施設が混雑していて、飲食をゆっくり楽しめない</span></div>
+                    <div class="new_radius2 sele-b" style="width: 38%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_9" id="lq13_9" value="9" class="haita" style="display: none;">9. <span id="q13_10tt">Wi-Fiが使用できる場所が少ない</span></div>
+                    <div class="new_radius2 sele-b" style="width: 36%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_10" id="lq13_10" value="10" class="haita" style="display: none;">10. <span id="q13_11tt">休憩できる場所が少ない</span></div>
+                    <div class="new_radius2 sele-b" style="width: 38%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_11" id="lq13_11" value="11" class="haita" style="display: none;">11. <span id="q13_12tt">周辺情報を取得するのが難しい</span></div>
+                    <div class="new_radius2 sele-b" style="width: 30%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_12" id="lq13_12" value="12" class="haita" style="display: none;">12. <span id="q13_13tt">治安状況に不安を感じる</span></div>
+                    <div class="new_radius2 sele-b" style="width: 30%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_13" id="lq13_13" value="13" class="haita" style="display: none;">13. <span id="q13_14tt">特にない</span></div>
+                    <div class="new_radius2 sele-b" style="width: 94%; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><input type="checkbox" name="q13_14" id="lq13_14" value="14" class="haita" style="display: none;">14. <span id="q13_15tt">その他（お気付きの点がございましたら、何でも結構ですので、下の空欄にご記入下さい。）</span></div>
+                    <div style="margin-left: 10px; margin-top: 5px;"><textarea name="q13oa" id="q13oa" class="area60" disabled="" style="background: rgb(153, 153, 153);"></textarea></div>
+                </div>
+
+                <br>
+                <div style="text-align:center;">
+                    <button type="button" id="backpg2" class="nextb"><span class="octicon octicon-chevron-left" style="font-size:18px;"></span> back</button>
+                    <button type="button" id="nextpg4" class="nextb" style="margin-left: 60px;">next <span class="octicon octicon-chevron-right" style="font-size:18px;"></span></button>
+                    <br>
+                    <button type="button" id="time_up3" class="end_btn"><span class="octicon octicon-x"></span> 終 了</button>
+                </div>
+
+            </div>
+
+            <div id="p4" class="page" style="display: none;">
+
+                <div style="width: 96%; text-align: right;"><progress value="100" max="100">Progress 100%</progress>100%</div>
+
+                <div class="radius">
+                    <div class="qs" style="text-align:center;">
+                        回答が完了しました。確定を押すと回答が確定して、修正できなくなります。<br>
+                        修正する場合は、戻るを押してください。
+                    </div>
+                </div>
+
+                <br>
+                <div style="text-align:center;">
+                    <button type="button" id="backpg3" class="nextb"><span class="octicon octicon-chevron-left" style="font-size:18px;"></span> 戻る</button>
+                    <button type="button" id="nextend" class="nextb" style="margin-left: 60px;">確定 <span class="octicon octicon-chevron-right" style="font-size:18px;"></span></button>
+                </div>
+
+            </div>
+
+            <div id="p_end" class="page" style="display: none;">
+
+                <div style="width: 96%; text-align: right;"><progress value="100" max="100">Progress 100%</progress>100%</div>
+
+                <div class="radius"><div class="qs" style="text-align:center;">☆☆　<span id="end_tt">調査内容は以上です。ご協力、ありがとうございました。</span>　☆☆</div></div>
+                <br>
+                <div style="text-align:center;">
+                    <a href="1708rinkai/test/enq.html" id="re_top">TOPへ</a>
+                </div>
+                <br>
+                <div id="btk" style="text-align:center; display:none;">
+                    <input type="button" value="管理画面へ" id="back_kanri" class="nextb">
+                </div>
+
+            </div>
+
+        </form>
+
+    
+
+
+<iframe src="./1708rinkai_enq_files/saved_resource.html" id="rakutentoolbar" scrolling="no" style="border: none; position: fixed; top: 0px; left: 0px; right: auto; bottom: auto; vertical-align: baseline; margin-left: 0px; z-index: 2147483647; width: 396px; height: 36px; display: none;"></iframe></body></html>
