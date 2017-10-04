@@ -8,15 +8,19 @@
 
 import Foundation
 
-let kCardDouroHyoujiTypeString = "douro_hyouji_card"
+let kCardDouroHyoujiType1String = "douro_hyouji_card"
+let kCardDouroHyoujiType2String = "douro_hyouji_card2"
 
 enum JsonReaderCardType {
     case douroHyoujiCardType
+    case douroHyoujiCardType2
     case etc
     
     init(card: String) {
         if card == kCardDouroHyoujiTypeString {
             self = .douroHyoujiCardType
+        } else if card == kCardDouroHyoujiTypeString2 {
+            self = .douroHyoujiCardType2
         } else {
             self = .etc
         }
@@ -25,7 +29,9 @@ enum JsonReaderCardType {
     func jsonFileString() -> String {
         switch self {
         case .douroHyoujiCardType:
-            return kCardDouroHyoujiTypeString
+            return kCardDouroHyoujiTypeString1
+        case .douroHyoujiCardType2:
+            return kCardDouroHyoujiTypeString2
         default:
             return ""
         }
