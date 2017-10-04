@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='macos' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='インスタンス'/>
+        <page name='インスタンスを作成する'/>
+        <page name='メソッド'/>
+        <page name='メソッドと型安全'/>
+        <page name='プロパティ'/>
+        <page name='プロパティとメソッド'/>
+        <page name='API、ふたたび'/>
+        <page name='これは何をする？'/>
+        <page name='クイックヘルプ'/>
+        <page name='適切なマニュアルを使う'/>
+        <page name='クラスと構造体'/>
+        <page name='メソッドやプロパティを使う理由'/>
+        <page name='まとめ'/>
+        <page name='演習問題：BoogieBotの再来'/>
+        <page name='演習問題：ツリーハウスの滑車'/>
+        <page name='演習問題：アイデンティティ'/>
+    </pages>
+</playground>

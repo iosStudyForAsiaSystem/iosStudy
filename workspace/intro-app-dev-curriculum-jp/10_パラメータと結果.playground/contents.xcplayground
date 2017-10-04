@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='はじめに'/>
+        <page name='具体的なものから一般的なものへ'/>
+        <page name='好きな食べ物'/>
+        <page name='もっと値を渡す'/>
+        <page name='その他のお気に入り'/>
+        <page name='戻ってきた値を受け取る'/>
+        <page name='戻ってきた値を渡す'/>
+        <page name='関数の種類'/>
+        <page name='構成要素'/>
+        <page name='名前を付ける'/>
+        <page name='パラメータ名と引数のラベル'/>
+        <page name='名前のない引数'/>
+        <page name='まとめ'/>
+        <page name='演習問題：「Row, row, row your boat」の替え歌'/>
+        <page name='演習問題：戻り値を使う'/>
+        <page name='演習問題：引数のラベル'/>
+        <page name='演習問題：引数のラベルを使わない場合'/>
+    </pages>
+</playground>

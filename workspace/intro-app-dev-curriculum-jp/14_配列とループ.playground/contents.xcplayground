@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='リスト'/>
+        <page name='配列リテラル'/>
+        <page name='インデックス'/>
+        <page name='Count'/>
+        <page name='型'/>
+        <page name='配列の処理'/>
+        <page name='ループ'/>
+        <page name='可変の配列'/>
+        <page name='アイテムを追加する'/>
+        <page name='アイテムを削除する'/>
+        <page name='アイテムを置換する'/>
+        <page name='まとめ'/>
+        <page name='演習：Count'/>
+        <page name='演習：カラオケマシン'/>
+        <page name='演習問題：票を数える'/>
+        <page name='演習問題：目標'/>
+        <page name='演習問題：メッセージの絞り込み'/>
+    </pages>
+</playground>
